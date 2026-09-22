@@ -1,0 +1,101 @@
+{
+  "run_id": "run_4472debb35ed",
+  "session_id": "sess_5baf434d5ad8",
+  "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+  "test_case_id": "test_05",
+  "success": false,
+  "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+  "response_text": "",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 6816.0,
+    "stt_latency_ms": 3741.147,
+    "stt_first_result_ms": 3741.069,
+    "llm_ttft_ms": null,
+    "llm_completion_ms": null,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": null,
+    "tts_completion_ms": null,
+    "time_to_first_audio_ms": null,
+    "total_response_latency_ms": null,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": null
+  },
+  "failure_stage": "llm",
+  "error_type": "LLMError",
+  "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+  "trace_id": "d7b42457-5265-413d-8aeb-cdbcccf49e64",
+  "audio_metadata": {
+    "original_filename": "test_05.wav",
+    "file_size_bytes": 1308750,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 6816.0
+  },
+  "experiment_id": null,
+  "started_at": "2026-09-21T21:19:57.825Z",
+  "completed_at": "2026-09-21T21:20:01.772Z",
+  "events": [
+    {
+      "ts_ms": 0.013,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:19:57.922Z",
+      "detail": {
+        "input_duration_ms": 6816.0,
+        "leading_silence_ms": 160.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 4.315,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:19:57.926Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 3746.172,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:20:01.668Z",
+      "detail": {
+        "latency_ms": 3741.147,
+        "transcript_chars": 119,
+        "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+        "confidence": 0.99609375
+      }
+    },
+    {
+      "ts_ms": 3746.875,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:20:01.669Z",
+      "detail": {
+        "llm": "openrouter:google/gemini-2.0-flash-001"
+      }
+    },
+    {
+      "ts_ms": 3850.048,
+      "stage": "done",
+      "label": "FAILED at llm",
+      "kind": "error",
+      "wall_clock": "2026-09-21T21:20:01.772Z",
+      "detail": {
+        "error_type": "LLMError",
+        "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+      }
+    }
+  ]
+}

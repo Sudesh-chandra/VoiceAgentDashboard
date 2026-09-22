@@ -1,0 +1,56 @@
+[
+  {
+    "id": "test_01",
+    "name": "Spoken query \u2014 no tool call",
+    "description": "Imported from voice/problem 1.wav",
+    "expected_tool_calls": 0,
+    "noise_type": "none",
+    "audio_path": "test_01.wav",
+    "expected_behavior": "direct answer, zero tool calls"
+  },
+  {
+    "id": "test_02",
+    "name": "Spoken query \u2014 no tool call",
+    "description": "Imported from voice/problem 2.wav",
+    "expected_tool_calls": 0,
+    "noise_type": "none",
+    "audio_path": "test_02.wav",
+    "expected_behavior": "direct answer, zero tool calls"
+  },
+  {
+    "id": "test_03",
+    "name": "Spoken query \u2014 exactly one tool call (weather)",
+    "description": "Imported from voice/problem 3.wav",
+    "expected_tool_calls": 1,
+    "noise_type": "none",
+    "audio_path": "test_03.wav",
+    "expected_behavior": "exactly one tool call"
+  },
+  {
+    "id": "test_04",
+    "name": "Spoken query \u2014 exactly one tool call (web search)",
+    "description": "Imported from voice/problem 4.wav",
+    "expected_tool_calls": 1,
+    "noise_type": "none",
+    "audio_path": "test_04.wav",
+    "expected_behavior": "exactly one tool call"
+  },
+  {
+    "id": "test_05",
+    "name": "Spoken query with background noise \u2014 no tool call",
+    "description": "Imported from voice/problem 5.wav",
+    "expected_tool_calls": 0,
+    "noise_type": "environmental",
+    "audio_path": "test_05.wav",
+    "expected_behavior": "direct answer under background noise, zero tool calls"
+  },
+  {
+    "id": "test_06",
+    "name": "Spoken query with background noise",
+    "description": "Imported from voice/problem 6.wav",
+    "expected_tool_calls": 0,
+    "noise_type": "environmental",
+    "audio_path": "test_06.wav",
+    "expected_behavior": "direct answer, zero tool calls"
+  }
+]

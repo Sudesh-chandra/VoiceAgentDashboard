@@ -1,0 +1,129 @@
+{
+  "run_id": "run_c47cd1fd4c1e",
+  "session_id": "sess_cccfa72dee5a",
+  "pipeline_id": "deepgram:nova-2-or-openai/gpt-4.1-mini-elevenlabs:eleven_turbo_v2_5",
+  "test_case_id": "test_01",
+  "success": false,
+  "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+  "response_text": "",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 4896.0,
+    "stt_latency_ms": 2952.438,
+    "stt_first_result_ms": 2952.424,
+    "llm_ttft_ms": 1651.588,
+    "llm_completion_ms": 1655.29,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": null,
+    "tts_completion_ms": null,
+    "time_to_first_audio_ms": null,
+    "total_response_latency_ms": null,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": null,
+    "tts_voice_id": null
+  },
+  "failure_stage": "tts",
+  "error_type": "TTSError",
+  "error_detail": "ElevenLabs returned 401: {\"detail\":{\"type\":\"invalid_request\",\"code\":\"quota_exceeded\",\"message\":\"This request exceeds your quota of 10000. You have 8 credits remaining, while 62 credits are required for this request.\",\"status\"",
+  "trace_id": "d7188902-e688-457f-ad37-7f523ce337b7",
+  "audio_metadata": {
+    "original_filename": "test_01.wav",
+    "file_size_bytes": 940110,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 4896.0
+  },
+  "stt_spec": "deepgram:nova-2",
+  "llm_spec": "openrouter:openai/gpt-4.1-mini",
+  "tts_spec": "elevenlabs:eleven_turbo_v2_5",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T04:24:42.786Z",
+  "completed_at": "2026-09-22T04:24:47.981Z",
+  "events": [
+    {
+      "ts_ms": 0.015,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:24:42.805Z",
+      "detail": {
+        "input_duration_ms": 4896.0,
+        "leading_silence_ms": 160.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 3.257,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:24:42.808Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2956.031,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T04:24:45.761Z",
+      "detail": {
+        "latency_ms": 2952.438,
+        "transcript_chars": 116,
+        "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+        "confidence": 0.9973958
+      }
+    },
+    {
+      "ts_ms": 2956.145,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:24:45.761Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "ts_ms": 4611.811,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T04:24:47.417Z",
+      "detail": {
+        "latency_ms": 1655.29,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 4611.902,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:24:47.417Z",
+      "detail": {
+        "provider": "elevenlabs",
+        "model": "eleven_turbo_v2_5"
+      }
+    },
+    {
+      "ts_ms": 5176.243,
+      "stage": "done",
+      "label": "FAILED at tts",
+      "kind": "error",
+      "wall_clock": "2026-09-22T04:24:47.981Z",
+      "detail": {
+        "error_type": "TTSError",
+        "detail": "ElevenLabs returned 401: {\"detail\":{\"type\":\"invalid_request\",\"code\":\"quota_exceeded\",\"message\":\"This request exceeds your quota of 10000. You have 8 credits remaining, while 62 credits are required for this request.\",\"status\""
+      }
+    }
+  ]
+}

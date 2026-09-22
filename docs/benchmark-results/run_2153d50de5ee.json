@@ -1,0 +1,101 @@
+{
+  "run_id": "run_2153d50de5ee",
+  "session_id": "sess_09d6100351c3",
+  "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+  "test_case_id": "test_06",
+  "success": false,
+  "transcript": "I'm testing speech recognition with background white noise. Please give me three practical tips for improving the latency of a voice assistant.",
+  "response_text": "",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 7824.0,
+    "stt_latency_ms": 2904.348,
+    "stt_first_result_ms": 2904.244,
+    "llm_ttft_ms": null,
+    "llm_completion_ms": null,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": null,
+    "tts_completion_ms": null,
+    "time_to_first_audio_ms": null,
+    "total_response_latency_ms": null,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": null
+  },
+  "failure_stage": "llm",
+  "error_type": "LLMError",
+  "error_detail": "Error code: 402 - {'error': {'message': \"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 24442. To increase, visit https://openrouter.ai/workspaces/default/keys/9b21f97d5470a95a7ef1f2845337c275e1774f724b2db759ca58b24299ed7183 and adjust ",
+  "trace_id": "91ed67e9-df48-4f56-8620-a6b7ba751103",
+  "audio_metadata": {
+    "original_filename": "test_06.wav",
+    "file_size_bytes": 1502286,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 7824.0
+  },
+  "experiment_id": null,
+  "started_at": "2026-09-21T21:21:36.727Z",
+  "completed_at": "2026-09-21T21:21:39.872Z",
+  "events": [
+    {
+      "ts_ms": 0.026,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:21:36.827Z",
+      "detail": {
+        "input_duration_ms": 7824.0,
+        "leading_silence_ms": 200.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 8.864,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:21:36.836Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2914.404,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:21:39.742Z",
+      "detail": {
+        "latency_ms": 2904.348,
+        "transcript_chars": 143,
+        "transcript_preview": "I'm testing speech recognition with background white noise. Please give me three\u2026",
+        "confidence": 0.9980469
+      }
+    },
+    {
+      "ts_ms": 2914.996,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:21:39.742Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "ts_ms": 3044.289,
+      "stage": "done",
+      "label": "FAILED at llm",
+      "kind": "error",
+      "wall_clock": "2026-09-21T21:21:39.872Z",
+      "detail": {
+        "error_type": "LLMError",
+        "detail": "Error code: 402 - {'error': {'message': \"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 24442. To increase, visit https://openrouter.ai/workspaces/default/keys/9b21f97d5470a95a7ef1f2845337c275e1774f724b2db759ca58b24299ed7183 and adjust "
+      }
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "run_id": "run_07057999ee85",
+  "session_id": "sess_e8574745f5c3",
+  "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+  "test_case_id": "test_05",
+  "success": false,
+  "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+  "response_text": "",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 6816.0,
+    "stt_latency_ms": 2845.993,
+    "stt_first_result_ms": 2845.907,
+    "llm_ttft_ms": null,
+    "llm_completion_ms": null,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": null,
+    "tts_completion_ms": null,
+    "time_to_first_audio_ms": null,
+    "total_response_latency_ms": null,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": null
+  },
+  "failure_stage": "llm",
+  "error_type": "LLMError",
+  "error_detail": "Error code: 402 - {'error': {'message': \"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 24442. To increase, visit https://openrouter.ai/workspaces/default/keys/9b21f97d5470a95a7ef1f2845337c275e1774f724b2db759ca58b24299ed7183 and adjust ",
+  "trace_id": "7efca067-d657-4ae0-b2bc-e8c4c0f819fa",
+  "audio_metadata": {
+    "original_filename": "test_05.wav",
+    "file_size_bytes": 1308750,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 6816.0
+  },
+  "experiment_id": null,
+  "started_at": "2026-09-21T21:21:33.459Z",
+  "completed_at": "2026-09-21T21:21:36.509Z",
+  "events": [
+    {
+      "ts_ms": 0.015,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:21:33.507Z",
+      "detail": {
+        "input_duration_ms": 6816.0,
+        "leading_silence_ms": 160.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 4.215,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:21:33.511Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2850.693,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:21:36.357Z",
+      "detail": {
+        "latency_ms": 2845.993,
+        "transcript_chars": 119,
+        "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+        "confidence": 0.99609375
+      }
+    },
+    {
+      "ts_ms": 2851.285,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:21:36.358Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "ts_ms": 3003.355,
+      "stage": "done",
+      "label": "FAILED at llm",
+      "kind": "error",
+      "wall_clock": "2026-09-21T21:21:36.509Z",
+      "detail": {
+        "error_type": "LLMError",
+        "detail": "Error code: 402 - {'error': {'message': \"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 24442. To increase, visit https://openrouter.ai/workspaces/default/keys/9b21f97d5470a95a7ef1f2845337c275e1774f724b2db759ca58b24299ed7183 and adjust "
+      }
+    }
+  ]
+}

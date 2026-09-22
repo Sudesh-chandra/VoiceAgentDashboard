@@ -1,0 +1,101 @@
+{
+  "run_id": "run_33d23e39c72e",
+  "session_id": "sess_d6d60179fac3",
+  "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+  "test_case_id": "test_02",
+  "success": false,
+  "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+  "response_text": "",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 5592.0,
+    "stt_latency_ms": 3128.255,
+    "stt_first_result_ms": 3128.195,
+    "llm_ttft_ms": null,
+    "llm_completion_ms": null,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": null,
+    "tts_completion_ms": null,
+    "time_to_first_audio_ms": null,
+    "total_response_latency_ms": null,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": null
+  },
+  "failure_stage": "llm",
+  "error_type": "LLMError",
+  "error_detail": "Error code: 402 - {'error': {'message': \"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 10428. To increase, visit https://openrouter.ai/workspaces/default/keys/9b21f97d5470a95a7ef1f2845337c275e1774f724b2db759ca58b24299ed7183 and adjust ",
+  "trace_id": "8c2a784b-f21a-4a28-a899-d082186df2f5",
+  "audio_metadata": {
+    "original_filename": "test_02.wav",
+    "file_size_bytes": 1073742,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 5592.0
+  },
+  "experiment_id": null,
+  "started_at": "2026-09-21T21:22:03.670Z",
+  "completed_at": "2026-09-21T21:22:07.025Z",
+  "events": [
+    {
+      "ts_ms": 0.014,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:22:03.771Z",
+      "detail": {
+        "input_duration_ms": 5592.0,
+        "leading_silence_ms": 680.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 4.345,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:22:03.775Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 3133.212,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:22:06.904Z",
+      "detail": {
+        "latency_ms": 3128.255,
+        "transcript_chars": 81,
+        "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+        "confidence": 0.9970703
+      }
+    },
+    {
+      "ts_ms": 3133.698,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:22:06.905Z",
+      "detail": {
+        "llm": "openrouter:google/gemini-3.8-flash"
+      }
+    },
+    {
+      "ts_ms": 3255.168,
+      "stage": "done",
+      "label": "FAILED at llm",
+      "kind": "error",
+      "wall_clock": "2026-09-21T21:22:07.026Z",
+      "detail": {
+        "error_type": "LLMError",
+        "detail": "Error code: 402 - {'error': {'message': \"This request requires more credits, or fewer max_tokens. You requested up to 65536 tokens, but can only afford 10428. To increase, visit https://openrouter.ai/workspaces/default/keys/9b21f97d5470a95a7ef1f2845337c275e1774f724b2db759ca58b24299ed7183 and adjust "
+      }
+    }
+  ]
+}

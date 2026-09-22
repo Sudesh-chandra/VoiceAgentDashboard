@@ -1,0 +1,101 @@
+{
+  "run_id": "run_11fb47d49b27",
+  "session_id": "sess_4ea91fad6f20",
+  "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+  "test_case_id": "test_02",
+  "success": false,
+  "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+  "response_text": "",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 5592.0,
+    "stt_latency_ms": 2746.146,
+    "stt_first_result_ms": 2746.072,
+    "llm_ttft_ms": null,
+    "llm_completion_ms": null,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": null,
+    "tts_completion_ms": null,
+    "time_to_first_audio_ms": null,
+    "total_response_latency_ms": null,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": null
+  },
+  "failure_stage": "llm",
+  "error_type": "LLMError",
+  "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+  "trace_id": "a6ffd85b-6de5-41fe-80fc-3d8c8bef72fb",
+  "audio_metadata": {
+    "original_filename": "test_02.wav",
+    "file_size_bytes": 1073742,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 5592.0
+  },
+  "experiment_id": null,
+  "started_at": "2026-09-21T21:19:27.271Z",
+  "completed_at": "2026-09-21T21:19:30.229Z",
+  "events": [
+    {
+      "ts_ms": 0.026,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:19:27.372Z",
+      "detail": {
+        "input_duration_ms": 5592.0,
+        "leading_silence_ms": 680.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 10.025,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:19:27.382Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2757.366,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:19:30.130Z",
+      "detail": {
+        "latency_ms": 2746.146,
+        "transcript_chars": 81,
+        "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+        "confidence": 0.9970703
+      }
+    },
+    {
+      "ts_ms": 2757.848,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:19:30.130Z",
+      "detail": {
+        "llm": "openrouter:google/gemini-2.0-flash-001"
+      }
+    },
+    {
+      "ts_ms": 2857.688,
+      "stage": "done",
+      "label": "FAILED at llm",
+      "kind": "error",
+      "wall_clock": "2026-09-21T21:19:30.230Z",
+      "detail": {
+        "error_type": "LLMError",
+        "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+      }
+    }
+  ]
+}

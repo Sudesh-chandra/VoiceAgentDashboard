@@ -1,0 +1,50 @@
+# --- Secrets / env ---
+.env
+.env.*
+!.env.example
+
+# --- Freebuff / coding-agent local state (never commit) ---
+.freebuff/
+.claude/
+.codebuff/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# --- Node ---
+node_modules/
+frontend/dist/
+frontend/tsconfig.tsbuildinfo
+
+# --- Data: local database + user uploads stay out of git ---
+data/*.db
+data/*.db-*
+data/uploads/*
+!data/uploads/.gitkeep
+
+# Headless-browser CDP profile used only for screenshot capture
+data/cdp-profile/
+
+# --- Logs / local ---
+*.log
+.DS_Store
+
+# --- LaTeX build artifacts (sources + compiled PDF are committed) ---
+docs/report/*.aux
+docs/report/*.log
+docs/report/*.out
+docs/report/*.toc
+docs/report/*.lof
+docs/report/*.lot
+docs/report/*.bbl
+docs/report/*.blg
+docs/report/*.fls
+docs/report/*.fdb_latexmk
+docs/report/*.synctex.gz

@@ -1,0 +1,140 @@
+{
+  "run_id": "run_c1ec899b525e",
+  "session_id": "sess_e2330169b68d",
+  "pipeline_id": "deepgram:whisper-large|openrouter:openai/gpt-4o-mini|deepgram:aura-2-thalia-en|auto",
+  "test_case_id": "test_02",
+  "success": true,
+  "transcript": "can you explain what a python list comprehension is and give me a simple example",
+  "response_text": "A Python list comprehension is a concise way to create lists by iterating over an iterable and optionally applying a condition; for example, `[x**2 for x in range(10)]` generates a list of squares from 0 to 9.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 5592.0,
+    "stt_latency_ms": 3344.802,
+    "stt_first_result_ms": 3344.743,
+    "llm_ttft_ms": 1163.776,
+    "llm_completion_ms": 1517.198,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 7932.251,
+    "tts_completion_ms": 7932.955,
+    "time_to_first_audio_ms": 12825.653,
+    "total_response_latency_ms": 12826.75,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE",
+    "tts_voice_id": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "7fd535f3-cf8f-496d-a067-f9943c29b2a8",
+  "audio_metadata": {
+    "original_filename": "test_02.wav",
+    "file_size_bytes": 1073742,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 5592.0
+  },
+  "stt_spec": "deepgram:whisper-large",
+  "llm_spec": "openrouter:openai/gpt-4o-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T05:27:43.236Z",
+  "completed_at": "2026-09-22T05:27:56.177Z",
+  "events": [
+    {
+      "ts_ms": 0.023,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:27:43.351Z",
+      "detail": {
+        "input_duration_ms": 5592.0,
+        "leading_silence_ms": 680.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 24.273,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:27:43.375Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "whisper-large"
+      }
+    },
+    {
+      "ts_ms": 3371.404,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T05:27:46.722Z",
+      "detail": {
+        "latency_ms": 3344.802,
+        "transcript_chars": 80,
+        "transcript_preview": "can you explain what a python list comprehension is and give me a simple example",
+        "confidence": 0.79176605
+      }
+    },
+    {
+      "ts_ms": 3372.138,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:27:46.723Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4o-mini"
+      }
+    },
+    {
+      "ts_ms": 4890.971,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T05:27:48.242Z",
+      "detail": {
+        "latency_ms": 1517.198,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 4891.461,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:27:48.242Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-thalia-en"
+      }
+    },
+    {
+      "ts_ms": 12825.692,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-22T05:27:56.175Z",
+      "detail": {
+        "at_ms_from_input_end": 12825.658,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 12826.833,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-22T05:27:56.177Z",
+      "detail": {
+        "time_to_first_audio_ms": 12825.653,
+        "total_response_latency_ms": 12826.75
+      }
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "run_id": "run_eebb243a2d1c",
+  "session_id": "sess_9adf60a1f661",
+  "pipeline_id": "pA",
+  "test_case_id": "synth_03",
+  "success": true,
+  "transcript": "What's the weather in Tokyo right now?",
+  "response_text": "Here's what I found: {\"city\": \"tokyo\", \"country\": \"Mockland\", \"weather\": {\"temperature\": 18.4, \"wind_speed\": 12.1, \"weather_code\": 3}}",
+  "tool_calls": [
+    {
+      "name": "lookup_weather",
+      "args": {
+        "city": "tokyo"
+      },
+      "id": "mock_call_weather"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 2000.0,
+    "stt_latency_ms": 198.014,
+    "stt_first_result_ms": 135.77,
+    "llm_ttft_ms": 46.934,
+    "llm_completion_ms": 182.33,
+    "tool_latency_ms": 82.986,
+    "tts_first_audio_ms": 125.076,
+    "tts_completion_ms": 232.357,
+    "time_to_first_audio_ms": 519.913,
+    "total_response_latency_ms": 627.455,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "STREAMING",
+    "tts_voice_id": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "4ee15128-a157-453e-af47-a72d5bb01e7e",
+  "audio_metadata": {
+    "original_filename": "synth_03.wav",
+    "file_size_bytes": 64044,
+    "sample_rate": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 2000.0
+  },
+  "stt_spec": "mock",
+  "llm_spec": "mock:echo",
+  "tts_spec": "mock",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T03:44:37.690Z",
+  "completed_at": "2026-09-22T03:44:38.402Z",
+  "events": [
+    {
+      "ts_ms": 0.023,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:37.775Z",
+      "detail": {
+        "input_duration_ms": 2000.0,
+        "leading_silence_ms": 1000.0,
+        "sample_rate": 16000,
+        "channels": 1
+      }
+    },
+    {
+      "ts_ms": 10.385,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:37.786Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-1"
+      }
+    },
+    {
+      "ts_ms": 209.563,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T03:44:37.984Z",
+      "detail": {
+        "latency_ms": 198.014,
+        "transcript_chars": 38,
+        "transcript_preview": "What's the weather in Tokyo right now?",
+        "confidence": null
+      }
+    },
+    {
+      "ts_ms": 209.971,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:37.985Z",
+      "detail": {
+        "llm": "mock:echo"
+      }
+    },
+    {
+      "ts_ms": 265.779,
+      "stage": "tool",
+      "label": "Tool started: lookup_weather_mock",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:38.041Z",
+      "detail": {
+        "tool": "lookup_weather_mock",
+        "args": {
+          "city": "tokyo"
+        }
+      }
+    },
+    {
+      "ts_ms": 348.912,
+      "stage": "tool",
+      "label": "Tool completed: lookup_weather_mock",
+      "kind": "end",
+      "wall_clock": "2026-09-22T03:44:38.124Z",
+      "detail": {
+        "tool": "lookup_weather_mock",
+        "latency_ms": 82.986,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 393.575,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T03:44:38.169Z",
+      "detail": {
+        "latency_ms": 182.33,
+        "tool_calls": [
+          "lookup_weather"
+        ],
+        "tool_latencies": [
+          {
+            "name": "lookup_weather_mock",
+            "latency_ms": 82.986,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "ts_ms": 393.843,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:38.169Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-voice"
+      }
+    },
+    {
+      "ts_ms": 519.98,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-22T03:44:38.295Z",
+      "detail": {
+        "at_ms_from_input_end": 519.922,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 627.537,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-22T03:44:38.402Z",
+      "detail": {
+        "time_to_first_audio_ms": 519.913,
+        "total_response_latency_ms": 627.455
+      }
+    }
+  ]
+}

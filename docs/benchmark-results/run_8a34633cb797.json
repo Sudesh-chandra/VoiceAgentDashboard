@@ -1,0 +1,135 @@
+{
+  "run_id": "run_8a34633cb797",
+  "session_id": "sess_3b79a91012ce",
+  "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+  "test_case_id": "test_06",
+  "success": true,
+  "transcript": "I'm testing speech recognition with background white noise. Please give me three practical tips for improving the latency of a voice assistant.",
+  "response_text": "To improve voice assistant latency, optimize audio processing algorithms, use efficient network protocols, and deploy edge computing near users.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 7824.0,
+    "stt_latency_ms": 3213.259,
+    "stt_first_result_ms": 3213.188,
+    "llm_ttft_ms": 1208.843,
+    "llm_completion_ms": 1307.895,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 772.031,
+    "tts_completion_ms": 772.717,
+    "time_to_first_audio_ms": 5303.314,
+    "total_response_latency_ms": 5304.276,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE"
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "b849cbf2-5702-4547-9ba0-aa2d1e9fd3f6",
+  "audio_metadata": {
+    "original_filename": "test_06.wav",
+    "file_size_bytes": 1502286,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 7824.0
+  },
+  "experiment_id": null,
+  "started_at": "2026-09-21T21:24:33.841Z",
+  "completed_at": "2026-09-21T21:24:39.204Z",
+  "events": [
+    {
+      "ts_ms": 0.016,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:24:33.900Z",
+      "detail": {
+        "input_duration_ms": 7824.0,
+        "leading_silence_ms": 200.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 5.611,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:24:33.905Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 3220.027,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:24:37.120Z",
+      "detail": {
+        "latency_ms": 3213.259,
+        "transcript_chars": 143,
+        "transcript_preview": "I'm testing speech recognition with background white noise. Please give me three\u2026",
+        "confidence": 0.9980469
+      }
+    },
+    {
+      "ts_ms": 3220.578,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:24:37.120Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "ts_ms": 4529.808,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:24:38.429Z",
+      "detail": {
+        "latency_ms": 1307.895,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 4530.126,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:24:38.430Z",
+      "detail": {
+        "provider": "elevenlabs",
+        "model": "eleven_turbo_v2_5"
+      }
+    },
+    {
+      "ts_ms": 5303.344,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-21T21:24:39.203Z",
+      "detail": {
+        "at_ms_from_input_end": 5303.318,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 5304.337,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:24:39.204Z",
+      "detail": {
+        "time_to_first_audio_ms": 5303.314,
+        "total_response_latency_ms": 5304.276
+      }
+    }
+  ]
+}

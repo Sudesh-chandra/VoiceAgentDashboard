@@ -1,0 +1,184 @@
+{
+  "run_id": "run_b61914309aa6",
+  "session_id": "sess_38603d94470d",
+  "pipeline_id": "deepgram:nova-2-or-openai/gpt-4.1-mini-deepgram:aura-2-thalia-en",
+  "test_case_id": "test_04",
+  "success": true,
+  "transcript": "Search the web for the latest official information about the Python programming language and tell me the current stable Python version.",
+  "response_text": "The current stable version of the Python programming language is not explicitly stated in the search results; would you like me to check the official Python website for the most accurate version?",
+  "tool_calls": [
+    {
+      "name": "web_search",
+      "args": {
+        "query": "latest official Python programming language version"
+      },
+      "id": "call_eJ8f6kSRyHzIOWBtMvLcVVVy"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 7632.0,
+    "stt_latency_ms": 2489.637,
+    "stt_first_result_ms": 2489.614,
+    "llm_ttft_ms": 866.748,
+    "llm_completion_ms": 2373.752,
+    "tool_latency_ms": 89.852,
+    "tts_first_audio_ms": 3608.989,
+    "tts_completion_ms": 3609.078,
+    "time_to_first_audio_ms": 8477.519,
+    "total_response_latency_ms": 8477.747,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE",
+    "tts_voice_id": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "e331080d-41dd-4ab6-9ff2-b81fc54b4c10",
+  "audio_metadata": {
+    "original_filename": "test_04.wav",
+    "file_size_bytes": 1465422,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 7632.0
+  },
+  "stt_spec": "deepgram:nova-2",
+  "llm_spec": "openrouter:openai/gpt-4.1-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T06:10:09.494Z",
+  "completed_at": "2026-09-22T06:10:18.035Z",
+  "events": [
+    {
+      "ts_ms": 0.012,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:10:09.557Z",
+      "detail": {
+        "input_duration_ms": 7632.0,
+        "leading_silence_ms": 360.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 3.328,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:10:09.560Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2493.377,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:10:12.050Z",
+      "detail": {
+        "latency_ms": 2489.637,
+        "transcript_chars": 135,
+        "transcript_preview": "Search the web for the latest official information about the Python programming \u2026",
+        "confidence": 0.99902344,
+        "key_account": "deepgram#1"
+      }
+    },
+    {
+      "ts_ms": 2493.55,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:10:12.051Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "ts_ms": 3562.012,
+      "stage": "tool",
+      "label": "Tool started: web_search",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:10:13.119Z",
+      "detail": {
+        "tool": "web_search",
+        "args": {
+          "query": "latest official Python programming language version"
+        }
+      }
+    },
+    {
+      "ts_ms": 3651.914,
+      "stage": "tool",
+      "label": "Tool completed: web_search",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:10:13.209Z",
+      "detail": {
+        "tool": "web_search",
+        "latency_ms": 89.852,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 4867.855,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:10:14.425Z",
+      "detail": {
+        "latency_ms": 2373.752,
+        "tool_calls": [
+          "web_search"
+        ],
+        "tool_latencies": [
+          {
+            "name": "web_search",
+            "latency_ms": 89.852,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "ts_ms": 4868.041,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:10:14.425Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-thalia-en"
+      }
+    },
+    {
+      "ts_ms": 8477.534,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-22T06:10:18.035Z",
+      "detail": {
+        "at_ms_from_input_end": 8477.521,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 8477.774,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:10:18.035Z",
+      "detail": {
+        "time_to_first_audio_ms": 8477.519,
+        "total_response_latency_ms": 8477.747,
+        "stt_key_account": null,
+        "tts_key_account": "deepgram#1"
+      }
+    }
+  ]
+}

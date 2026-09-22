@@ -1,0 +1,132 @@
+{
+  "run_id": "run_e372cd092fe8",
+  "session_id": "sess_273a077093f7",
+  "pipeline_id": "pA",
+  "test_case_id": "synth_01",
+  "success": true,
+  "transcript": "What is the capital of France?",
+  "response_text": "This is the deterministic mock answer to your query.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 2000.0,
+    "stt_latency_ms": 191.441,
+    "stt_first_result_ms": 129.496,
+    "llm_ttft_ms": 17.066,
+    "llm_completion_ms": 17.885,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 136.23,
+    "tts_completion_ms": 246.33,
+    "time_to_first_audio_ms": 352.514,
+    "total_response_latency_ms": 462.773,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "4d322028-6397-45df-9156-4dfe47695067",
+  "audio_metadata": {
+    "original_filename": "synth_01.wav",
+    "file_size_bytes": 64044,
+    "sample_rate": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 2000.0
+  },
+  "started_at": "2026-09-21T19:38:51.520Z",
+  "completed_at": "2026-09-21T19:38:52.008Z",
+  "events": [
+    {
+      "ts_ms": 0.006,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:38:51.546Z",
+      "detail": {
+        "input_duration_ms": 2000.0,
+        "leading_silence_ms": 1000.0,
+        "sample_rate": 16000,
+        "channels": 1
+      }
+    },
+    {
+      "ts_ms": 3.49,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:38:51.549Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-transcribe"
+      }
+    },
+    {
+      "ts_ms": 195.403,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T19:38:51.741Z",
+      "detail": {
+        "latency_ms": 191.441,
+        "transcript_chars": 30,
+        "transcript_preview": "What is the capital of France?",
+        "confidence": null
+      }
+    },
+    {
+      "ts_ms": 196.05,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:38:51.742Z",
+      "detail": {
+        "llm": "mock:echo"
+      }
+    },
+    {
+      "ts_ms": 215.268,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T19:38:51.761Z",
+      "detail": {
+        "latency_ms": 17.885,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 215.517,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:38:51.761Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-voice"
+      }
+    },
+    {
+      "ts_ms": 352.547,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-21T19:38:51.898Z",
+      "detail": {
+        "at_ms_from_input_end": 352.518
+      }
+    },
+    {
+      "ts_ms": 462.823,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-21T19:38:52.008Z",
+      "detail": {
+        "time_to_first_audio_ms": 352.514,
+        "total_response_latency_ms": 462.773
+      }
+    }
+  ]
+}

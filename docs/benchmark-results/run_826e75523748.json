@@ -1,0 +1,132 @@
+{
+  "run_id": "run_826e75523748",
+  "session_id": "sess_b1c0c58c9054",
+  "pipeline_id": "deepgram|openrouter:openai/gpt-4o-mini|elevenlabs|auto",
+  "test_case_id": "test_02",
+  "success": true,
+  "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+  "response_text": "A Python list comprehension is a concise way to create lists by iterating over an iterable and optionally applying a condition. For example: `[x**2 for x in range(10)]` creates a list of squares from 0 to 9.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 5592.0,
+    "stt_latency_ms": 3318.728,
+    "stt_first_result_ms": 3318.651,
+    "llm_ttft_ms": 952.102,
+    "llm_completion_ms": 1488.355,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 905.744,
+    "tts_completion_ms": 906.018,
+    "time_to_first_audio_ms": 5717.249,
+    "total_response_latency_ms": 5717.617,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "3eb21c19-7dae-4990-a711-42263b452b72",
+  "audio_metadata": {
+    "original_filename": "test_02.wav",
+    "file_size_bytes": 1073742,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 5592.0
+  },
+  "started_at": "2026-09-21T19:51:53.576Z",
+  "completed_at": "2026-09-21T19:51:59.331Z",
+  "events": [
+    {
+      "ts_ms": 0.008,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:51:53.612Z",
+      "detail": {
+        "input_duration_ms": 5592.0,
+        "leading_silence_ms": 680.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 2.47,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:51:53.615Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 3321.568,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T19:51:56.935Z",
+      "detail": {
+        "latency_ms": 3318.728,
+        "transcript_chars": 81,
+        "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+        "confidence": 0.9970703
+      }
+    },
+    {
+      "ts_ms": 3321.885,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:51:56.935Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4o-mini"
+      }
+    },
+    {
+      "ts_ms": 4811.11,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T19:51:58.424Z",
+      "detail": {
+        "latency_ms": 1488.355,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 4811.189,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:51:58.424Z",
+      "detail": {
+        "provider": "elevenlabs",
+        "model": "eleven_turbo_v2_5"
+      }
+    },
+    {
+      "ts_ms": 5717.26,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-21T19:51:59.330Z",
+      "detail": {
+        "at_ms_from_input_end": 5717.25
+      }
+    },
+    {
+      "ts_ms": 5717.635,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-21T19:51:59.331Z",
+      "detail": {
+        "time_to_first_audio_ms": 5717.249,
+        "total_response_latency_ms": 5717.617
+      }
+    }
+  ]
+}

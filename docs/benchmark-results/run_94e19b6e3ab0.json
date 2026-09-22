@@ -1,0 +1,140 @@
+{
+  "run_id": "run_94e19b6e3ab0",
+  "session_id": "sess_4da3c2376d59",
+  "pipeline_id": "deepgram:nova-2-or-openai/gpt-4.1-mini-deepgram:aura-2-thalia-en",
+  "test_case_id": "test_05",
+  "success": true,
+  "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+  "response_text": "A REST API is a way for different software to talk to each other over the internet using simple commands like getting or sending data.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 6816.0,
+    "stt_latency_ms": 3179.363,
+    "stt_first_result_ms": 3179.321,
+    "llm_ttft_ms": 1329.294,
+    "llm_completion_ms": 1466.703,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 4428.962,
+    "tts_completion_ms": 4429.166,
+    "time_to_first_audio_ms": 9081.935,
+    "total_response_latency_ms": 9082.466,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE",
+    "tts_voice_id": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "39489336-0b30-41c9-a97b-f997b91a3491",
+  "audio_metadata": {
+    "original_filename": "test_05.wav",
+    "file_size_bytes": 1308750,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 6816.0
+  },
+  "stt_spec": "deepgram:nova-2",
+  "llm_spec": "openrouter:openai/gpt-4.1-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T04:08:56.428Z",
+  "completed_at": "2026-09-22T04:09:05.602Z",
+  "events": [
+    {
+      "ts_ms": 0.011,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:08:56.520Z",
+      "detail": {
+        "input_duration_ms": 6816.0,
+        "leading_silence_ms": 160.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 4.321,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:08:56.525Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 3184.292,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T04:08:59.704Z",
+      "detail": {
+        "latency_ms": 3179.363,
+        "transcript_chars": 119,
+        "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+        "confidence": 0.99609375
+      }
+    },
+    {
+      "ts_ms": 3184.58,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:08:59.704Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "ts_ms": 4652.2,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T04:09:01.172Z",
+      "detail": {
+        "latency_ms": 1466.703,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 4652.359,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:09:01.172Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-thalia-en"
+      }
+    },
+    {
+      "ts_ms": 9081.969,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-22T04:09:05.602Z",
+      "detail": {
+        "at_ms_from_input_end": 9081.939,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 9082.558,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-22T04:09:05.603Z",
+      "detail": {
+        "time_to_first_audio_ms": 9081.935,
+        "total_response_latency_ms": 9082.466
+      }
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "run_id": "run_f403128eb6bd",
+  "session_id": "sess_bb3f6076d08e",
+  "pipeline_id": "deepgram:nova-3-or-openai/gpt-4.1-mini-deepgram:aura-2-andromeda-en",
+  "test_case_id": "test_01",
+  "success": true,
+  "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+  "response_text": "Supervised learning uses labeled data to teach the model, while unsupervised learning finds patterns in data without labels.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 4896.0,
+    "stt_latency_ms": 2748.088,
+    "stt_first_result_ms": 2748.07,
+    "llm_ttft_ms": 1209.199,
+    "llm_completion_ms": 1458.55,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 3188.208,
+    "tts_completion_ms": 3188.274,
+    "time_to_first_audio_ms": 7474.003,
+    "total_response_latency_ms": 7474.172,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE",
+    "tts_voice_id": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "39815f38-cc41-438e-8d23-9811a3a02b8b",
+  "audio_metadata": {
+    "original_filename": "test_01.wav",
+    "file_size_bytes": 940110,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 4896.0
+  },
+  "stt_spec": "deepgram:nova-3",
+  "llm_spec": "openrouter:openai/gpt-4.1-mini",
+  "tts_spec": "deepgram:aura-2-andromeda-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T06:10:27.246Z",
+  "completed_at": "2026-09-22T06:10:36.035Z",
+  "events": [
+    {
+      "ts_ms": 0.007,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:10:28.561Z",
+      "detail": {
+        "input_duration_ms": 4896.0,
+        "leading_silence_ms": 160.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 77.861,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:10:28.639Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-3"
+      }
+    },
+    {
+      "ts_ms": 2826.356,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:10:31.387Z",
+      "detail": {
+        "latency_ms": 2748.088,
+        "transcript_chars": 116,
+        "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+        "confidence": 0.9970703,
+        "key_account": "deepgram#1"
+      }
+    },
+    {
+      "ts_ms": 2826.503,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:10:31.387Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "ts_ms": 4285.42,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:10:32.846Z",
+      "detail": {
+        "latency_ms": 1458.55,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 4285.496,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:10:32.846Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-andromeda-en"
+      }
+    },
+    {
+      "ts_ms": 7474.016,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-22T06:10:36.035Z",
+      "detail": {
+        "at_ms_from_input_end": 7474.005,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 7474.189,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:10:36.035Z",
+      "detail": {
+        "time_to_first_audio_ms": 7474.003,
+        "total_response_latency_ms": 7474.172,
+        "stt_key_account": null,
+        "tts_key_account": "deepgram#1"
+      }
+    }
+  ]
+}

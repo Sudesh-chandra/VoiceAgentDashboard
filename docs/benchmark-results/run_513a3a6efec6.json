@@ -1,0 +1,106 @@
+{
+  "run_id": "run_513a3a6efec6",
+  "session_id": "sess_b944d09aeaac",
+  "pipeline_id": "p-fail-llm",
+  "test_case_id": "synth_01",
+  "success": false,
+  "transcript": "What is the capital of France?",
+  "response_text": "",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 2000.0,
+    "stt_latency_ms": 196.344,
+    "stt_first_result_ms": 134.396,
+    "llm_ttft_ms": null,
+    "llm_completion_ms": null,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": null,
+    "tts_completion_ms": null,
+    "time_to_first_audio_ms": null,
+    "total_response_latency_ms": null,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": null,
+    "tts_voice_id": null
+  },
+  "failure_stage": "llm",
+  "error_type": "LLMError",
+  "error_detail": "'async for' requires an object with __aiter__ method, got coroutine",
+  "trace_id": "bf08ed4c-550c-4cba-a709-a24da044b8a0",
+  "audio_metadata": {
+    "original_filename": "synth_01.wav",
+    "file_size_bytes": 64044,
+    "sample_rate": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 2000.0
+  },
+  "stt_spec": "mock",
+  "llm_spec": "mock:echo",
+  "tts_spec": "mock",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T03:44:36.137Z",
+  "completed_at": "2026-09-22T03:44:36.393Z",
+  "events": [
+    {
+      "ts_ms": 0.017,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:36.185Z",
+      "detail": {
+        "input_duration_ms": 2000.0,
+        "leading_silence_ms": 1000.0,
+        "sample_rate": 16000,
+        "channels": 1
+      }
+    },
+    {
+      "ts_ms": 9.125,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:36.194Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-1"
+      }
+    },
+    {
+      "ts_ms": 206.867,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T03:44:36.391Z",
+      "detail": {
+        "latency_ms": 196.344,
+        "transcript_chars": 30,
+        "transcript_preview": "What is the capital of France?",
+        "confidence": null
+      }
+    },
+    {
+      "ts_ms": 207.105,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:36.391Z",
+      "detail": {
+        "llm": "mock:echo"
+      }
+    },
+    {
+      "ts_ms": 208.569,
+      "stage": "done",
+      "label": "FAILED at llm",
+      "kind": "error",
+      "wall_clock": "2026-09-22T03:44:36.393Z",
+      "detail": {
+        "error_type": "LLMError",
+        "detail": "'async for' requires an object with __aiter__ method, got coroutine"
+      }
+    }
+  ]
+}

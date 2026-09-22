@@ -1,0 +1,184 @@
+{
+  "run_id": "run_12409450ad25",
+  "session_id": "sess_8503958ab772",
+  "pipeline_id": "deepgram:nova-3|openrouter:openai/gpt-4o-mini|deepgram:aura-2-thalia-en|auto",
+  "test_case_id": "test_03",
+  "success": true,
+  "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain",
+  "response_text": "The current temperature in Bangalore is 95.7\u00b0F, and it is not likely to rain.",
+  "tool_calls": [
+    {
+      "name": "lookup_weather",
+      "args": {
+        "city": "Bangalore"
+      },
+      "id": "call_3gPROiDx5R0lZdysqHBIOwC5"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 7392.0,
+    "stt_latency_ms": 2636.4,
+    "stt_first_result_ms": 2636.383,
+    "llm_ttft_ms": 1602.872,
+    "llm_completion_ms": 3855.506,
+    "tool_latency_ms": 1312.906,
+    "tts_first_audio_ms": 3662.91,
+    "tts_completion_ms": 3662.99,
+    "time_to_first_audio_ms": 10639.73,
+    "total_response_latency_ms": 10639.926,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE",
+    "tts_voice_id": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "572bd9b6-7fcd-4dbd-8788-307ce3746d88",
+  "audio_metadata": {
+    "original_filename": "test_03.wav",
+    "file_size_bytes": 1419342,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 7392.0
+  },
+  "stt_spec": "deepgram:nova-3",
+  "llm_spec": "openrouter:openai/gpt-4o-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T06:29:11.497Z",
+  "completed_at": "2026-09-22T06:29:26.451Z",
+  "events": [
+    {
+      "ts_ms": 0.013,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:29:15.810Z",
+      "detail": {
+        "input_duration_ms": 7392.0,
+        "leading_silence_ms": 200.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 481.662,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:29:16.292Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-3"
+      }
+    },
+    {
+      "ts_ms": 3118.992,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:29:18.929Z",
+      "detail": {
+        "latency_ms": 2636.4,
+        "transcript_chars": 127,
+        "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+        "confidence": 0.9980469,
+        "key_account": "deepgram#1"
+      }
+    },
+    {
+      "ts_ms": 3119.953,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:29:18.930Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4o-mini"
+      }
+    },
+    {
+      "ts_ms": 4738.29,
+      "stage": "tool",
+      "label": "Tool started: lookup_weather",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:29:20.548Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "args": {
+          "city": "Bangalore"
+        }
+      }
+    },
+    {
+      "ts_ms": 6051.253,
+      "stage": "tool",
+      "label": "Tool completed: lookup_weather",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:29:21.862Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "latency_ms": 1312.906,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 6975.907,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:29:22.787Z",
+      "detail": {
+        "latency_ms": 3855.506,
+        "tool_calls": [
+          "lookup_weather"
+        ],
+        "tool_latencies": [
+          {
+            "name": "lookup_weather",
+            "latency_ms": 1312.906,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "ts_ms": 6976.089,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:29:22.787Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-thalia-en"
+      }
+    },
+    {
+      "ts_ms": 10639.743,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-22T06:29:26.450Z",
+      "detail": {
+        "at_ms_from_input_end": 10639.731,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 10639.976,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:29:26.451Z",
+      "detail": {
+        "time_to_first_audio_ms": 10639.73,
+        "total_response_latency_ms": 10639.926,
+        "stt_key_account": null,
+        "tts_key_account": "deepgram#2"
+      }
+    }
+  ]
+}

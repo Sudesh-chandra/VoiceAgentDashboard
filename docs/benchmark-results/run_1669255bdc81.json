@@ -1,0 +1,143 @@
+{
+  "run_id": "run_1669255bdc81",
+  "session_id": "sess_f61ca3bda95e",
+  "pipeline_id": "deepgram:nova-3-or-openai/gpt-4.1-mini-deepgram:aura-2-thalia-en",
+  "test_case_id": "test_05",
+  "success": true,
+  "transcript": "I'm testing a voice agent with background television noise. Please explain what is the REST API in a very simple terms.",
+  "response_text": "A REST API is a way for different software systems to communicate over the internet using simple requests like getting or sending data.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 6816.0,
+    "stt_latency_ms": 3544.658,
+    "stt_first_result_ms": 3544.588,
+    "llm_ttft_ms": 1290.375,
+    "llm_completion_ms": 1487.326,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 4703.895,
+    "tts_completion_ms": 4704.123,
+    "time_to_first_audio_ms": 9744.117,
+    "total_response_latency_ms": 9744.666,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE",
+    "tts_voice_id": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "f6cd6cf2-01c0-43b6-83c4-6584dcfe5ed2",
+  "audio_metadata": {
+    "original_filename": "test_05.wav",
+    "file_size_bytes": 1308750,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 6816.0
+  },
+  "stt_spec": "deepgram:nova-3",
+  "llm_spec": "openrouter:openai/gpt-4.1-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T05:59:45.454Z",
+  "completed_at": "2026-09-22T05:59:55.257Z",
+  "events": [
+    {
+      "ts_ms": 0.012,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:59:45.512Z",
+      "detail": {
+        "input_duration_ms": 6816.0,
+        "leading_silence_ms": 160.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 4.367,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:59:45.517Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-3"
+      }
+    },
+    {
+      "ts_ms": 3549.621,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T05:59:49.062Z",
+      "detail": {
+        "latency_ms": 3544.658,
+        "transcript_chars": 119,
+        "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+        "confidence": 0.95410156,
+        "key_account": "deepgram#1"
+      }
+    },
+    {
+      "ts_ms": 3550.145,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:59:49.062Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "ts_ms": 5038.865,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T05:59:50.551Z",
+      "detail": {
+        "latency_ms": 1487.326,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 5039.151,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:59:50.551Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-thalia-en"
+      }
+    },
+    {
+      "ts_ms": 9744.15,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-22T05:59:55.257Z",
+      "detail": {
+        "at_ms_from_input_end": 9744.121,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 9744.763,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-22T05:59:55.258Z",
+      "detail": {
+        "time_to_first_audio_ms": 9744.117,
+        "total_response_latency_ms": 9744.666,
+        "stt_key_account": null,
+        "tts_key_account": "deepgram#1"
+      }
+    }
+  ]
+}

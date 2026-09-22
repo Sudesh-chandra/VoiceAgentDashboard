@@ -1,0 +1,140 @@
+{
+  "run_id": "run_f1410bbda5a9",
+  "session_id": "sess_e61731381fbb",
+  "pipeline_id": "deepgram:nova-2-or-openai/gpt-4.1-mini-deepgram:aura-2-thalia-en",
+  "test_case_id": "test_02",
+  "success": true,
+  "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+  "response_text": "A Python list comprehension is a concise way to create lists using a single line of code, like this: [x*2 for x in range(5)] which produces [0, 2, 4, 6, 8].",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 5592.0,
+    "stt_latency_ms": 2891.777,
+    "stt_first_result_ms": 2891.724,
+    "llm_ttft_ms": 1237.9,
+    "llm_completion_ms": 1710.087,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 7658.866,
+    "tts_completion_ms": 7659.071,
+    "time_to_first_audio_ms": 12269.151,
+    "total_response_latency_ms": 12269.598,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE",
+    "tts_voice_id": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "3c3a7924-49e6-41db-885e-380648e3625e",
+  "audio_metadata": {
+    "original_filename": "test_02.wav",
+    "file_size_bytes": 1073742,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 5592.0
+  },
+  "stt_spec": "deepgram:nova-2",
+  "llm_spec": "openrouter:openai/gpt-4.1-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T04:08:43.528Z",
+  "completed_at": "2026-09-22T04:08:55.879Z",
+  "events": [
+    {
+      "ts_ms": 0.016,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:08:43.610Z",
+      "detail": {
+        "input_duration_ms": 5592.0,
+        "leading_silence_ms": 680.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 5.157,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:08:43.615Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2897.535,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T04:08:46.508Z",
+      "detail": {
+        "latency_ms": 2891.777,
+        "transcript_chars": 81,
+        "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+        "confidence": 0.9970703
+      }
+    },
+    {
+      "ts_ms": 2897.897,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:08:46.508Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "ts_ms": 4609.124,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T04:08:48.219Z",
+      "detail": {
+        "latency_ms": 1710.087,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 4609.341,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T04:08:48.219Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-thalia-en"
+      }
+    },
+    {
+      "ts_ms": 12269.175,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-22T04:08:55.879Z",
+      "detail": {
+        "at_ms_from_input_end": 12269.153,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 12269.654,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-22T04:08:55.879Z",
+      "detail": {
+        "time_to_first_audio_ms": 12269.151,
+        "total_response_latency_ms": 12269.598
+      }
+    }
+  ]
+}

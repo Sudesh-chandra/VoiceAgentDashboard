@@ -1,0 +1,129 @@
+{
+  "run_id": "run_2a6139d83574",
+  "session_id": "sess_509998e3275c",
+  "pipeline_id": "p-fail-tts",
+  "test_case_id": "synth_01",
+  "success": false,
+  "transcript": "What is the capital of France?",
+  "response_text": "",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 2000.0,
+    "stt_latency_ms": 195.703,
+    "stt_first_result_ms": 132.524,
+    "llm_ttft_ms": 17.864,
+    "llm_completion_ms": 18.804,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": null,
+    "tts_completion_ms": null,
+    "time_to_first_audio_ms": null,
+    "total_response_latency_ms": null,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": null,
+    "tts_voice_id": null
+  },
+  "failure_stage": "tts",
+  "error_type": "TTSError",
+  "error_detail": "simulated TTS provider outage",
+  "trace_id": "b26ca647-77dc-447b-8a1d-80227ee02321",
+  "audio_metadata": {
+    "original_filename": "synth_01.wav",
+    "file_size_bytes": 64044,
+    "sample_rate": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 2000.0
+  },
+  "stt_spec": "mock",
+  "llm_spec": "mock:echo",
+  "tts_spec": "mock",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T03:44:36.494Z",
+  "completed_at": "2026-09-22T03:44:36.740Z",
+  "events": [
+    {
+      "ts_ms": 0.009,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:36.519Z",
+      "detail": {
+        "input_duration_ms": 2000.0,
+        "leading_silence_ms": 1000.0,
+        "sample_rate": 16000,
+        "channels": 1
+      }
+    },
+    {
+      "ts_ms": 4.458,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:36.524Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-1"
+      }
+    },
+    {
+      "ts_ms": 200.735,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T03:44:36.720Z",
+      "detail": {
+        "latency_ms": 195.703,
+        "transcript_chars": 30,
+        "transcript_preview": "What is the capital of France?",
+        "confidence": null
+      }
+    },
+    {
+      "ts_ms": 200.972,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:36.720Z",
+      "detail": {
+        "llm": "mock:echo"
+      }
+    },
+    {
+      "ts_ms": 220.474,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T03:44:36.739Z",
+      "detail": {
+        "latency_ms": 18.804,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 220.601,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T03:44:36.739Z",
+      "detail": {
+        "provider": "boom",
+        "model": "boom-1"
+      }
+    },
+    {
+      "ts_ms": 221.563,
+      "stage": "done",
+      "label": "FAILED at tts",
+      "kind": "error",
+      "wall_clock": "2026-09-22T03:44:36.740Z",
+      "detail": {
+        "error_type": "TTSError",
+        "detail": "simulated TTS provider outage"
+      }
+    }
+  ]
+}

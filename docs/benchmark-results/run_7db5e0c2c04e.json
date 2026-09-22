@@ -1,0 +1,173 @@
+{
+  "run_id": "run_7db5e0c2c04e",
+  "session_id": "sess_7edbe866737b",
+  "pipeline_id": "pB",
+  "test_case_id": "synth_03",
+  "success": true,
+  "transcript": "What's the weather in Tokyo right now?",
+  "response_text": "Here's what I found: {\"city\": \"tokyo\", \"country\": \"Mockland\", \"weather\": {\"temperature\": 18.4, \"wind_speed\": 12.1, \"weather_code\": 3}}",
+  "tool_calls": [
+    {
+      "name": "lookup_weather",
+      "args": {
+        "city": "tokyo"
+      },
+      "id": "mock_call_weather"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 2000.0,
+    "stt_latency_ms": 187.952,
+    "stt_first_result_ms": 125.018,
+    "llm_ttft_ms": 14.223,
+    "llm_completion_ms": 117.537,
+    "tool_latency_ms": 88.206,
+    "tts_first_audio_ms": 127.09,
+    "tts_completion_ms": 236.689,
+    "time_to_first_audio_ms": 440.08,
+    "total_response_latency_ms": 549.966,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "50a520d3-d595-40ae-8b92-23b3687db2bf",
+  "audio_metadata": {
+    "original_filename": "synth_03.wav",
+    "file_size_bytes": 64044,
+    "sample_rate": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 2000.0
+  },
+  "started_at": "2026-09-21T18:56:35.111Z",
+  "completed_at": "2026-09-21T18:56:35.673Z",
+  "events": [
+    {
+      "ts_ms": 0.006,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:56:35.124Z",
+      "detail": {
+        "input_duration_ms": 2000.0,
+        "leading_silence_ms": 1000.0,
+        "sample_rate": 16000,
+        "channels": 1
+      }
+    },
+    {
+      "ts_ms": 3.27,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:56:35.128Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-transcribe"
+      }
+    },
+    {
+      "ts_ms": 191.762,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T18:56:35.316Z",
+      "detail": {
+        "latency_ms": 187.952,
+        "transcript_chars": 38,
+        "transcript_preview": "What's the weather in Tokyo right now?",
+        "confidence": null
+      }
+    },
+    {
+      "ts_ms": 192.662,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:56:35.317Z",
+      "detail": {
+        "llm": "mock:echo"
+      }
+    },
+    {
+      "ts_ms": 212.104,
+      "stage": "tool",
+      "label": "Tool started: lookup_weather_mock",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:56:35.336Z",
+      "detail": {
+        "tool": "lookup_weather_mock",
+        "args": {
+          "city": "tokyo"
+        }
+      }
+    },
+    {
+      "ts_ms": 300.442,
+      "stage": "tool",
+      "label": "Tool completed: lookup_weather_mock",
+      "kind": "end",
+      "wall_clock": "2026-09-21T18:56:35.425Z",
+      "detail": {
+        "tool": "lookup_weather_mock",
+        "latency_ms": 88.206,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 311.874,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T18:56:35.436Z",
+      "detail": {
+        "latency_ms": 117.537,
+        "tool_calls": [
+          "lookup_weather"
+        ],
+        "tool_latencies": [
+          {
+            "name": "lookup_weather_mock",
+            "latency_ms": 88.206,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "ts_ms": 312.13,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:56:35.436Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-voice"
+      }
+    },
+    {
+      "ts_ms": 440.116,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-21T18:56:35.564Z",
+      "detail": {
+        "at_ms_from_input_end": 440.086
+      }
+    },
+    {
+      "ts_ms": 550.057,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-21T18:56:35.673Z",
+      "detail": {
+        "time_to_first_audio_ms": 440.08,
+        "total_response_latency_ms": 549.966
+      }
+    }
+  ]
+}

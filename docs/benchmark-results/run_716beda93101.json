@@ -1,0 +1,252 @@
+{
+  "run_id": "run_716beda93101",
+  "session_id": "sess_a3b71eac3d1f",
+  "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+  "test_case_id": "test_03",
+  "success": true,
+  "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+  "response_text": "It's currently around 71 degrees Fahrenheit and overcast in Bangalore, with little to no chance of rain right now.",
+  "tool_calls": [
+    {
+      "name": "lookup_weather",
+      "args": {
+        "city": "Bangalore"
+      },
+      "id": "call_1512830"
+    },
+    {
+      "name": "lookup_weather",
+      "args": {
+        "city": "Bengaluru"
+      },
+      "id": "call_1254906"
+    },
+    {
+      "name": "web_search",
+      "args": {
+        "query": "current weather Bangalore temperature rain probability"
+      },
+      "id": "call_2372094"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 7392.0,
+    "stt_latency_ms": 2940.694,
+    "stt_first_result_ms": 2940.601,
+    "llm_ttft_ms": 2090.662,
+    "llm_completion_ms": 13660.48,
+    "tool_latency_ms": 3452.482,
+    "tts_first_audio_ms": 746.727,
+    "tts_completion_ms": 747.087,
+    "time_to_first_audio_ms": 17361.708,
+    "total_response_latency_ms": 17362.371,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE"
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "030d1421-ff02-4723-870c-b3f99369d6d7",
+  "audio_metadata": {
+    "original_filename": "test_03.wav",
+    "file_size_bytes": 1419342,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 7392.0
+  },
+  "experiment_id": null,
+  "started_at": "2026-09-21T21:25:45.227Z",
+  "completed_at": "2026-09-21T21:26:02.698Z",
+  "events": [
+    {
+      "ts_ms": 0.029,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:25:45.336Z",
+      "detail": {
+        "input_duration_ms": 7392.0,
+        "leading_silence_ms": 200.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 8.328,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:25:45.344Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2950.439,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:25:48.286Z",
+      "detail": {
+        "latency_ms": 2940.694,
+        "transcript_chars": 128,
+        "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+        "confidence": 0.99902344
+      }
+    },
+    {
+      "ts_ms": 2950.988,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:25:48.287Z",
+      "detail": {
+        "llm": "openrouter:google/gemini-3.8-flash"
+      }
+    },
+    {
+      "ts_ms": 5083.806,
+      "stage": "tool",
+      "label": "Tool started: lookup_weather",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:25:50.420Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "args": {
+          "city": "Bangalore"
+        }
+      }
+    },
+    {
+      "ts_ms": 6743.424,
+      "stage": "tool",
+      "label": "Tool completed: lookup_weather",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:25:52.079Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "latency_ms": 1659.366,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 10164.411,
+      "stage": "tool",
+      "label": "Tool started: lookup_weather",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:25:55.500Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "args": {
+          "city": "Bengaluru"
+        }
+      }
+    },
+    {
+      "ts_ms": 11871.06,
+      "stage": "tool",
+      "label": "Tool completed: lookup_weather",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:25:57.206Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "latency_ms": 1706.436,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 14330.927,
+      "stage": "tool",
+      "label": "Tool started: web_search",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:25:59.667Z",
+      "detail": {
+        "tool": "web_search",
+        "args": {
+          "query": "current weather Bangalore temperature rain probability"
+        }
+      }
+    },
+    {
+      "ts_ms": 14417.785,
+      "stage": "tool",
+      "label": "Tool completed: web_search",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:25:59.753Z",
+      "detail": {
+        "tool": "web_search",
+        "latency_ms": 86.68,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 16613.299,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:26:01.949Z",
+      "detail": {
+        "latency_ms": 13660.48,
+        "tool_calls": [
+          "lookup_weather",
+          "lookup_weather",
+          "web_search"
+        ],
+        "tool_latencies": [
+          {
+            "name": "lookup_weather",
+            "latency_ms": 1659.366,
+            "ok": true
+          },
+          {
+            "name": "lookup_weather",
+            "latency_ms": 1706.436,
+            "ok": true
+          },
+          {
+            "name": "web_search",
+            "latency_ms": 86.68,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "ts_ms": 16613.701,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:26:01.949Z",
+      "detail": {
+        "provider": "elevenlabs",
+        "model": "eleven_turbo_v2_5"
+      }
+    },
+    {
+      "ts_ms": 17361.743,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-21T21:26:02.698Z",
+      "detail": {
+        "at_ms_from_input_end": 17361.714,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 17362.437,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:26:02.698Z",
+      "detail": {
+        "time_to_first_audio_ms": 17361.708,
+        "total_response_latency_ms": 17362.371
+      }
+    }
+  ]
+}

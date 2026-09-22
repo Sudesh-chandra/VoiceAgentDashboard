@@ -1,0 +1,132 @@
+{
+  "run_id": "run_cdb1d2b643cf",
+  "session_id": "sess_a26efd4d06e9",
+  "pipeline_id": "deepgram|openrouter:openai/gpt-4o-mini|elevenlabs|auto",
+  "test_case_id": "test_01",
+  "success": true,
+  "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+  "response_text": "Supervised learning uses labeled data to train models, while unsupervised learning finds patterns in data without labels.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 4896.0,
+    "stt_latency_ms": 2625.096,
+    "stt_first_result_ms": 2625.055,
+    "llm_ttft_ms": 1427.486,
+    "llm_completion_ms": 1720.248,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 788.241,
+    "tts_completion_ms": 788.443,
+    "time_to_first_audio_ms": 5139.717,
+    "total_response_latency_ms": 5140.046,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "9227e7b9-50b3-4bc9-8f49-df3f6bdaa558",
+  "audio_metadata": {
+    "original_filename": "test_01.wav",
+    "file_size_bytes": 940110,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 4896.0
+  },
+  "started_at": "2026-09-21T20:02:47.433Z",
+  "completed_at": "2026-09-21T20:02:52.603Z",
+  "events": [
+    {
+      "ts_ms": 0.009,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T20:02:47.464Z",
+      "detail": {
+        "input_duration_ms": 4896.0,
+        "leading_silence_ms": 160.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 3.267,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T20:02:47.467Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2628.905,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T20:02:50.092Z",
+      "detail": {
+        "latency_ms": 2625.096,
+        "transcript_chars": 116,
+        "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+        "confidence": 0.9973958
+      }
+    },
+    {
+      "ts_ms": 2629.408,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T20:02:50.093Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4o-mini"
+      }
+    },
+    {
+      "ts_ms": 4350.718,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T20:02:51.815Z",
+      "detail": {
+        "latency_ms": 1720.248,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 4350.94,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T20:02:51.815Z",
+      "detail": {
+        "provider": "elevenlabs",
+        "model": "eleven_turbo_v2_5"
+      }
+    },
+    {
+      "ts_ms": 5139.734,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-21T20:02:52.603Z",
+      "detail": {
+        "at_ms_from_input_end": 5139.719
+      }
+    },
+    {
+      "ts_ms": 5140.072,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-21T20:02:52.603Z",
+      "detail": {
+        "time_to_first_audio_ms": 5139.717,
+        "total_response_latency_ms": 5140.046
+      }
+    }
+  ]
+}

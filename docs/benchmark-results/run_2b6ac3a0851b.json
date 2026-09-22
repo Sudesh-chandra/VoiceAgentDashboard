@@ -1,0 +1,173 @@
+{
+  "run_id": "run_2b6ac3a0851b",
+  "session_id": "sess_71e3788fe276",
+  "pipeline_id": "revalidate-real",
+  "test_case_id": "test_04",
+  "success": true,
+  "transcript": "Search the web for the latest official information about the Python programming language and tell me the current stable Python version.",
+  "response_text": "I couldn't find the current stable version of Python; please check the official Python website for the latest information.",
+  "tool_calls": [
+    {
+      "name": "web_search",
+      "args": {
+        "query": "latest official information about Python programming language current stable version"
+      },
+      "id": "call_hZIdhVIFiunO4xFrb2EBzQ1K"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 7632.0,
+    "stt_latency_ms": 2488.081,
+    "stt_first_result_ms": 2488.066,
+    "llm_ttft_ms": 784.569,
+    "llm_completion_ms": 2133.531,
+    "tool_latency_ms": 90.922,
+    "tts_first_audio_ms": 533.887,
+    "tts_completion_ms": 534.014,
+    "time_to_first_audio_ms": 5159.46,
+    "total_response_latency_ms": 5159.682,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "2602e1b1-8440-432a-9d6e-779ea5f66f68",
+  "audio_metadata": {
+    "original_filename": "test_04.wav",
+    "file_size_bytes": 1465422,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 7632.0
+  },
+  "started_at": "2026-09-21T19:34:34.923Z",
+  "completed_at": "2026-09-21T19:34:40.140Z",
+  "events": [
+    {
+      "ts_ms": 0.008,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:34:34.980Z",
+      "detail": {
+        "input_duration_ms": 7632.0,
+        "leading_silence_ms": 360.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 2.545,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:34:34.983Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2491.309,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T19:34:37.471Z",
+      "detail": {
+        "latency_ms": 2488.081,
+        "transcript_chars": 135,
+        "transcript_preview": "Search the web for the latest official information about the Python programming \u2026",
+        "confidence": 0.99902344
+      }
+    },
+    {
+      "ts_ms": 2491.415,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:34:37.472Z",
+      "detail": {
+        "llm": "openrouter"
+      }
+    },
+    {
+      "ts_ms": 3559.857,
+      "stage": "tool",
+      "label": "Tool started: web_search",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:34:38.540Z",
+      "detail": {
+        "tool": "web_search",
+        "args": {
+          "query": "latest official information about Python programming language current stable version"
+        }
+      }
+    },
+    {
+      "ts_ms": 3650.821,
+      "stage": "tool",
+      "label": "Tool completed: web_search",
+      "kind": "end",
+      "wall_clock": "2026-09-21T19:34:38.632Z",
+      "detail": {
+        "tool": "web_search",
+        "latency_ms": 90.922,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 4625.211,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T19:34:39.605Z",
+      "detail": {
+        "latency_ms": 2133.531,
+        "tool_calls": [
+          "web_search"
+        ],
+        "tool_latencies": [
+          {
+            "name": "web_search",
+            "latency_ms": 90.922,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "ts_ms": 4625.311,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T19:34:39.605Z",
+      "detail": {
+        "provider": "elevenlabs",
+        "model": "eleven_turbo_v2_5"
+      }
+    },
+    {
+      "ts_ms": 5159.469,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-21T19:34:40.140Z",
+      "detail": {
+        "at_ms_from_input_end": 5159.461
+      }
+    },
+    {
+      "ts_ms": 5159.699,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-21T19:34:40.140Z",
+      "detail": {
+        "time_to_first_audio_ms": 5159.46,
+        "total_response_latency_ms": 5159.682
+      }
+    }
+  ]
+}

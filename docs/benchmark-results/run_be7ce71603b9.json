@@ -1,0 +1,143 @@
+{
+  "run_id": "run_be7ce71603b9",
+  "session_id": "sess_fc981a637bbb",
+  "pipeline_id": "mock|mock:echo|mock|none",
+  "test_case_id": "synth_01",
+  "success": true,
+  "transcript": "Recognized speech from uploaded audio.",
+  "response_text": "This is the deterministic mock answer to your query.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 1500.0,
+    "stt_latency_ms": 173.617,
+    "stt_first_result_ms": 126.515,
+    "llm_ttft_ms": 56.578,
+    "llm_completion_ms": 57.54,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 109.042,
+    "tts_completion_ms": 224.836,
+    "time_to_first_audio_ms": 420.418,
+    "total_response_latency_ms": 536.513,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "STREAMING",
+    "tts_voice_id": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "3876a232-19ad-4b45-bfaa-ee848be5b43b",
+  "audio_metadata": {
+    "original_filename": "synth_01.wav",
+    "file_size_bytes": 48044,
+    "sample_rate": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 1500.0
+  },
+  "stt_spec": "mock",
+  "llm_spec": "mock:echo",
+  "tts_spec": "mock",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T06:23:30.796Z",
+  "completed_at": "2026-09-22T06:23:31.439Z",
+  "events": [
+    {
+      "ts_ms": 0.006,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:23:30.903Z",
+      "detail": {
+        "input_duration_ms": 1500.0,
+        "leading_silence_ms": 0.0,
+        "sample_rate": 16000,
+        "channels": 1
+      }
+    },
+    {
+      "ts_ms": 78.402,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:23:30.981Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-1"
+      }
+    },
+    {
+      "ts_ms": 252.564,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:23:31.156Z",
+      "detail": {
+        "latency_ms": 173.617,
+        "transcript_chars": 38,
+        "transcript_preview": "Recognized speech from uploaded audio.",
+        "confidence": null,
+        "key_account": null
+      }
+    },
+    {
+      "ts_ms": 252.776,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:23:31.156Z",
+      "detail": {
+        "llm": "mock:echo"
+      }
+    },
+    {
+      "ts_ms": 310.931,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:23:31.214Z",
+      "detail": {
+        "latency_ms": 57.54,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 311.083,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:23:31.214Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-voice"
+      }
+    },
+    {
+      "ts_ms": 420.425,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-22T06:23:31.324Z",
+      "detail": {
+        "at_ms_from_input_end": 420.419,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 536.55,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-22T06:23:31.439Z",
+      "detail": {
+        "time_to_first_audio_ms": 420.418,
+        "total_response_latency_ms": 536.513,
+        "stt_key_account": null,
+        "tts_key_account": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "run_id": "run_20e88ca758f3",
+  "session_id": "sess_1c0ddf9c3f05",
+  "pipeline_id": "real-dg-or-el",
+  "test_case_id": "test_05",
+  "success": false,
+  "transcript": "",
+  "response_text": "",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 6816.0,
+    "stt_latency_ms": 1650.972,
+    "stt_first_result_ms": null,
+    "llm_ttft_ms": null,
+    "llm_completion_ms": null,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": null,
+    "tts_completion_ms": null,
+    "time_to_first_audio_ms": null,
+    "total_response_latency_ms": null,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null
+  },
+  "failure_stage": "stt",
+  "error_type": "STTError",
+  "error_detail": "Client error '400 Bad Request' for url 'https://api.deepgram.com/v1/listen?model=nova-2&smart_format=true&punctuate=true'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+  "trace_id": "f312baf0-d97a-4ff2-a65f-f3b5afc936c8",
+  "audio_metadata": {
+    "original_filename": "test_05.wav",
+    "file_size_bytes": 1308750,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 6816.0
+  },
+  "started_at": "2026-09-21T18:49:51.484Z",
+  "completed_at": "2026-09-21T18:49:53.177Z",
+  "events": [
+    {
+      "ts_ms": 0.005,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:49:51.523Z",
+      "detail": {
+        "input_duration_ms": 6816.0,
+        "leading_silence_ms": 0.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 4.028,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:49:51.527Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 1655.536,
+      "stage": "done",
+      "label": "FAILED at stt",
+      "kind": "error",
+      "wall_clock": "2026-09-21T18:49:53.177Z",
+      "detail": {
+        "error_type": "STTError",
+        "detail": "Client error '400 Bad Request' for url 'https://api.deepgram.com/v1/listen?model=nova-2&smart_format=true&punctuate=true'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400"
+      }
+    }
+  ]
+}

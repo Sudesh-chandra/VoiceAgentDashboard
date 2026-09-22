@@ -1,0 +1,3153 @@
+{
+  "experiment_id": "EXP-2026-00001",
+  "pipelines": [
+    "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+    "deepgram-or-google/gemini-2.0-flash-001-elevenlabs"
+  ],
+  "results": [
+    {
+      "run_id": "run_d39a152714da",
+      "session_id": "sess_8789ffddf20a",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_01",
+      "success": true,
+      "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+      "response_text": "Supervised learning uses labeled data to train models, while unsupervised learning finds patterns in data without labels.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 4896.0,
+        "stt_latency_ms": 3151.054,
+        "stt_first_result_ms": 3150.989,
+        "llm_ttft_ms": 1463.217,
+        "llm_completion_ms": 1632.594,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 711.291,
+        "tts_completion_ms": 711.923,
+        "time_to_first_audio_ms": 5796.87,
+        "total_response_latency_ms": 5797.809,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "a4df1848-d095-43c7-a838-541dcbb0752b",
+      "audio_metadata": {
+        "original_filename": "test_01.wav",
+        "file_size_bytes": 940110,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 4896.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:18:03.583Z",
+      "completed_at": "2026-09-21T21:18:15.703Z",
+      "events": [
+        {
+          "ts_ms": 0.024,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:09.906Z",
+          "detail": {
+            "input_duration_ms": 4896.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 296.496,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:10.202Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3449.158,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:13.355Z",
+          "detail": {
+            "latency_ms": 3151.054,
+            "transcript_chars": 116,
+            "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+            "confidence": 0.9973958
+          }
+        },
+        {
+          "ts_ms": 3449.718,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:13.355Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 5083.729,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:14.989Z",
+          "detail": {
+            "latency_ms": 1632.594,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 5084.07,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:14.989Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 5796.907,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:18:15.702Z",
+          "detail": {
+            "at_ms_from_input_end": 5796.876,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 5797.878,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:15.703Z",
+          "detail": {
+            "time_to_first_audio_ms": 5796.87,
+            "total_response_latency_ms": 5797.809
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_3aaf76183041",
+      "session_id": "sess_89aeea7f1070",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_02",
+      "success": true,
+      "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+      "response_text": "A Python list comprehension is a concise way to create lists by iterating over an iterable and optionally applying a condition. For example: `[x**2 for x in range(5)]` creates a list of squares of numbers from 0 to 4.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 5592.0,
+        "stt_latency_ms": 3064.925,
+        "stt_first_result_ms": 3064.861,
+        "llm_ttft_ms": 952.584,
+        "llm_completion_ms": 1397.197,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 1043.601,
+        "tts_completion_ms": 1044.393,
+        "time_to_first_audio_ms": 5518.522,
+        "total_response_latency_ms": 5519.629,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "80a3ad88-e6e6-4fce-b665-0a1607a067d1",
+      "audio_metadata": {
+        "original_filename": "test_02.wav",
+        "file_size_bytes": 1073742,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 5592.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:18:15.852Z",
+      "completed_at": "2026-09-21T21:18:21.505Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:15.986Z",
+          "detail": {
+            "input_duration_ms": 5592.0,
+            "leading_silence_ms": 680.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.155,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:15.994Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3074.268,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:19.060Z",
+          "detail": {
+            "latency_ms": 3064.925,
+            "transcript_chars": 81,
+            "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+            "confidence": 0.9970703
+          }
+        },
+        {
+          "ts_ms": 3074.72,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:19.060Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 4473.354,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:20.459Z",
+          "detail": {
+            "latency_ms": 1397.197,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4473.727,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:20.460Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 5518.557,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:18:21.505Z",
+          "detail": {
+            "at_ms_from_input_end": 5518.527,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 5519.7,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:21.505Z",
+          "detail": {
+            "time_to_first_audio_ms": 5518.522,
+            "total_response_latency_ms": 5519.629
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_f6399d7de966",
+      "session_id": "sess_445710684951",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_03",
+      "success": true,
+      "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+      "response_text": "The current temperature in Bangalore is 82\u00b0F, and it is not likely to rain.",
+      "tool_calls": [
+        {
+          "name": "lookup_weather",
+          "args": {
+            "city": "Bangalore"
+          },
+          "id": "call_92PDy5dYXqySzFyA1XF6mNXY"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7392.0,
+        "stt_latency_ms": 3549.203,
+        "stt_first_result_ms": 3549.135,
+        "llm_ttft_ms": 1352.607,
+        "llm_completion_ms": 4041.208,
+        "tool_latency_ms": 1669.759,
+        "tts_first_audio_ms": 884.706,
+        "tts_completion_ms": 885.001,
+        "time_to_first_audio_ms": 8500.574,
+        "total_response_latency_ms": 8501.21,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "949c76d6-4a57-43cd-948b-30a27a66f69f",
+      "audio_metadata": {
+        "original_filename": "test_03.wav",
+        "file_size_bytes": 1419342,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7392.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:18:21.723Z",
+      "completed_at": "2026-09-21T21:18:30.339Z",
+      "events": [
+        {
+          "ts_ms": 0.037,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:21.838Z",
+          "detail": {
+            "input_duration_ms": 7392.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 19.578,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:21.858Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3570.577,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:25.409Z",
+          "detail": {
+            "latency_ms": 3549.203,
+            "transcript_chars": 128,
+            "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3571.069,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:25.409Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 5003.51,
+          "stage": "tool",
+          "label": "Tool started: lookup_weather",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:26.841Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "args": {
+              "city": "Bangalore"
+            }
+          }
+        },
+        {
+          "ts_ms": 6673.447,
+          "stage": "tool",
+          "label": "Tool completed: lookup_weather",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:28.512Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "latency_ms": 1669.759,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 7613.982,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:29.452Z",
+          "detail": {
+            "latency_ms": 4041.208,
+            "tool_calls": [
+              "lookup_weather"
+            ],
+            "tool_latencies": [
+              {
+                "name": "lookup_weather",
+                "latency_ms": 1669.759,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 7614.425,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:29.453Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 8500.613,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:18:30.339Z",
+          "detail": {
+            "at_ms_from_input_end": 8500.58,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 8501.297,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:30.339Z",
+          "detail": {
+            "time_to_first_audio_ms": 8500.574,
+            "total_response_latency_ms": 8501.21
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_99366edf6f36",
+      "session_id": "sess_f56dddf512cf",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_04",
+      "success": true,
+      "transcript": "Search the web for the latest official information about the Python programming language and tell me the current stable Python version.",
+      "response_text": "I couldn't find the current stable version of Python; please check the official Python website for the latest information.",
+      "tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "latest official Python programming language version"
+          },
+          "id": "call_jvJnSX3GwXIRx0NPpwR5H9rz"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7632.0,
+        "stt_latency_ms": 3384.008,
+        "stt_first_result_ms": 3383.931,
+        "llm_ttft_ms": 1026.552,
+        "llm_completion_ms": 2391.59,
+        "tool_latency_ms": 83.674,
+        "tts_first_audio_ms": 725.304,
+        "tts_completion_ms": 725.796,
+        "time_to_first_audio_ms": 6515.66,
+        "total_response_latency_ms": 6516.503,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "d4e2c632-311a-4b0f-8185-c8beef065fa0",
+      "audio_metadata": {
+        "original_filename": "test_04.wav",
+        "file_size_bytes": 1465422,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7632.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:18:30.470Z",
+      "completed_at": "2026-09-21T21:18:37.133Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:30.616Z",
+          "detail": {
+            "input_duration_ms": 7632.0,
+            "leading_silence_ms": 360.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 9.69,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:30.625Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3394.846,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:34.011Z",
+          "detail": {
+            "latency_ms": 3384.008,
+            "transcript_chars": 135,
+            "transcript_preview": "Search the web for the latest official information about the Python programming \u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3395.323,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:34.012Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 4765.0,
+          "stage": "tool",
+          "label": "Tool started: web_search",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:35.381Z",
+          "detail": {
+            "tool": "web_search",
+            "args": {
+              "query": "latest official Python programming language version"
+            }
+          }
+        },
+        {
+          "ts_ms": 4848.889,
+          "stage": "tool",
+          "label": "Tool completed: web_search",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:35.465Z",
+          "detail": {
+            "tool": "web_search",
+            "latency_ms": 83.674,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 5788.449,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:36.405Z",
+          "detail": {
+            "latency_ms": 2391.59,
+            "tool_calls": [
+              "web_search"
+            ],
+            "tool_latencies": [
+              {
+                "name": "web_search",
+                "latency_ms": 83.674,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 5788.866,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:36.405Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6515.694,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:18:37.132Z",
+          "detail": {
+            "at_ms_from_input_end": 6515.665,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6516.572,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:37.133Z",
+          "detail": {
+            "time_to_first_audio_ms": 6515.66,
+            "total_response_latency_ms": 6516.503
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_301dba421ad4",
+      "session_id": "sess_df25380c4fa8",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_05",
+      "success": true,
+      "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+      "response_text": "A REST API is a way for different software applications to communicate over the internet using standard web protocols.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 6816.0,
+        "stt_latency_ms": 3085.296,
+        "stt_first_result_ms": 3085.216,
+        "llm_ttft_ms": 824.881,
+        "llm_completion_ms": 996.701,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 726.7,
+        "tts_completion_ms": 727.017,
+        "time_to_first_audio_ms": 4823.842,
+        "total_response_latency_ms": 4824.477,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "c686eb8f-dac1-4c4c-93da-b7a67f62e00b",
+      "audio_metadata": {
+        "original_filename": "test_05.wav",
+        "file_size_bytes": 1308750,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 6816.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:18:37.261Z",
+      "completed_at": "2026-09-21T21:18:42.190Z",
+      "events": [
+        {
+          "ts_ms": 0.023,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:37.366Z",
+          "detail": {
+            "input_duration_ms": 6816.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 10.497,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:37.377Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3097.065,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:40.464Z",
+          "detail": {
+            "latency_ms": 3085.296,
+            "transcript_chars": 119,
+            "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+            "confidence": 0.99609375
+          }
+        },
+        {
+          "ts_ms": 3097.598,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:40.464Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 4095.78,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:41.462Z",
+          "detail": {
+            "latency_ms": 996.701,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4096.067,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:41.463Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 4823.879,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:18:42.190Z",
+          "detail": {
+            "at_ms_from_input_end": 4823.847,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 4824.547,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:42.190Z",
+          "detail": {
+            "time_to_first_audio_ms": 4823.842,
+            "total_response_latency_ms": 4824.477
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_218df27a2682",
+      "session_id": "sess_dcd495750c67",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_06",
+      "success": true,
+      "transcript": "I'm testing speech recognition with background white noise. Please give me three practical tips for improving the latency of a voice assistant.",
+      "response_text": "1. Optimize the voice recognition algorithm for faster processing.  \n2. Use a lightweight model to reduce computational load.  \n3. Implement local processing to minimize network delays.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7824.0,
+        "stt_latency_ms": 3608.132,
+        "stt_first_result_ms": 3608.027,
+        "llm_ttft_ms": 827.219,
+        "llm_completion_ms": 1079.966,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 849.849,
+        "tts_completion_ms": 850.271,
+        "time_to_first_audio_ms": 5551.79,
+        "total_response_latency_ms": 5552.379,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "21e15668-af4f-4617-868b-8adf7dae8b84",
+      "audio_metadata": {
+        "original_filename": "test_06.wav",
+        "file_size_bytes": 1502286,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7824.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:18:42.415Z",
+      "completed_at": "2026-09-21T21:18:48.132Z",
+      "events": [
+        {
+          "ts_ms": 0.022,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:42.579Z",
+          "detail": {
+            "input_duration_ms": 7824.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.623,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:42.588Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3618.195,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:46.198Z",
+          "detail": {
+            "latency_ms": 3608.132,
+            "transcript_chars": 143,
+            "transcript_preview": "I'm testing speech recognition with background white noise. Please give me three\u2026",
+            "confidence": 0.9980469
+          }
+        },
+        {
+          "ts_ms": 3618.888,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:46.199Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 4700.443,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:47.280Z",
+          "detail": {
+            "latency_ms": 1079.966,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4700.736,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:47.280Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 5551.807,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:18:48.131Z",
+          "detail": {
+            "at_ms_from_input_end": 5551.792,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 5552.415,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:48.132Z",
+          "detail": {
+            "time_to_first_audio_ms": 5551.79,
+            "total_response_latency_ms": 5552.379
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_b9d3ef429a78",
+      "session_id": "sess_39e22c89b2cf",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_01",
+      "success": true,
+      "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+      "response_text": "Supervised learning uses labeled data to train models, while unsupervised learning finds patterns in data without labels.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 4896.0,
+        "stt_latency_ms": 2851.382,
+        "stt_first_result_ms": 2851.273,
+        "llm_ttft_ms": 900.849,
+        "llm_completion_ms": 992.344,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 716.132,
+        "tts_completion_ms": 716.645,
+        "time_to_first_audio_ms": 4573.734,
+        "total_response_latency_ms": 4574.558,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "35e46bbf-ba46-474b-8780-4b2a7d72e249",
+      "audio_metadata": {
+        "original_filename": "test_01.wav",
+        "file_size_bytes": 940110,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 4896.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:18:48.366Z",
+      "completed_at": "2026-09-21T21:18:53.055Z",
+      "events": [
+        {
+          "ts_ms": 0.028,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:48.480Z",
+          "detail": {
+            "input_duration_ms": 4896.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.918,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:48.490Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2861.553,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:51.343Z",
+          "detail": {
+            "latency_ms": 2851.382,
+            "transcript_chars": 116,
+            "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+            "confidence": 0.9973958
+          }
+        },
+        {
+          "ts_ms": 2862.143,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:51.343Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 3856.836,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:52.338Z",
+          "detail": {
+            "latency_ms": 992.344,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 3857.033,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:52.338Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 4573.766,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:18:53.054Z",
+          "detail": {
+            "at_ms_from_input_end": 4573.739,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 4574.625,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:53.055Z",
+          "detail": {
+            "time_to_first_audio_ms": 4573.734,
+            "total_response_latency_ms": 4574.558
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_92f84aa743d2",
+      "session_id": "sess_0a1a40872848",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_02",
+      "success": true,
+      "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+      "response_text": "A Python list comprehension is a concise way to create lists by iterating over an iterable and optionally applying a condition; for example, `[x**2 for x in range(10)]` creates a list of squares from 0 to 9.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 5592.0,
+        "stt_latency_ms": 3038.316,
+        "stt_first_result_ms": 3038.203,
+        "llm_ttft_ms": 852.04,
+        "llm_completion_ms": 1264.52,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 978.126,
+        "tts_completion_ms": 978.557,
+        "time_to_first_audio_ms": 5295.719,
+        "total_response_latency_ms": 5296.325,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "2355dad2-6021-47c8-94dd-ba8e3a1b27bc",
+      "audio_metadata": {
+        "original_filename": "test_02.wav",
+        "file_size_bytes": 1073742,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 5592.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:18:53.284Z",
+      "completed_at": "2026-09-21T21:18:58.683Z",
+      "events": [
+        {
+          "ts_ms": 0.023,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:53.386Z",
+          "detail": {
+            "input_duration_ms": 5592.0,
+            "leading_silence_ms": 680.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 10.219,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:53.396Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3049.794,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:56.436Z",
+          "detail": {
+            "latency_ms": 3038.316,
+            "transcript_chars": 81,
+            "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+            "confidence": 0.9970703
+          }
+        },
+        {
+          "ts_ms": 3050.289,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:56.437Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 4316.161,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:57.702Z",
+          "detail": {
+            "latency_ms": 1264.52,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4316.457,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:57.703Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 5295.739,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:18:58.681Z",
+          "detail": {
+            "at_ms_from_input_end": 5295.722,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 5296.363,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:18:58.683Z",
+          "detail": {
+            "time_to_first_audio_ms": 5295.719,
+            "total_response_latency_ms": 5296.325
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_63b612f1dc64",
+      "session_id": "sess_f3d5b73f967c",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_03",
+      "success": true,
+      "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+      "response_text": "The current temperature in Bangalore is 82\u00b0F, and it is not likely to rain.",
+      "tool_calls": [
+        {
+          "name": "lookup_weather",
+          "args": {
+            "city": "Bangalore"
+          },
+          "id": "call_sgGNBE19chrlRl98ngQFIFfY"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7392.0,
+        "stt_latency_ms": 3023.427,
+        "stt_first_result_ms": 3023.334,
+        "llm_ttft_ms": 1018.733,
+        "llm_completion_ms": 3782.408,
+        "tool_latency_ms": 1673.166,
+        "tts_first_audio_ms": 663.79,
+        "tts_completion_ms": 664.234,
+        "time_to_first_audio_ms": 7479.942,
+        "total_response_latency_ms": 7480.71,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "cb36851e-bc9d-4825-bd92-08f8c8d14317",
+      "audio_metadata": {
+        "original_filename": "test_03.wav",
+        "file_size_bytes": 1419342,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7392.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:18:58.900Z",
+      "completed_at": "2026-09-21T21:19:06.456Z",
+      "events": [
+        {
+          "ts_ms": 0.016,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:58.976Z",
+          "detail": {
+            "input_duration_ms": 7392.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 5.499,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:18:58.981Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3029.616,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:02.004Z",
+          "detail": {
+            "latency_ms": 3023.427,
+            "transcript_chars": 128,
+            "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3030.157,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:02.006Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 4083.736,
+          "stage": "tool",
+          "label": "Tool started: lookup_weather",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:03.059Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "args": {
+              "city": "Bangalore"
+            }
+          }
+        },
+        {
+          "ts_ms": 5757.082,
+          "stage": "tool",
+          "label": "Tool completed: lookup_weather",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:04.732Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "latency_ms": 1673.166,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 6814.507,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:05.789Z",
+          "detail": {
+            "latency_ms": 3782.408,
+            "tool_calls": [
+              "lookup_weather"
+            ],
+            "tool_latencies": [
+              {
+                "name": "lookup_weather",
+                "latency_ms": 1673.166,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 6814.841,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:05.789Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 7479.979,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:19:06.455Z",
+          "detail": {
+            "at_ms_from_input_end": 7479.947,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 7480.782,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:06.456Z",
+          "detail": {
+            "time_to_first_audio_ms": 7479.942,
+            "total_response_latency_ms": 7480.71
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_4d5b29181e75",
+      "session_id": "sess_90551a83c92d",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_04",
+      "success": true,
+      "transcript": "Search the web for the latest official information about the Python programming language and tell me the current stable Python version.",
+      "response_text": "I couldn't find the current stable version of Python; please check the official Python website for the latest information.",
+      "tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "latest official information about Python programming language current stable version"
+          },
+          "id": "call_fUeiIPCv0VvSMTjufrvSkxCG"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7632.0,
+        "stt_latency_ms": 3222.222,
+        "stt_first_result_ms": 3222.148,
+        "llm_ttft_ms": 808.564,
+        "llm_completion_ms": 2222.992,
+        "tool_latency_ms": 88.33,
+        "tts_first_audio_ms": 711.807,
+        "tts_completion_ms": 712.082,
+        "time_to_first_audio_ms": 6171.827,
+        "total_response_latency_ms": 6172.268,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "957e352d-d448-47ba-9738-f0af6e3b7429",
+      "audio_metadata": {
+        "original_filename": "test_04.wav",
+        "file_size_bytes": 1465422,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7632.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:06.648Z",
+      "completed_at": "2026-09-21T21:19:12.932Z",
+      "events": [
+        {
+          "ts_ms": 0.026,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:06.759Z",
+          "detail": {
+            "input_duration_ms": 7632.0,
+            "leading_silence_ms": 360.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 9.726,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:06.769Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3233.281,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:09.992Z",
+          "detail": {
+            "latency_ms": 3222.222,
+            "transcript_chars": 135,
+            "transcript_preview": "Search the web for the latest official information about the Python programming \u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3233.744,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:09.992Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 4303.313,
+          "stage": "tool",
+          "label": "Tool started: web_search",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:11.062Z",
+          "detail": {
+            "tool": "web_search",
+            "args": {
+              "query": "latest official information about Python programming language current stable version"
+            }
+          }
+        },
+        {
+          "ts_ms": 4391.793,
+          "stage": "tool",
+          "label": "Tool completed: web_search",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:11.151Z",
+          "detail": {
+            "tool": "web_search",
+            "latency_ms": 88.33,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 5458.267,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:12.217Z",
+          "detail": {
+            "latency_ms": 2222.992,
+            "tool_calls": [
+              "web_search"
+            ],
+            "tool_latencies": [
+              {
+                "name": "web_search",
+                "latency_ms": 88.33,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 5458.643,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:12.218Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6171.844,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:19:12.931Z",
+          "detail": {
+            "at_ms_from_input_end": 6171.83,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6172.301,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:12.932Z",
+          "detail": {
+            "time_to_first_audio_ms": 6171.827,
+            "total_response_latency_ms": 6172.268
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_1a9fa7c1cb47",
+      "session_id": "sess_3bd49b4c1681",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_05",
+      "success": true,
+      "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+      "response_text": "A REST API is a way for different software applications to communicate with each other over the internet using standard web protocols.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 6816.0,
+        "stt_latency_ms": 2899.918,
+        "stt_first_result_ms": 2899.853,
+        "llm_ttft_ms": 893.19,
+        "llm_completion_ms": 1153.72,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 755.404,
+        "tts_completion_ms": 755.677,
+        "time_to_first_audio_ms": 4817.834,
+        "total_response_latency_ms": 4818.273,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "5e659cb9-6594-4225-a37d-4ecf8f096215",
+      "audio_metadata": {
+        "original_filename": "test_05.wav",
+        "file_size_bytes": 1308750,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 6816.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:13.076Z",
+      "completed_at": "2026-09-21T21:19:17.945Z",
+      "events": [
+        {
+          "ts_ms": 0.012,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:13.127Z",
+          "detail": {
+            "input_duration_ms": 6816.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 4.808,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:13.131Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2905.336,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:16.032Z",
+          "detail": {
+            "latency_ms": 2899.918,
+            "transcript_chars": 119,
+            "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+            "confidence": 0.99609375
+          }
+        },
+        {
+          "ts_ms": 2905.823,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:16.033Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 4060.892,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:17.187Z",
+          "detail": {
+            "latency_ms": 1153.72,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4061.205,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:17.187Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 4817.853,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:19:17.944Z",
+          "detail": {
+            "at_ms_from_input_end": 4817.837,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 4818.308,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:17.945Z",
+          "detail": {
+            "time_to_first_audio_ms": 4817.834,
+            "total_response_latency_ms": 4818.273
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_623a95d23d1e",
+      "session_id": "sess_19c9b073dbcc",
+      "pipeline_id": "deepgram-or-openai/gpt-4o-mini-elevenlabs",
+      "test_case_id": "test_06",
+      "success": true,
+      "transcript": "I'm testing speech recognition with background white noise. Please give me three practical tips for improving the latency of a voice assistant.",
+      "response_text": "1. Optimize the speech recognition algorithm for faster processing.  \n2. Use edge computing to reduce data transmission time.  \n3. Implement efficient caching strategies for frequently used commands.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7824.0,
+        "stt_latency_ms": 3002.61,
+        "stt_first_result_ms": 3002.506,
+        "llm_ttft_ms": 966.157,
+        "llm_completion_ms": 1204.124,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 899.001,
+        "tts_completion_ms": 899.809,
+        "time_to_first_audio_ms": 5119.478,
+        "total_response_latency_ms": 5120.629,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "0ed5eb3c-d802-4e44-939e-9f711e7d5452",
+      "audio_metadata": {
+        "original_filename": "test_06.wav",
+        "file_size_bytes": 1502286,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7824.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:18.154Z",
+      "completed_at": "2026-09-21T21:19:23.382Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:18.261Z",
+          "detail": {
+            "input_duration_ms": 7824.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.79,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:18.270Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3013.451,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:21.275Z",
+          "detail": {
+            "latency_ms": 3002.61,
+            "transcript_chars": 143,
+            "transcript_preview": "I'm testing speech recognition with background white noise. Please give me three\u2026",
+            "confidence": 0.9980469
+          }
+        },
+        {
+          "ts_ms": 3013.959,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:21.275Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4o-mini"
+          }
+        },
+        {
+          "ts_ms": 4219.733,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:22.480Z",
+          "detail": {
+            "latency_ms": 1204.124,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4219.901,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:22.480Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 5119.523,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:19:23.381Z",
+          "detail": {
+            "at_ms_from_input_end": 5119.484,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 5120.702,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:23.382Z",
+          "detail": {
+            "time_to_first_audio_ms": 5119.478,
+            "total_response_latency_ms": 5120.629
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_c49e946f81aa",
+      "session_id": "sess_0d5d838c4292",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_01",
+      "success": false,
+      "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 4896.0,
+        "stt_latency_ms": 3029.492,
+        "stt_first_result_ms": 3029.42,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "3086e30d-ee80-49e9-a308-1d9321248017",
+      "audio_metadata": {
+        "original_filename": "test_01.wav",
+        "file_size_bytes": 940110,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 4896.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:23.611Z",
+      "completed_at": "2026-09-21T21:19:27.129Z",
+      "events": [
+        {
+          "ts_ms": 0.024,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:23.710Z",
+          "detail": {
+            "input_duration_ms": 4896.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.179,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:23.719Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3038.8,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:26.749Z",
+          "detail": {
+            "latency_ms": 3029.492,
+            "transcript_chars": 116,
+            "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+            "confidence": 0.9973958
+          }
+        },
+        {
+          "ts_ms": 3039.272,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:26.749Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 3419.813,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:19:27.130Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_11fb47d49b27",
+      "session_id": "sess_4ea91fad6f20",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_02",
+      "success": false,
+      "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 5592.0,
+        "stt_latency_ms": 2746.146,
+        "stt_first_result_ms": 2746.072,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "a6ffd85b-6de5-41fe-80fc-3d8c8bef72fb",
+      "audio_metadata": {
+        "original_filename": "test_02.wav",
+        "file_size_bytes": 1073742,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 5592.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:27.271Z",
+      "completed_at": "2026-09-21T21:19:30.229Z",
+      "events": [
+        {
+          "ts_ms": 0.026,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:27.372Z",
+          "detail": {
+            "input_duration_ms": 5592.0,
+            "leading_silence_ms": 680.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 10.025,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:27.382Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2757.366,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:30.130Z",
+          "detail": {
+            "latency_ms": 2746.146,
+            "transcript_chars": 81,
+            "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+            "confidence": 0.9970703
+          }
+        },
+        {
+          "ts_ms": 2757.848,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:30.130Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 2857.688,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:19:30.230Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_8382fb3f47e0",
+      "session_id": "sess_3925a47d0e28",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_03",
+      "success": false,
+      "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7392.0,
+        "stt_latency_ms": 3099.611,
+        "stt_first_result_ms": 3099.572,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "d2786d7d-cb13-4b23-8e9c-05023e54c869",
+      "audio_metadata": {
+        "original_filename": "test_03.wav",
+        "file_size_bytes": 1419342,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7392.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:30.558Z",
+      "completed_at": "2026-09-21T21:19:33.781Z",
+      "events": [
+        {
+          "ts_ms": 0.014,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:30.610Z",
+          "detail": {
+            "input_duration_ms": 7392.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 4.311,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:30.613Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3104.542,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:33.715Z",
+          "detail": {
+            "latency_ms": 3099.611,
+            "transcript_chars": 128,
+            "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3104.769,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:33.715Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 3171.368,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:19:33.781Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_db8b7847fd32",
+      "session_id": "sess_140996af6939",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_04",
+      "success": false,
+      "transcript": "Search the web for the latest official information about the Python programming language and tell me the current stable Python version.",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7632.0,
+        "stt_latency_ms": 2922.794,
+        "stt_first_result_ms": 2922.714,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "2c29a4e7-a0c6-452c-a012-507773c14759",
+      "audio_metadata": {
+        "original_filename": "test_04.wav",
+        "file_size_bytes": 1465422,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7632.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:34.087Z",
+      "completed_at": "2026-09-21T21:19:37.263Z",
+      "events": [
+        {
+          "ts_ms": 0.179,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:34.208Z",
+          "detail": {
+            "input_duration_ms": 7632.0,
+            "leading_silence_ms": 360.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 22.299,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:34.229Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2946.904,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:37.154Z",
+          "detail": {
+            "latency_ms": 2922.794,
+            "transcript_chars": 135,
+            "transcript_preview": "Search the web for the latest official information about the Python programming \u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 2947.466,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:37.155Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 3056.406,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:19:37.263Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_4c938e548490",
+      "session_id": "sess_c0ef1a7b1e13",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_05",
+      "success": false,
+      "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 6816.0,
+        "stt_latency_ms": 2955.918,
+        "stt_first_result_ms": 2955.839,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "65d87027-d247-410b-acee-134c4ba0bf69",
+      "audio_metadata": {
+        "original_filename": "test_05.wav",
+        "file_size_bytes": 1308750,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 6816.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:37.495Z",
+      "completed_at": "2026-09-21T21:19:40.694Z",
+      "events": [
+        {
+          "ts_ms": 0.023,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:37.606Z",
+          "detail": {
+            "input_duration_ms": 6816.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 9.556,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:37.615Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2966.628,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:40.572Z",
+          "detail": {
+            "latency_ms": 2955.918,
+            "transcript_chars": 119,
+            "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+            "confidence": 0.99609375
+          }
+        },
+        {
+          "ts_ms": 2967.103,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:40.572Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 3088.371,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:19:40.694Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_7b62f71d63e2",
+      "session_id": "sess_2af136e26009",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_06",
+      "success": false,
+      "transcript": "I'm testing speech recognition with background white noise. Please give me three practical tips for improving the latency of a voice assistant.",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7824.0,
+        "stt_latency_ms": 3330.817,
+        "stt_first_result_ms": 3330.687,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "d17cf5f7-3d82-48b4-89e6-505686f30eeb",
+      "audio_metadata": {
+        "original_filename": "test_06.wav",
+        "file_size_bytes": 1502286,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7824.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:40.917Z",
+      "completed_at": "2026-09-21T21:19:44.508Z",
+      "events": [
+        {
+          "ts_ms": 0.026,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:41.021Z",
+          "detail": {
+            "input_duration_ms": 7824.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 10.567,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:41.032Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3343.86,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:44.365Z",
+          "detail": {
+            "latency_ms": 3330.817,
+            "transcript_chars": 143,
+            "transcript_preview": "I'm testing speech recognition with background white noise. Please give me three\u2026",
+            "confidence": 0.9980469
+          }
+        },
+        {
+          "ts_ms": 3344.589,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:44.366Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 3487.206,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:19:44.508Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_e59c84087023",
+      "session_id": "sess_77e413583e62",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_01",
+      "success": false,
+      "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 4896.0,
+        "stt_latency_ms": 2879.173,
+        "stt_first_result_ms": 2879.138,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "17c8710b-3128-4386-8004-abdebff917f1",
+      "audio_metadata": {
+        "original_filename": "test_01.wav",
+        "file_size_bytes": 940110,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 4896.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:44.670Z",
+      "completed_at": "2026-09-21T21:19:47.665Z",
+      "events": [
+        {
+          "ts_ms": 0.017,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:44.716Z",
+          "detail": {
+            "input_duration_ms": 4896.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 4.456,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:44.721Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2884.234,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:47.601Z",
+          "detail": {
+            "latency_ms": 2879.173,
+            "transcript_chars": 116,
+            "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+            "confidence": 0.9973958
+          }
+        },
+        {
+          "ts_ms": 2884.446,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:47.601Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 2949.638,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:19:47.665Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_fe9985b80a07",
+      "session_id": "sess_c30c7dbd4b0e",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_02",
+      "success": false,
+      "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 5592.0,
+        "stt_latency_ms": 2723.667,
+        "stt_first_result_ms": 2723.588,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "8c991f74-371c-42ff-84c6-8027db310551",
+      "audio_metadata": {
+        "original_filename": "test_02.wav",
+        "file_size_bytes": 1073742,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 5592.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:47.881Z",
+      "completed_at": "2026-09-21T21:19:50.824Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:47.985Z",
+          "detail": {
+            "input_duration_ms": 5592.0,
+            "leading_silence_ms": 680.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.429,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:47.994Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2733.35,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:50.719Z",
+          "detail": {
+            "latency_ms": 2723.667,
+            "transcript_chars": 81,
+            "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+            "confidence": 0.9970703
+          }
+        },
+        {
+          "ts_ms": 2733.937,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:50.720Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 2838.538,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:19:50.824Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_6b2d94995da5",
+      "session_id": "sess_fbf5940e2a23",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_03",
+      "success": false,
+      "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7392.0,
+        "stt_latency_ms": 2731.781,
+        "stt_first_result_ms": 2731.696,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "6263bd0c-ad7b-4a31-838b-a8e0a88e4d56",
+      "audio_metadata": {
+        "original_filename": "test_03.wav",
+        "file_size_bytes": 1419342,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7392.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:51.043Z",
+      "completed_at": "2026-09-21T21:19:53.978Z",
+      "events": [
+        {
+          "ts_ms": 0.016,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:51.139Z",
+          "detail": {
+            "input_duration_ms": 7392.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 5.317,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:51.144Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2737.832,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:53.877Z",
+          "detail": {
+            "latency_ms": 2731.781,
+            "transcript_chars": 128,
+            "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 2738.338,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:53.877Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 2839.052,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:19:53.978Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_6eccf179ce19",
+      "session_id": "sess_17725b57a211",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_04",
+      "success": false,
+      "transcript": "Search the web for the latest official information about the Python programming language and tell me the current stable Python version.",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7632.0,
+        "stt_latency_ms": 3237.932,
+        "stt_first_result_ms": 3237.844,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "46c4d3a7-a7b9-462b-9899-c35c15944904",
+      "audio_metadata": {
+        "original_filename": "test_04.wav",
+        "file_size_bytes": 1465422,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7632.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:54.210Z",
+      "completed_at": "2026-09-21T21:19:57.683Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:54.324Z",
+          "detail": {
+            "input_duration_ms": 7632.0,
+            "leading_silence_ms": 360.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.218,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:54.333Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3247.678,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:19:57.571Z",
+          "detail": {
+            "latency_ms": 3237.932,
+            "transcript_chars": 135,
+            "transcript_preview": "Search the web for the latest official information about the Python programming \u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3248.213,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:57.572Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 3358.796,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:19:57.683Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_4472debb35ed",
+      "session_id": "sess_5baf434d5ad8",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_05",
+      "success": false,
+      "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 6816.0,
+        "stt_latency_ms": 3741.147,
+        "stt_first_result_ms": 3741.069,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "d7b42457-5265-413d-8aeb-cdbcccf49e64",
+      "audio_metadata": {
+        "original_filename": "test_05.wav",
+        "file_size_bytes": 1308750,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 6816.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:19:57.825Z",
+      "completed_at": "2026-09-21T21:20:01.772Z",
+      "events": [
+        {
+          "ts_ms": 0.013,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:57.922Z",
+          "detail": {
+            "input_duration_ms": 6816.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 4.315,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:19:57.926Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3746.172,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:20:01.668Z",
+          "detail": {
+            "latency_ms": 3741.147,
+            "transcript_chars": 119,
+            "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+            "confidence": 0.99609375
+          }
+        },
+        {
+          "ts_ms": 3746.875,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:20:01.669Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 3850.048,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:20:01.772Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_03c992686444",
+      "session_id": "sess_a56c925dec01",
+      "pipeline_id": "deepgram-or-google/gemini-2.0-flash-001-elevenlabs",
+      "test_case_id": "test_06",
+      "success": false,
+      "transcript": "I'm testing speech recognition with background white noise. Please give me three practical tips for improving the latency of a voice assistant.",
+      "response_text": "",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7824.0,
+        "stt_latency_ms": 3162.904,
+        "stt_first_result_ms": 3162.838,
+        "llm_ttft_ms": null,
+        "llm_completion_ms": null,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": null,
+        "tts_completion_ms": null,
+        "time_to_first_audio_ms": null,
+        "total_response_latency_ms": null,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": null
+      },
+      "failure_stage": "llm",
+      "error_type": "LLMError",
+      "error_detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}",
+      "trace_id": "b94119d8-8e6c-478d-a596-a041bb092cb5",
+      "audio_metadata": {
+        "original_filename": "test_06.wav",
+        "file_size_bytes": 1502286,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7824.0
+      },
+      "experiment_id": "EXP-2026-00001",
+      "started_at": "2026-09-21T21:20:02.028Z",
+      "completed_at": "2026-09-21T21:20:05.453Z",
+      "events": [
+        {
+          "ts_ms": 0.073,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:20:02.181Z",
+          "detail": {
+            "input_duration_ms": 7824.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 12.257,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:20:02.192Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3176.65,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:20:05.357Z",
+          "detail": {
+            "latency_ms": 3162.904,
+            "transcript_chars": 143,
+            "transcript_preview": "I'm testing speech recognition with background white noise. Please give me three\u2026",
+            "confidence": 0.9980469
+          }
+        },
+        {
+          "ts_ms": 3177.122,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:20:05.357Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-2.0-flash-001"
+          }
+        },
+        {
+          "ts_ms": 3273.404,
+          "stage": "done",
+          "label": "FAILED at llm",
+          "kind": "error",
+          "wall_clock": "2026-09-21T21:20:05.454Z",
+          "detail": {
+            "error_type": "LLMError",
+            "detail": "Error code: 404 - {'error': {'message': 'No endpoints found for google/gemini-2.0-flash-001.', 'code': 404}, 'user_id': 'user_3JeGNIWzFPLscp4IWWOEx42Ny1s'}"
+          }
+        }
+      ],
+      "run_no": 2
+    }
+  ],
+  "summary": {
+    "deepgram-or-openai/gpt-4o-mini-elevenlabs": {
+      "runs": 12,
+      "successful": 12,
+      "failed": 0,
+      "ttfa": {
+        "n": 12,
+        "mean_ms": 5847.1,
+        "median_ms": 5535.2,
+        "p95_ms": 8500.6,
+        "min_ms": 4573.7,
+        "max_ms": 8500.6
+      },
+      "stt": {
+        "n": 12,
+        "mean_ms": 3156.7,
+        "median_ms": 3075.1,
+        "p95_ms": 3608.1,
+        "min_ms": 2851.4,
+        "max_ms": 3608.1
+      },
+      "llm_ttft": {
+        "n": 12,
+        "mean_ms": 990.5,
+        "median_ms": 926.7,
+        "p95_ms": 1463.2,
+        "min_ms": 808.6,
+        "max_ms": 1463.2
+      },
+      "tool": {
+        "n": 4,
+        "mean_ms": 878.7,
+        "median_ms": 879.0,
+        "p95_ms": null,
+        "min_ms": 83.7,
+        "max_ms": 1673.2
+      },
+      "tts_first": {
+        "n": 12,
+        "mean_ms": 805.5,
+        "median_ms": 741.1,
+        "p95_ms": 1043.6,
+        "min_ms": 663.8,
+        "max_ms": 1043.6
+      },
+      "total": {
+        "n": 12,
+        "mean_ms": 5847.9,
+        "median_ms": 5536.0,
+        "p95_ms": 8501.2,
+        "min_ms": 4574.6,
+        "max_ms": 8501.2
+      },
+      "tool_calls_by_case": {
+        "test_01": 0,
+        "test_02": 0,
+        "test_03": 1,
+        "test_04": 1,
+        "test_05": 0,
+        "test_06": 0
+      }
+    },
+    "deepgram-or-google/gemini-2.0-flash-001-elevenlabs": {
+      "runs": 12,
+      "successful": 0,
+      "failed": 12,
+      "ttfa": {
+        "n": 0,
+        "mean_ms": null,
+        "median_ms": null,
+        "p95_ms": null,
+        "min_ms": null,
+        "max_ms": null
+      },
+      "stt": {
+        "n": 12,
+        "mean_ms": 3046.8,
+        "median_ms": 2992.7,
+        "p95_ms": 3741.1,
+        "min_ms": 2723.7,
+        "max_ms": 3741.1
+      },
+      "llm_ttft": {
+        "n": 0,
+        "mean_ms": null,
+        "median_ms": null,
+        "p95_ms": null,
+        "min_ms": null,
+        "max_ms": null
+      },
+      "tool": {
+        "n": 0,
+        "mean_ms": null,
+        "median_ms": null,
+        "p95_ms": null,
+        "min_ms": null,
+        "max_ms": null
+      },
+      "tts_first": {
+        "n": 0,
+        "mean_ms": null,
+        "median_ms": null,
+        "p95_ms": null,
+        "min_ms": null,
+        "max_ms": null
+      },
+      "total": {
+        "n": 0,
+        "mean_ms": null,
+        "median_ms": null,
+        "p95_ms": null,
+        "min_ms": null,
+        "max_ms": null
+      },
+      "tool_calls_by_case": {
+        "test_01": 0,
+        "test_02": 0,
+        "test_03": 0,
+        "test_04": 0,
+        "test_05": 0,
+        "test_06": 0
+      }
+    }
+  }
+}

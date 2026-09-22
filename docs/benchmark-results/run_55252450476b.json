@@ -1,0 +1,214 @@
+{
+  "run_id": "run_55252450476b",
+  "session_id": "sess_fd49cfc9505b",
+  "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+  "test_case_id": "test_03",
+  "success": true,
+  "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+  "response_text": "It is currently 71 degrees Fahrenheit and overcast in Bangalore, with no rain expected right now.",
+  "tool_calls": [
+    {
+      "name": "lookup_weather",
+      "args": {
+        "city": "Bangalore"
+      },
+      "id": "call_1122534"
+    },
+    {
+      "name": "lookup_weather",
+      "args": {
+        "city": "Bengaluru"
+      },
+      "id": "call_1361400"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 7392.0,
+    "stt_latency_ms": 3178.71,
+    "stt_first_result_ms": 3178.64,
+    "llm_ttft_ms": 1806.056,
+    "llm_completion_ms": 10283.232,
+    "tool_latency_ms": 3246.848,
+    "tts_first_audio_ms": 653.055,
+    "tts_completion_ms": 653.338,
+    "time_to_first_audio_ms": 14126.321,
+    "total_response_latency_ms": 14127.123,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE"
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "f8f24dba-fa50-4e22-b972-9736a383f638",
+  "audio_metadata": {
+    "original_filename": "test_03.wav",
+    "file_size_bytes": 1419342,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 7392.0
+  },
+  "experiment_id": null,
+  "started_at": "2026-09-21T21:24:53.441Z",
+  "completed_at": "2026-09-21T21:25:07.868Z",
+  "events": [
+    {
+      "ts_ms": 0.018,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:24:53.741Z",
+      "detail": {
+        "input_duration_ms": 7392.0,
+        "leading_silence_ms": 200.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 6.454,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:24:53.747Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 3186.096,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:24:56.927Z",
+      "detail": {
+        "latency_ms": 3178.71,
+        "transcript_chars": 128,
+        "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+        "confidence": 0.99902344
+      }
+    },
+    {
+      "ts_ms": 3186.543,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:24:56.927Z",
+      "detail": {
+        "llm": "openrouter:google/gemini-3.8-flash"
+      }
+    },
+    {
+      "ts_ms": 5085.968,
+      "stage": "tool",
+      "label": "Tool started: lookup_weather",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:24:58.827Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "args": {
+          "city": "Bangalore"
+        }
+      }
+    },
+    {
+      "ts_ms": 6632.32,
+      "stage": "tool",
+      "label": "Tool completed: lookup_weather",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:25:00.373Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "latency_ms": 1546.251,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 9131.974,
+      "stage": "tool",
+      "label": "Tool started: lookup_weather",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:25:02.873Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "args": {
+          "city": "Bengaluru"
+        }
+      }
+    },
+    {
+      "ts_ms": 10832.748,
+      "stage": "tool",
+      "label": "Tool completed: lookup_weather",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:25:04.574Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "latency_ms": 1700.597,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 13471.277,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:25:07.212Z",
+      "detail": {
+        "latency_ms": 10283.232,
+        "tool_calls": [
+          "lookup_weather",
+          "lookup_weather"
+        ],
+        "tool_latencies": [
+          {
+            "name": "lookup_weather",
+            "latency_ms": 1546.251,
+            "ok": true
+          },
+          {
+            "name": "lookup_weather",
+            "latency_ms": 1700.597,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "ts_ms": 13471.61,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:25:07.213Z",
+      "detail": {
+        "provider": "elevenlabs",
+        "model": "eleven_turbo_v2_5"
+      }
+    },
+    {
+      "ts_ms": 14126.356,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-21T21:25:07.867Z",
+      "detail": {
+        "at_ms_from_input_end": 14126.326,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 14127.23,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:25:07.868Z",
+      "detail": {
+        "time_to_first_audio_ms": 14126.321,
+        "total_response_latency_ms": 14127.123
+      }
+    }
+  ]
+}

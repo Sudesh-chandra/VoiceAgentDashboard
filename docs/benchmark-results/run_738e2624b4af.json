@@ -1,0 +1,173 @@
+{
+  "run_id": "run_738e2624b4af",
+  "session_id": "sess_2be411adf872",
+  "pipeline_id": "verify-ls",
+  "test_case_id": "test_03",
+  "success": true,
+  "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+  "response_text": "The current temperature in Bangalore is 83.8\u00b0F, and it is not likely to rain.",
+  "tool_calls": [
+    {
+      "name": "lookup_weather",
+      "args": {
+        "city": "Bangalore"
+      },
+      "id": "call_SR9Xup3twaT4w6lSNieLmDPE"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 7392.0,
+    "stt_latency_ms": 2879.724,
+    "stt_first_result_ms": 2879.682,
+    "llm_ttft_ms": 1414.773,
+    "llm_completion_ms": 4174.286,
+    "tool_latency_ms": 1313.341,
+    "tts_first_audio_ms": 748.805,
+    "tts_completion_ms": 748.96,
+    "time_to_first_audio_ms": 7886.213,
+    "total_response_latency_ms": 7886.476,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "fd61a573-811e-41c0-a26a-7bb34171d81d",
+  "audio_metadata": {
+    "original_filename": "test_03.wav",
+    "file_size_bytes": 1419342,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 7392.0
+  },
+  "started_at": "2026-09-21T18:57:07.155Z",
+  "completed_at": "2026-09-21T18:57:16.144Z",
+  "events": [
+    {
+      "ts_ms": 0.009,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:57:08.257Z",
+      "detail": {
+        "input_duration_ms": 7392.0,
+        "leading_silence_ms": 200.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 80.913,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:57:08.339Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2961.381,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T18:57:11.219Z",
+      "detail": {
+        "latency_ms": 2879.724,
+        "transcript_chars": 128,
+        "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+        "confidence": 0.99902344
+      }
+    },
+    {
+      "ts_ms": 2961.706,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:57:11.219Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4o-mini"
+      }
+    },
+    {
+      "ts_ms": 4467.16,
+      "stage": "tool",
+      "label": "Tool started: lookup_weather",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:57:12.725Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "args": {
+          "city": "Bangalore"
+        }
+      }
+    },
+    {
+      "ts_ms": 5780.576,
+      "stage": "tool",
+      "label": "Tool completed: lookup_weather",
+      "kind": "end",
+      "wall_clock": "2026-09-21T18:57:14.038Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "latency_ms": 1313.341,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 7136.849,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T18:57:15.395Z",
+      "detail": {
+        "latency_ms": 4174.286,
+        "tool_calls": [
+          "lookup_weather"
+        ],
+        "tool_latencies": [
+          {
+            "name": "lookup_weather",
+            "latency_ms": 1313.341,
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "ts_ms": 7137.011,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T18:57:15.395Z",
+      "detail": {
+        "provider": "elevenlabs",
+        "model": "eleven_turbo_v2_5"
+      }
+    },
+    {
+      "ts_ms": 7886.222,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-21T18:57:16.144Z",
+      "detail": {
+        "at_ms_from_input_end": 7886.215
+      }
+    },
+    {
+      "ts_ms": 7886.494,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-21T18:57:16.144Z",
+      "detail": {
+        "time_to_first_audio_ms": 7886.213,
+        "total_response_latency_ms": 7886.476
+      }
+    }
+  ]
+}

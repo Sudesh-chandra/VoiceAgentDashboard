@@ -1,0 +1,143 @@
+{
+  "run_id": "run_3a312e1c51e0",
+  "session_id": "sess_bf7013cbc926",
+  "pipeline_id": "deepgram:nova-3-or-openai/gpt-4.1-mini-deepgram:aura-2-thalia-en",
+  "test_case_id": "test_02",
+  "success": true,
+  "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+  "response_text": "A Python list comprehension is a concise way to create lists using a single line of code, like this: [x*2 for x in range(5)] which produces [0, 2, 4, 6, 8].",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 5592.0,
+    "stt_latency_ms": 3253.449,
+    "stt_first_result_ms": 3253.388,
+    "llm_ttft_ms": 1001.606,
+    "llm_completion_ms": 1333.654,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 6677.395,
+    "tts_completion_ms": 6677.546,
+    "time_to_first_audio_ms": 11277.468,
+    "total_response_latency_ms": 11277.835,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "BUFFERED_RESPONSE",
+    "tts_voice_id": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "ed905397-a487-4a52-af17-6aac853d184c",
+  "audio_metadata": {
+    "original_filename": "test_02.wav",
+    "file_size_bytes": 1073742,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 5592.0
+  },
+  "stt_spec": "deepgram:nova-3",
+  "llm_spec": "openrouter:openai/gpt-4.1-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T05:59:33.839Z",
+  "completed_at": "2026-09-22T05:59:45.206Z",
+  "events": [
+    {
+      "ts_ms": 0.025,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:59:33.928Z",
+      "detail": {
+        "input_duration_ms": 5592.0,
+        "leading_silence_ms": 680.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 8.764,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:59:33.937Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-3"
+      }
+    },
+    {
+      "ts_ms": 3263.364,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T05:59:37.192Z",
+      "detail": {
+        "latency_ms": 3253.449,
+        "transcript_chars": 81,
+        "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+        "confidence": 0.9941406,
+        "key_account": "deepgram#1"
+      }
+    },
+    {
+      "ts_ms": 3263.839,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:59:37.192Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "ts_ms": 4598.717,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-22T05:59:38.527Z",
+      "detail": {
+        "latency_ms": 1333.654,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 4599.004,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T05:59:38.527Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-thalia-en"
+      }
+    },
+    {
+      "ts_ms": 11277.493,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-22T05:59:45.206Z",
+      "detail": {
+        "at_ms_from_input_end": 11277.471,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 11277.883,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-22T05:59:45.206Z",
+      "detail": {
+        "time_to_first_audio_ms": 11277.468,
+        "total_response_latency_ms": 11277.835,
+        "stt_key_account": null,
+        "tts_key_account": "deepgram#1"
+      }
+    }
+  ]
+}

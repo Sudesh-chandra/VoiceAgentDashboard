@@ -1,0 +1,3839 @@
+{
+  "experiment_id": "EXP-2026-00003",
+  "pipelines": [
+    "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+    "deepgram-or-google/gemini-3.8-flash-elevenlabs"
+  ],
+  "results": [
+    {
+      "run_id": "run_aa01e7f6b028",
+      "session_id": "sess_14aabe3c81f1",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_01",
+      "success": true,
+      "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+      "response_text": "Supervised learning uses labeled data to teach the model, while unsupervised learning finds patterns in data without labels.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 4896.0,
+        "stt_latency_ms": 3005.05,
+        "stt_first_result_ms": 3005.024,
+        "llm_ttft_ms": 1441.83,
+        "llm_completion_ms": 1830.185,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 720.627,
+        "tts_completion_ms": 721.181,
+        "time_to_first_audio_ms": 5712.518,
+        "total_response_latency_ms": 5713.408,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "e1389ed9-3031-4527-9d8c-60f096790026",
+      "audio_metadata": {
+        "original_filename": "test_01.wav",
+        "file_size_bytes": 940110,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 4896.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:23:11.300Z",
+      "completed_at": "2026-09-21T21:23:20.274Z",
+      "events": [
+        {
+          "ts_ms": 0.021,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:14.561Z",
+          "detail": {
+            "input_duration_ms": 4896.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 152.316,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:14.713Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3158.132,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:17.719Z",
+          "detail": {
+            "latency_ms": 3005.05,
+            "transcript_chars": 116,
+            "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+            "confidence": 0.9973958
+          }
+        },
+        {
+          "ts_ms": 3158.369,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:17.719Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 4989.247,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:19.550Z",
+          "detail": {
+            "latency_ms": 1830.185,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4989.741,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:19.551Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 5712.551,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:23:20.273Z",
+          "detail": {
+            "at_ms_from_input_end": 5712.523,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 5713.541,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:20.274Z",
+          "detail": {
+            "time_to_first_audio_ms": 5712.518,
+            "total_response_latency_ms": 5713.408
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_7658aded8828",
+      "session_id": "sess_6018e8cc561d",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_02",
+      "success": true,
+      "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+      "response_text": "A Python list comprehension is a concise way to create lists using a single line of code, like this: [x*2 for x in range(5)] which produces [0, 2, 4, 6, 8].",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 5592.0,
+        "stt_latency_ms": 3095.546,
+        "stt_first_result_ms": 3095.478,
+        "llm_ttft_ms": 1145.695,
+        "llm_completion_ms": 1578.726,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 936.224,
+        "tts_completion_ms": 937.166,
+        "time_to_first_audio_ms": 5624.795,
+        "total_response_latency_ms": 5626.054,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "94269fd3-13e8-4e4f-946f-a0c1ab09cab1",
+      "audio_metadata": {
+        "original_filename": "test_02.wav",
+        "file_size_bytes": 1073742,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 5592.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:23:20.492Z",
+      "completed_at": "2026-09-21T21:23:26.226Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:20.600Z",
+          "detail": {
+            "input_duration_ms": 5592.0,
+            "leading_silence_ms": 680.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.644,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:20.608Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3105.322,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:23.706Z",
+          "detail": {
+            "latency_ms": 3095.546,
+            "transcript_chars": 81,
+            "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+            "confidence": 0.9970703
+          }
+        },
+        {
+          "ts_ms": 3105.984,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:23.706Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 4686.967,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:25.287Z",
+          "detail": {
+            "latency_ms": 1578.726,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4687.299,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:25.287Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 5624.831,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:23:26.225Z",
+          "detail": {
+            "at_ms_from_input_end": 5624.8,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 5626.126,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:26.226Z",
+          "detail": {
+            "time_to_first_audio_ms": 5624.795,
+            "total_response_latency_ms": 5626.054
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_b1058df73aec",
+      "session_id": "sess_1d3c503bc0e8",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_03",
+      "success": true,
+      "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+      "response_text": "The current temperature in Bangalore is 82\u00b0F, and there is no indication of rain.",
+      "tool_calls": [
+        {
+          "name": "lookup_weather",
+          "args": {
+            "city": "Bangalore"
+          },
+          "id": "call_iZf9MKxmc0ZEyK37cdapbjEU"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7392.0,
+        "stt_latency_ms": 3678.574,
+        "stt_first_result_ms": 3678.492,
+        "llm_ttft_ms": 1244.697,
+        "llm_completion_ms": 4720.045,
+        "tool_latency_ms": 1739.312,
+        "tts_first_audio_ms": 1083.633,
+        "tts_completion_ms": 1084.149,
+        "time_to_first_audio_ms": 9495.823,
+        "total_response_latency_ms": 9496.642,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "9a2c6775-0d90-4a02-9deb-aa01c73b41d4",
+      "audio_metadata": {
+        "original_filename": "test_03.wav",
+        "file_size_bytes": 1419342,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7392.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:23:26.461Z",
+      "completed_at": "2026-09-21T21:23:36.079Z",
+      "events": [
+        {
+          "ts_ms": 0.026,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:26.582Z",
+          "detail": {
+            "input_duration_ms": 7392.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.604,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:26.591Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3688.307,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:30.271Z",
+          "detail": {
+            "latency_ms": 3678.574,
+            "transcript_chars": 128,
+            "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3688.823,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:30.271Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 5210.057,
+          "stage": "tool",
+          "label": "Tool started: lookup_weather",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:31.793Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "args": {
+              "city": "Bangalore"
+            }
+          }
+        },
+        {
+          "ts_ms": 6949.517,
+          "stage": "tool",
+          "label": "Tool completed: lookup_weather",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:33.533Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "latency_ms": 1739.312,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 8410.553,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:34.993Z",
+          "detail": {
+            "latency_ms": 4720.045,
+            "tool_calls": [
+              "lookup_weather"
+            ],
+            "tool_latencies": [
+              {
+                "name": "lookup_weather",
+                "latency_ms": 1739.312,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 8410.882,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:34.994Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 9495.857,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:23:36.078Z",
+          "detail": {
+            "at_ms_from_input_end": 9495.828,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 9496.707,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:36.079Z",
+          "detail": {
+            "time_to_first_audio_ms": 9495.823,
+            "total_response_latency_ms": 9496.642
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_c5587acec712",
+      "session_id": "sess_cd885180f39a",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_04",
+      "success": true,
+      "transcript": "Search the web for the latest official information about the Python programming language and tell me the current stable Python version.",
+      "response_text": "The current stable version of the Python programming language is not explicitly stated in the search results; would you like me to check the official Python website directly?",
+      "tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "latest official Python programming language version"
+          },
+          "id": "call_PQku9EdRTkC88N0GZ9f0FyDO"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7632.0,
+        "stt_latency_ms": 3015.921,
+        "stt_first_result_ms": 3015.846,
+        "llm_ttft_ms": 954.545,
+        "llm_completion_ms": 2617.626,
+        "tool_latency_ms": 95.195,
+        "tts_first_audio_ms": 899.403,
+        "tts_completion_ms": 901.116,
+        "time_to_first_audio_ms": 6541.981,
+        "total_response_latency_ms": 6544.093,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "d78b65aa-d2cd-4ade-85df-23bc95672d7c",
+      "audio_metadata": {
+        "original_filename": "test_04.wav",
+        "file_size_bytes": 1465422,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7632.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:23:36.292Z",
+      "completed_at": "2026-09-21T21:23:42.947Z",
+      "events": [
+        {
+          "ts_ms": 0.016,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:36.403Z",
+          "detail": {
+            "input_duration_ms": 7632.0,
+            "leading_silence_ms": 360.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 5.017,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:36.407Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3021.619,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:39.425Z",
+          "detail": {
+            "latency_ms": 3015.921,
+            "transcript_chars": 135,
+            "transcript_preview": "Search the web for the latest official information about the Python programming \u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3022.07,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:39.425Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 4178.428,
+          "stage": "tool",
+          "label": "Tool started: web_search",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:40.581Z",
+          "detail": {
+            "tool": "web_search",
+            "args": {
+              "query": "latest official Python programming language version"
+            }
+          }
+        },
+        {
+          "ts_ms": 4273.786,
+          "stage": "tool",
+          "label": "Tool completed: web_search",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:40.676Z",
+          "detail": {
+            "tool": "web_search",
+            "latency_ms": 95.195,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 5641.165,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:42.044Z",
+          "detail": {
+            "latency_ms": 2617.626,
+            "tool_calls": [
+              "web_search"
+            ],
+            "tool_latencies": [
+              {
+                "name": "web_search",
+                "latency_ms": 95.195,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 5641.451,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:42.044Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6542.024,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:23:42.945Z",
+          "detail": {
+            "at_ms_from_input_end": 6541.987,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6544.195,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:42.947Z",
+          "detail": {
+            "time_to_first_audio_ms": 6541.981,
+            "total_response_latency_ms": 6544.093
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_fa1697d01acd",
+      "session_id": "sess_62d7d06ddaca",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_05",
+      "success": true,
+      "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+      "response_text": "A REST API is a way for different software systems to talk to each other over the internet using simple commands like getting or sending data.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 6816.0,
+        "stt_latency_ms": 9155.431,
+        "stt_first_result_ms": 9155.36,
+        "llm_ttft_ms": 870.684,
+        "llm_completion_ms": 1374.974,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 845.447,
+        "tts_completion_ms": 846.041,
+        "time_to_first_audio_ms": 11384.652,
+        "total_response_latency_ms": 11385.561,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "1cd8bb91-045a-463c-8a9a-559e0fd77256",
+      "audio_metadata": {
+        "original_filename": "test_05.wav",
+        "file_size_bytes": 1308750,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 6816.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:23:43.160Z",
+      "completed_at": "2026-09-21T21:23:54.602Z",
+      "events": [
+        {
+          "ts_ms": 0.012,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:43.216Z",
+          "detail": {
+            "input_duration_ms": 6816.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 5.039,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:43.221Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 9161.17,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:52.378Z",
+          "detail": {
+            "latency_ms": 9155.431,
+            "transcript_chars": 119,
+            "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+            "confidence": 0.99609375
+          }
+        },
+        {
+          "ts_ms": 9161.622,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:52.378Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 10537.865,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:53.754Z",
+          "detail": {
+            "latency_ms": 1374.974,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 10538.148,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:53.755Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 11384.686,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:23:54.601Z",
+          "detail": {
+            "at_ms_from_input_end": 11384.656,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 11385.667,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:54.602Z",
+          "detail": {
+            "time_to_first_audio_ms": 11384.652,
+            "total_response_latency_ms": 11385.561
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_fd0d33104da1",
+      "session_id": "sess_25f0c35856b2",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_06",
+      "success": true,
+      "transcript": "I'm testing speech recognition with background white noise. Please give me three practical tips for improving the latency of a voice assistant.",
+      "response_text": "To improve voice assistant latency, optimize audio processing algorithms, use edge computing for faster response, and minimize network delays.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7824.0,
+        "stt_latency_ms": 3315.71,
+        "stt_first_result_ms": 3315.626,
+        "llm_ttft_ms": 888.571,
+        "llm_completion_ms": 1120.438,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 667.918,
+        "tts_completion_ms": 668.447,
+        "time_to_first_audio_ms": 5116.467,
+        "total_response_latency_ms": 5117.436,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "7aba6cf8-1c25-4368-b37c-ce2a617e5db7",
+      "audio_metadata": {
+        "original_filename": "test_06.wav",
+        "file_size_bytes": 1502286,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7824.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:23:54.863Z",
+      "completed_at": "2026-09-21T21:24:00.109Z",
+      "events": [
+        {
+          "ts_ms": 0.038,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:54.992Z",
+          "detail": {
+            "input_duration_ms": 7824.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.505,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:55.000Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3325.297,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:58.317Z",
+          "detail": {
+            "latency_ms": 3315.71,
+            "transcript_chars": 143,
+            "transcript_preview": "I'm testing speech recognition with background white noise. Please give me three\u2026",
+            "confidence": 0.9980469
+          }
+        },
+        {
+          "ts_ms": 3325.822,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:58.318Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 4447.821,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:23:59.440Z",
+          "detail": {
+            "latency_ms": 1120.438,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4447.968,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:23:59.440Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 5116.492,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:24:00.109Z",
+          "detail": {
+            "at_ms_from_input_end": 5116.471,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 5117.51,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:00.110Z",
+          "detail": {
+            "time_to_first_audio_ms": 5116.467,
+            "total_response_latency_ms": 5117.436
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_d37d89758eb5",
+      "session_id": "sess_a963dbe7b7b4",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_01",
+      "success": true,
+      "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+      "response_text": "Supervised learning uses labeled data to teach the model, while unsupervised learning finds patterns in data without labels.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 4896.0,
+        "stt_latency_ms": 2909.381,
+        "stt_first_result_ms": 2909.351,
+        "llm_ttft_ms": 1262.171,
+        "llm_completion_ms": 1284.59,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 719.175,
+        "tts_completion_ms": 719.825,
+        "time_to_first_audio_ms": 4925.369,
+        "total_response_latency_ms": 4926.329,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "7e9f1fa9-fd06-4597-b9cb-4a48d208358c",
+      "audio_metadata": {
+        "original_filename": "test_01.wav",
+        "file_size_bytes": 940110,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 4896.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:24:00.253Z",
+      "completed_at": "2026-09-21T21:24:05.273Z",
+      "events": [
+        {
+          "ts_ms": 0.057,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:00.347Z",
+          "detail": {
+            "input_duration_ms": 4896.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.546,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:00.355Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2919.053,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:03.265Z",
+          "detail": {
+            "latency_ms": 2909.381,
+            "transcript_chars": 116,
+            "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+            "confidence": 0.9973958
+          }
+        },
+        {
+          "ts_ms": 2919.279,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:03.266Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 4204.499,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:04.550Z",
+          "detail": {
+            "latency_ms": 1284.59,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4204.844,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:04.551Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 4925.402,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:24:05.272Z",
+          "detail": {
+            "at_ms_from_input_end": 4925.374,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 4926.395,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:05.273Z",
+          "detail": {
+            "time_to_first_audio_ms": 4925.369,
+            "total_response_latency_ms": 4926.329
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_4d8448606f57",
+      "session_id": "sess_7bf817266d84",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_02",
+      "success": true,
+      "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+      "response_text": "A Python list comprehension is a concise way to create lists using a single line of code, like this: [x*2 for x in range(5)], which produces [0, 2, 4, 6, 8].",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 5592.0,
+        "stt_latency_ms": 3454.079,
+        "stt_first_result_ms": 3454.013,
+        "llm_ttft_ms": 1041.121,
+        "llm_completion_ms": 2096.792,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 908.411,
+        "tts_completion_ms": 910.009,
+        "time_to_first_audio_ms": 6473.956,
+        "total_response_latency_ms": 6476.009,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "10b662e3-3ccd-48f2-a6be-001db13388f9",
+      "audio_metadata": {
+        "original_filename": "test_02.wav",
+        "file_size_bytes": 1073742,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 5592.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:24:05.505Z",
+      "completed_at": "2026-09-21T21:24:12.083Z",
+      "events": [
+        {
+          "ts_ms": 0.024,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:05.606Z",
+          "detail": {
+            "input_duration_ms": 5592.0,
+            "leading_silence_ms": 680.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 10.178,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:05.617Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3465.466,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:09.072Z",
+          "detail": {
+            "latency_ms": 3454.079,
+            "transcript_chars": 81,
+            "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+            "confidence": 0.9970703
+          }
+        },
+        {
+          "ts_ms": 3465.961,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:09.073Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 5564.094,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:11.170Z",
+          "detail": {
+            "latency_ms": 2096.792,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 5564.427,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:11.170Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6474.346,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:24:12.081Z",
+          "detail": {
+            "at_ms_from_input_end": 6473.964,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6476.102,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:12.083Z",
+          "detail": {
+            "time_to_first_audio_ms": 6473.956,
+            "total_response_latency_ms": 6476.009
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_95a74581a9a3",
+      "session_id": "sess_7ae29e125017",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_03",
+      "success": true,
+      "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+      "response_text": "The current temperature in Bangalore is 82\u00b0F, and there is no indication of rain.",
+      "tool_calls": [
+        {
+          "name": "lookup_weather",
+          "args": {
+            "city": "Bangalore"
+          },
+          "id": "call_I0vzO4VgZqrB7hNcHBnazgTg"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7392.0,
+        "stt_latency_ms": 3421.556,
+        "stt_first_result_ms": 3421.49,
+        "llm_ttft_ms": 1080.103,
+        "llm_completion_ms": 4220.448,
+        "tool_latency_ms": 1704.953,
+        "tts_first_audio_ms": 670.011,
+        "tts_completion_ms": 670.518,
+        "time_to_first_audio_ms": 8327.026,
+        "total_response_latency_ms": 8327.85,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "0583e4cf-31b8-47c7-8ca6-1b6250f47b07",
+      "audio_metadata": {
+        "original_filename": "test_03.wav",
+        "file_size_bytes": 1419342,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7392.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:24:12.328Z",
+      "completed_at": "2026-09-21T21:24:20.772Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:12.444Z",
+          "detail": {
+            "input_duration_ms": 7392.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 10.264,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:12.454Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3432.978,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:15.877Z",
+          "detail": {
+            "latency_ms": 3421.556,
+            "transcript_chars": 128,
+            "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3433.472,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:15.877Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 4753.331,
+          "stage": "tool",
+          "label": "Tool started: lookup_weather",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:17.197Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "args": {
+              "city": "Bangalore"
+            }
+          }
+        },
+        {
+          "ts_ms": 6458.437,
+          "stage": "tool",
+          "label": "Tool completed: lookup_weather",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:18.902Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "latency_ms": 1704.953,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 7655.324,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:20.099Z",
+          "detail": {
+            "latency_ms": 4220.448,
+            "tool_calls": [
+              "lookup_weather"
+            ],
+            "tool_latencies": [
+              {
+                "name": "lookup_weather",
+                "latency_ms": 1704.953,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 7655.604,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:20.099Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 8327.062,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:24:20.771Z",
+          "detail": {
+            "at_ms_from_input_end": 8327.031,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 8327.918,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:20.772Z",
+          "detail": {
+            "time_to_first_audio_ms": 8327.026,
+            "total_response_latency_ms": 8327.85
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_5b37cb00c1a5",
+      "session_id": "sess_d49b51c4a1ee",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_04",
+      "success": true,
+      "transcript": "Search the web for the latest official information about the Python programming language and tell me the current stable Python version.",
+      "response_text": "The current stable Python version is not explicitly stated in the search results; would you like me to check the official Python website directly?",
+      "tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "latest official Python programming language version"
+          },
+          "id": "call_za0LFv64s01e0sAoSZiOLWo9"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7632.0,
+        "stt_latency_ms": 3315.821,
+        "stt_first_result_ms": 3315.74,
+        "llm_ttft_ms": 1558.109,
+        "llm_completion_ms": 2779.92,
+        "tool_latency_ms": 82.432,
+        "tts_first_audio_ms": 692.587,
+        "tts_completion_ms": 693.292,
+        "time_to_first_audio_ms": 6803.187,
+        "total_response_latency_ms": 6804.202,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "972a9315-7434-4298-9752-026a519348f8",
+      "audio_metadata": {
+        "original_filename": "test_04.wav",
+        "file_size_bytes": 1465422,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7632.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:24:21.012Z",
+      "completed_at": "2026-09-21T21:24:27.935Z",
+      "events": [
+        {
+          "ts_ms": 0.022,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:21.131Z",
+          "detail": {
+            "input_duration_ms": 7632.0,
+            "leading_silence_ms": 360.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 10.09,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:21.141Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3327.092,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:24.458Z",
+          "detail": {
+            "latency_ms": 3315.821,
+            "transcript_chars": 135,
+            "transcript_preview": "Search the web for the latest official information about the Python programming \u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3327.594,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:24.459Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 4914.798,
+          "stage": "tool",
+          "label": "Tool started: web_search",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:26.046Z",
+          "detail": {
+            "tool": "web_search",
+            "args": {
+              "query": "latest official Python programming language version"
+            }
+          }
+        },
+        {
+          "ts_ms": 4997.394,
+          "stage": "tool",
+          "label": "Tool completed: web_search",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:26.129Z",
+          "detail": {
+            "tool": "web_search",
+            "latency_ms": 82.432,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 6109.0,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:27.240Z",
+          "detail": {
+            "latency_ms": 2779.92,
+            "tool_calls": [
+              "web_search"
+            ],
+            "tool_latencies": [
+              {
+                "name": "web_search",
+                "latency_ms": 82.432,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 6109.382,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:27.241Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6803.222,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:24:27.934Z",
+          "detail": {
+            "at_ms_from_input_end": 6803.193,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6804.271,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:27.935Z",
+          "detail": {
+            "time_to_first_audio_ms": 6803.187,
+            "total_response_latency_ms": 6804.202
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_b57aabbf2da1",
+      "session_id": "sess_64dd2edc68b4",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_05",
+      "success": true,
+      "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+      "response_text": "A REST API is a way for different software systems to talk to each other over the internet using simple commands like getting or sending data.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 6816.0,
+        "stt_latency_ms": 3197.266,
+        "stt_first_result_ms": 3197.17,
+        "llm_ttft_ms": 980.809,
+        "llm_completion_ms": 1301.641,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 811.104,
+        "tts_completion_ms": 811.706,
+        "time_to_first_audio_ms": 5323.691,
+        "total_response_latency_ms": 5324.654,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "70096e29-b308-4520-bff7-4d829b1e0fbb",
+      "audio_metadata": {
+        "original_filename": "test_05.wav",
+        "file_size_bytes": 1308750,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 6816.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:24:28.179Z",
+      "completed_at": "2026-09-21T21:24:33.615Z",
+      "events": [
+        {
+          "ts_ms": 0.028,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:28.290Z",
+          "detail": {
+            "input_duration_ms": 6816.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.561,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:28.299Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3207.082,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:31.497Z",
+          "detail": {
+            "latency_ms": 3197.266,
+            "transcript_chars": 119,
+            "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+            "confidence": 0.99609375
+          }
+        },
+        {
+          "ts_ms": 3207.608,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:31.497Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 4510.881,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:32.801Z",
+          "detail": {
+            "latency_ms": 1301.641,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4511.235,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:32.802Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 5323.727,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:24:33.614Z",
+          "detail": {
+            "at_ms_from_input_end": 5323.696,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 5324.723,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:33.615Z",
+          "detail": {
+            "time_to_first_audio_ms": 5323.691,
+            "total_response_latency_ms": 5324.654
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_8a34633cb797",
+      "session_id": "sess_3b79a91012ce",
+      "pipeline_id": "deepgram-or-openai/gpt-4.1-mini-elevenlabs",
+      "test_case_id": "test_06",
+      "success": true,
+      "transcript": "I'm testing speech recognition with background white noise. Please give me three practical tips for improving the latency of a voice assistant.",
+      "response_text": "To improve voice assistant latency, optimize audio processing algorithms, use efficient network protocols, and deploy edge computing near users.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7824.0,
+        "stt_latency_ms": 3213.259,
+        "stt_first_result_ms": 3213.188,
+        "llm_ttft_ms": 1208.843,
+        "llm_completion_ms": 1307.895,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 772.031,
+        "tts_completion_ms": 772.717,
+        "time_to_first_audio_ms": 5303.314,
+        "total_response_latency_ms": 5304.276,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "b849cbf2-5702-4547-9ba0-aa2d1e9fd3f6",
+      "audio_metadata": {
+        "original_filename": "test_06.wav",
+        "file_size_bytes": 1502286,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7824.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:24:33.841Z",
+      "completed_at": "2026-09-21T21:24:39.204Z",
+      "events": [
+        {
+          "ts_ms": 0.016,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:33.900Z",
+          "detail": {
+            "input_duration_ms": 7824.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 5.611,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:33.905Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3220.027,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:37.120Z",
+          "detail": {
+            "latency_ms": 3213.259,
+            "transcript_chars": 143,
+            "transcript_preview": "I'm testing speech recognition with background white noise. Please give me three\u2026",
+            "confidence": 0.9980469
+          }
+        },
+        {
+          "ts_ms": 3220.578,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:37.120Z",
+          "detail": {
+            "llm": "openrouter:openai/gpt-4.1-mini"
+          }
+        },
+        {
+          "ts_ms": 4529.808,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:38.429Z",
+          "detail": {
+            "latency_ms": 1307.895,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 4530.126,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:38.430Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 5303.344,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:24:39.203Z",
+          "detail": {
+            "at_ms_from_input_end": 5303.318,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 5304.337,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:39.204Z",
+          "detail": {
+            "time_to_first_audio_ms": 5303.314,
+            "total_response_latency_ms": 5304.276
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_9e4e6ca80ffc",
+      "session_id": "sess_b6f47aedd2f6",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_01",
+      "success": true,
+      "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+      "response_text": "Supervised learning learns from labeled data with an answer key, while unsupervised learning discovers hidden patterns in data on its own.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 4896.0,
+        "stt_latency_ms": 3046.186,
+        "stt_first_result_ms": 3046.105,
+        "llm_ttft_ms": 2151.357,
+        "llm_completion_ms": 2274.184,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 858.948,
+        "tts_completion_ms": 859.33,
+        "time_to_first_audio_ms": 6194.196,
+        "total_response_latency_ms": 6194.941,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "7e127792-ae80-4f2e-9f11-6f0efb8967e0",
+      "audio_metadata": {
+        "original_filename": "test_01.wav",
+        "file_size_bytes": 940110,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 4896.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:24:39.403Z",
+      "completed_at": "2026-09-21T21:24:45.694Z",
+      "events": [
+        {
+          "ts_ms": 0.023,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:39.499Z",
+          "detail": {
+            "input_duration_ms": 4896.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 9.121,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:39.508Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3056.873,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:42.556Z",
+          "detail": {
+            "latency_ms": 3046.186,
+            "transcript_chars": 116,
+            "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+            "confidence": 0.9973958
+          }
+        },
+        {
+          "ts_ms": 3057.39,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:42.556Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 5333.001,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:44.832Z",
+          "detail": {
+            "latency_ms": 2274.184,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 5333.553,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:44.832Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6194.229,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:24:45.693Z",
+          "detail": {
+            "at_ms_from_input_end": 6194.2,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6195.038,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:45.694Z",
+          "detail": {
+            "time_to_first_audio_ms": 6194.196,
+            "total_response_latency_ms": 6194.941
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_1d3e331538a8",
+      "session_id": "sess_ceef32c0b35e",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_02",
+      "success": true,
+      "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+      "response_text": "A list comprehension is a compact way to create a new list from an existing iterable, like writing `[x * ",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 5592.0,
+        "stt_latency_ms": 3233.558,
+        "stt_first_result_ms": 3233.486,
+        "llm_ttft_ms": 2522.743,
+        "llm_completion_ms": 3231.882,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 742.18,
+        "tts_completion_ms": 742.49,
+        "time_to_first_audio_ms": 7221.556,
+        "total_response_latency_ms": 7222.034,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "1a1ea7e2-2d61-486e-8544-b7be04042957",
+      "audio_metadata": {
+        "original_filename": "test_02.wav",
+        "file_size_bytes": 1073742,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 5592.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:24:45.911Z",
+      "completed_at": "2026-09-21T21:24:53.228Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:46.006Z",
+          "detail": {
+            "input_duration_ms": 5592.0,
+            "leading_silence_ms": 680.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 9.357,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:46.015Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3244.076,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:49.250Z",
+          "detail": {
+            "latency_ms": 3233.558,
+            "transcript_chars": 81,
+            "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+            "confidence": 0.9970703
+          }
+        },
+        {
+          "ts_ms": 3244.626,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:49.251Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 6477.922,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:52.484Z",
+          "detail": {
+            "latency_ms": 3231.882,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 6478.232,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:52.484Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 7221.575,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:24:53.228Z",
+          "detail": {
+            "at_ms_from_input_end": 7221.558,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 7222.068,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:53.228Z",
+          "detail": {
+            "time_to_first_audio_ms": 7221.556,
+            "total_response_latency_ms": 7222.034
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_55252450476b",
+      "session_id": "sess_fd49cfc9505b",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_03",
+      "success": true,
+      "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+      "response_text": "It is currently 71 degrees Fahrenheit and overcast in Bangalore, with no rain expected right now.",
+      "tool_calls": [
+        {
+          "name": "lookup_weather",
+          "args": {
+            "city": "Bangalore"
+          },
+          "id": "call_1122534"
+        },
+        {
+          "name": "lookup_weather",
+          "args": {
+            "city": "Bengaluru"
+          },
+          "id": "call_1361400"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7392.0,
+        "stt_latency_ms": 3178.71,
+        "stt_first_result_ms": 3178.64,
+        "llm_ttft_ms": 1806.056,
+        "llm_completion_ms": 10283.232,
+        "tool_latency_ms": 3246.848,
+        "tts_first_audio_ms": 653.055,
+        "tts_completion_ms": 653.338,
+        "time_to_first_audio_ms": 14126.321,
+        "total_response_latency_ms": 14127.123,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "f8f24dba-fa50-4e22-b972-9736a383f638",
+      "audio_metadata": {
+        "original_filename": "test_03.wav",
+        "file_size_bytes": 1419342,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7392.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:24:53.441Z",
+      "completed_at": "2026-09-21T21:25:07.868Z",
+      "events": [
+        {
+          "ts_ms": 0.018,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:53.741Z",
+          "detail": {
+            "input_duration_ms": 7392.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 6.454,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:53.747Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3186.096,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:24:56.927Z",
+          "detail": {
+            "latency_ms": 3178.71,
+            "transcript_chars": 128,
+            "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3186.543,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:56.927Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 5085.968,
+          "stage": "tool",
+          "label": "Tool started: lookup_weather",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:24:58.827Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "args": {
+              "city": "Bangalore"
+            }
+          }
+        },
+        {
+          "ts_ms": 6632.32,
+          "stage": "tool",
+          "label": "Tool completed: lookup_weather",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:00.373Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "latency_ms": 1546.251,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 9131.974,
+          "stage": "tool",
+          "label": "Tool started: lookup_weather",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:02.873Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "args": {
+              "city": "Bengaluru"
+            }
+          }
+        },
+        {
+          "ts_ms": 10832.748,
+          "stage": "tool",
+          "label": "Tool completed: lookup_weather",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:04.574Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "latency_ms": 1700.597,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 13471.277,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:07.212Z",
+          "detail": {
+            "latency_ms": 10283.232,
+            "tool_calls": [
+              "lookup_weather",
+              "lookup_weather"
+            ],
+            "tool_latencies": [
+              {
+                "name": "lookup_weather",
+                "latency_ms": 1546.251,
+                "ok": true
+              },
+              {
+                "name": "lookup_weather",
+                "latency_ms": 1700.597,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 13471.61,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:07.213Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 14126.356,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:25:07.867Z",
+          "detail": {
+            "at_ms_from_input_end": 14126.326,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 14127.23,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:07.868Z",
+          "detail": {
+            "time_to_first_audio_ms": 14126.321,
+            "total_response_latency_ms": 14127.123
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_edc98305bdac",
+      "session_id": "sess_fe7a7dcb03bf",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_04",
+      "success": true,
+      "transcript": "Search the web for the latest official information about the Python programming language and tell me the current stable Python version.",
+      "response_text": "The current stable release of Python is version 3.13.",
+      "tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "latest stable Python version official python.org"
+          },
+          "id": "call_1070321"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7632.0,
+        "stt_latency_ms": 3161.099,
+        "stt_first_result_ms": 3161.031,
+        "llm_ttft_ms": 2291.142,
+        "llm_completion_ms": 5268.343,
+        "tool_latency_ms": 89.388,
+        "tts_first_audio_ms": 615.977,
+        "tts_completion_ms": 616.231,
+        "time_to_first_audio_ms": 9053.572,
+        "total_response_latency_ms": 9054.138,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "9850592a-d6d8-4159-b05c-9f01be6d943c",
+      "audio_metadata": {
+        "original_filename": "test_04.wav",
+        "file_size_bytes": 1465422,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7632.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:25:08.091Z",
+      "completed_at": "2026-09-21T21:25:17.195Z",
+      "events": [
+        {
+          "ts_ms": 0.011,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:08.141Z",
+          "detail": {
+            "input_duration_ms": 7632.0,
+            "leading_silence_ms": 360.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 3.583,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:08.145Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3165.264,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:11.307Z",
+          "detail": {
+            "latency_ms": 3161.099,
+            "transcript_chars": 135,
+            "transcript_preview": "Search the web for the latest official information about the Python programming \u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3165.784,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:11.307Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 5484.829,
+          "stage": "tool",
+          "label": "Tool started: web_search",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:13.626Z",
+          "detail": {
+            "tool": "web_search",
+            "args": {
+              "query": "latest stable Python version official python.org"
+            }
+          }
+        },
+        {
+          "ts_ms": 5574.403,
+          "stage": "tool",
+          "label": "Tool completed: web_search",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:13.716Z",
+          "detail": {
+            "tool": "web_search",
+            "latency_ms": 89.388,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 8435.822,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:16.577Z",
+          "detail": {
+            "latency_ms": 5268.343,
+            "tool_calls": [
+              "web_search"
+            ],
+            "tool_latencies": [
+              {
+                "name": "web_search",
+                "latency_ms": 89.388,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 8436.259,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:16.577Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 9053.607,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:25:17.195Z",
+          "detail": {
+            "at_ms_from_input_end": 9053.577,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 9054.243,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:17.195Z",
+          "detail": {
+            "time_to_first_audio_ms": 9053.572,
+            "total_response_latency_ms": 9054.138
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_18ef9576eeae",
+      "session_id": "sess_f3b17b51c0b5",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_05",
+      "success": true,
+      "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+      "response_text": "A REST API is like a digital messenger that allows two different computer programs to talk to each other over the internet using standard web rules.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 6816.0,
+        "stt_latency_ms": 3129.156,
+        "stt_first_result_ms": 3129.073,
+        "llm_ttft_ms": 3138.295,
+        "llm_completion_ms": 3156.546,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 776.694,
+        "tts_completion_ms": 777.422,
+        "time_to_first_audio_ms": 7071.23,
+        "total_response_latency_ms": 7072.264,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "ece4fd13-3d87-4357-a8de-1d90f1d53a19",
+      "audio_metadata": {
+        "original_filename": "test_05.wav",
+        "file_size_bytes": 1308750,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 6816.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:25:17.410Z",
+      "completed_at": "2026-09-21T21:25:24.535Z",
+      "events": [
+        {
+          "ts_ms": 0.013,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:17.464Z",
+          "detail": {
+            "input_duration_ms": 6816.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 4.345,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:17.468Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3134.102,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:20.597Z",
+          "detail": {
+            "latency_ms": 3129.156,
+            "transcript_chars": 119,
+            "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+            "confidence": 0.99609375
+          }
+        },
+        {
+          "ts_ms": 3134.606,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:20.597Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 6292.753,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:23.755Z",
+          "detail": {
+            "latency_ms": 3156.546,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 6293.093,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:23.756Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 7071.265,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:25:24.534Z",
+          "detail": {
+            "at_ms_from_input_end": 7071.235,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 7072.368,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:24.535Z",
+          "detail": {
+            "time_to_first_audio_ms": 7071.23,
+            "total_response_latency_ms": 7072.264
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_0fe272156e1f",
+      "session_id": "sess_30fe5b0bf8bc",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_06",
+      "success": true,
+      "transcript": "I'm testing speech recognition with background white noise. Please give me three practical tips for improving the latency of a voice assistant.",
+      "response_text": "To reduce latency, stream audio",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7824.0,
+        "stt_latency_ms": 3273.068,
+        "stt_first_result_ms": 3272.996,
+        "llm_ttft_ms": 2510.238,
+        "llm_completion_ms": 2962.47,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 559.81,
+        "tts_completion_ms": 560.205,
+        "time_to_first_audio_ms": 6818.328,
+        "total_response_latency_ms": 6819.026,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "897bb7b8-e758-445d-b3b1-9cc7f897f4b5",
+      "audio_metadata": {
+        "original_filename": "test_06.wav",
+        "file_size_bytes": 1502286,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7824.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:25:24.751Z",
+      "completed_at": "2026-09-21T21:25:31.686Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:24.866Z",
+          "detail": {
+            "input_duration_ms": 7824.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 17.245,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:24.883Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3292.193,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:28.159Z",
+          "detail": {
+            "latency_ms": 3273.068,
+            "transcript_chars": 143,
+            "transcript_preview": "I'm testing speech recognition with background white noise. Please give me three\u2026",
+            "confidence": 0.9980469
+          }
+        },
+        {
+          "ts_ms": 3292.678,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:28.159Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 6256.948,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:31.123Z",
+          "detail": {
+            "latency_ms": 2962.47,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 6257.285,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:31.123Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6818.36,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:25:31.684Z",
+          "detail": {
+            "at_ms_from_input_end": 6818.332,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6819.092,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:31.686Z",
+          "detail": {
+            "time_to_first_audio_ms": 6818.328,
+            "total_response_latency_ms": 6819.026
+          }
+        }
+      ],
+      "run_no": 1
+    },
+    {
+      "run_id": "run_d04939e3b824",
+      "session_id": "sess_84275e824178",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_01",
+      "success": true,
+      "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+      "response_text": "Supervised learning trains a model using data with the correct answers provided, while unsupervised learning lets the model discover hidden patterns on its own without any labels.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 4896.0,
+        "stt_latency_ms": 2804.057,
+        "stt_first_result_ms": 2803.988,
+        "llm_ttft_ms": 2244.503,
+        "llm_completion_ms": 2397.966,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 809.048,
+        "tts_completion_ms": 809.402,
+        "time_to_first_audio_ms": 6019.149,
+        "total_response_latency_ms": 6019.834,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "2c4cfdc2-6447-4277-9bfa-a75062f0cad1",
+      "audio_metadata": {
+        "original_filename": "test_01.wav",
+        "file_size_bytes": 940110,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 4896.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:25:31.902Z",
+      "completed_at": "2026-09-21T21:25:38.001Z",
+      "events": [
+        {
+          "ts_ms": 0.012,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:31.981Z",
+          "detail": {
+            "input_duration_ms": 4896.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 4.076,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:31.985Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2808.724,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:34.790Z",
+          "detail": {
+            "latency_ms": 2804.057,
+            "transcript_chars": 116,
+            "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+            "confidence": 0.9973958
+          }
+        },
+        {
+          "ts_ms": 2809.211,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:34.791Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 5208.529,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:37.189Z",
+          "detail": {
+            "latency_ms": 2397.966,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 5208.866,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:37.190Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6019.187,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:25:38.001Z",
+          "detail": {
+            "at_ms_from_input_end": 6019.155,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6019.937,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:38.001Z",
+          "detail": {
+            "time_to_first_audio_ms": 6019.149,
+            "total_response_latency_ms": 6019.834
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_b52836726233",
+      "session_id": "sess_b787245e592b",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_02",
+      "success": true,
+      "transcript": "Can you explain what a Python list comprehension is and give me a simple example?",
+      "response_text": "A list comprehension is a concise way to create a new list in a single line, such as `[x * 2 for x in [1, 2, 3]]` to double each number.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 5592.0,
+        "stt_latency_ms": 3091.686,
+        "stt_first_result_ms": 3091.606,
+        "llm_ttft_ms": 1938.419,
+        "llm_completion_ms": 2836.745,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 808.462,
+        "tts_completion_ms": 808.827,
+        "time_to_first_audio_ms": 6750.782,
+        "total_response_latency_ms": 6751.54,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "b6f7ca84-437d-4da0-8fcf-a9402787f13c",
+      "audio_metadata": {
+        "original_filename": "test_02.wav",
+        "file_size_bytes": 1073742,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 5592.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:25:38.228Z",
+      "completed_at": "2026-09-21T21:25:45.086Z",
+      "events": [
+        {
+          "ts_ms": 0.027,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:38.335Z",
+          "detail": {
+            "input_duration_ms": 5592.0,
+            "leading_silence_ms": 680.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 9.225,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:38.344Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3102.091,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:41.437Z",
+          "detail": {
+            "latency_ms": 3091.686,
+            "transcript_chars": 81,
+            "transcript_preview": "Can you explain what a Python list comprehension is and give me a simple example\u2026",
+            "confidence": 0.9970703
+          }
+        },
+        {
+          "ts_ms": 3102.634,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:41.438Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 5940.919,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:44.275Z",
+          "detail": {
+            "latency_ms": 2836.745,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 5941.203,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:44.275Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6750.823,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:25:45.085Z",
+          "detail": {
+            "at_ms_from_input_end": 6750.787,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6751.62,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:45.086Z",
+          "detail": {
+            "time_to_first_audio_ms": 6750.782,
+            "total_response_latency_ms": 6751.54
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_716beda93101",
+      "session_id": "sess_a3b71eac3d1f",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_03",
+      "success": true,
+      "transcript": "What is the current weather in Bangalore? Please check the weather and tell me the temperature and whether it is likely to rain.",
+      "response_text": "It's currently around 71 degrees Fahrenheit and overcast in Bangalore, with little to no chance of rain right now.",
+      "tool_calls": [
+        {
+          "name": "lookup_weather",
+          "args": {
+            "city": "Bangalore"
+          },
+          "id": "call_1512830"
+        },
+        {
+          "name": "lookup_weather",
+          "args": {
+            "city": "Bengaluru"
+          },
+          "id": "call_1254906"
+        },
+        {
+          "name": "web_search",
+          "args": {
+            "query": "current weather Bangalore temperature rain probability"
+          },
+          "id": "call_2372094"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7392.0,
+        "stt_latency_ms": 2940.694,
+        "stt_first_result_ms": 2940.601,
+        "llm_ttft_ms": 2090.662,
+        "llm_completion_ms": 13660.48,
+        "tool_latency_ms": 3452.482,
+        "tts_first_audio_ms": 746.727,
+        "tts_completion_ms": 747.087,
+        "time_to_first_audio_ms": 17361.708,
+        "total_response_latency_ms": 17362.371,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "030d1421-ff02-4723-870c-b3f99369d6d7",
+      "audio_metadata": {
+        "original_filename": "test_03.wav",
+        "file_size_bytes": 1419342,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7392.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:25:45.227Z",
+      "completed_at": "2026-09-21T21:26:02.698Z",
+      "events": [
+        {
+          "ts_ms": 0.029,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:45.336Z",
+          "detail": {
+            "input_duration_ms": 7392.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.328,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:45.344Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 2950.439,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:48.286Z",
+          "detail": {
+            "latency_ms": 2940.694,
+            "transcript_chars": 128,
+            "transcript_preview": "What is the current weather in Bangalore? Please check the weather and tell me t\u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 2950.988,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:48.287Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 5083.806,
+          "stage": "tool",
+          "label": "Tool started: lookup_weather",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:50.420Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "args": {
+              "city": "Bangalore"
+            }
+          }
+        },
+        {
+          "ts_ms": 6743.424,
+          "stage": "tool",
+          "label": "Tool completed: lookup_weather",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:52.079Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "latency_ms": 1659.366,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 10164.411,
+          "stage": "tool",
+          "label": "Tool started: lookup_weather",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:55.500Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "args": {
+              "city": "Bengaluru"
+            }
+          }
+        },
+        {
+          "ts_ms": 11871.06,
+          "stage": "tool",
+          "label": "Tool completed: lookup_weather",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:57.206Z",
+          "detail": {
+            "tool": "lookup_weather",
+            "latency_ms": 1706.436,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 14330.927,
+          "stage": "tool",
+          "label": "Tool started: web_search",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:25:59.667Z",
+          "detail": {
+            "tool": "web_search",
+            "args": {
+              "query": "current weather Bangalore temperature rain probability"
+            }
+          }
+        },
+        {
+          "ts_ms": 14417.785,
+          "stage": "tool",
+          "label": "Tool completed: web_search",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:25:59.753Z",
+          "detail": {
+            "tool": "web_search",
+            "latency_ms": 86.68,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 16613.299,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:01.949Z",
+          "detail": {
+            "latency_ms": 13660.48,
+            "tool_calls": [
+              "lookup_weather",
+              "lookup_weather",
+              "web_search"
+            ],
+            "tool_latencies": [
+              {
+                "name": "lookup_weather",
+                "latency_ms": 1659.366,
+                "ok": true
+              },
+              {
+                "name": "lookup_weather",
+                "latency_ms": 1706.436,
+                "ok": true
+              },
+              {
+                "name": "web_search",
+                "latency_ms": 86.68,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 16613.701,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:01.949Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 17361.743,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:26:02.698Z",
+          "detail": {
+            "at_ms_from_input_end": 17361.714,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 17362.437,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:02.698Z",
+          "detail": {
+            "time_to_first_audio_ms": 17361.708,
+            "total_response_latency_ms": 17362.371
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_bb52493693ab",
+      "session_id": "sess_579ab973ccc7",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_04",
+      "success": true,
+      "transcript": "Search the web for the latest official information about the Python programming language and tell me the current stable Python version.",
+      "response_text": "The current stable version of Python is 3.13.",
+      "tool_calls": [
+        {
+          "name": "web_search",
+          "args": {
+            "query": "latest stable Python version release python.org"
+          },
+          "id": "call_1178812"
+        }
+      ],
+      "timings": {
+        "input_duration_ms": 7632.0,
+        "stt_latency_ms": 3271.742,
+        "stt_first_result_ms": 3271.619,
+        "llm_ttft_ms": 2260.839,
+        "llm_completion_ms": 5053.359,
+        "tool_latency_ms": 94.202,
+        "tts_first_audio_ms": 567.046,
+        "tts_completion_ms": 567.318,
+        "time_to_first_audio_ms": 8906.382,
+        "total_response_latency_ms": 8907.012,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "977fe254-77f2-43c3-8ceb-9b500e8ca117",
+      "audio_metadata": {
+        "original_filename": "test_04.wav",
+        "file_size_bytes": 1465422,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7632.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:26:02.916Z",
+      "completed_at": "2026-09-21T21:26:11.938Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:03.032Z",
+          "detail": {
+            "input_duration_ms": 7632.0,
+            "leading_silence_ms": 360.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.984,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:03.041Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3282.151,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:06.314Z",
+          "detail": {
+            "latency_ms": 3271.742,
+            "transcript_chars": 135,
+            "transcript_preview": "Search the web for the latest official information about the Python programming \u2026",
+            "confidence": 0.99902344
+          }
+        },
+        {
+          "ts_ms": 3282.66,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:06.314Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 5555.5,
+          "stage": "tool",
+          "label": "Tool started: web_search",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:08.587Z",
+          "detail": {
+            "tool": "web_search",
+            "args": {
+              "query": "latest stable Python version release python.org"
+            }
+          }
+        },
+        {
+          "ts_ms": 5649.812,
+          "stage": "tool",
+          "label": "Tool completed: web_search",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:08.681Z",
+          "detail": {
+            "tool": "web_search",
+            "latency_ms": 94.202,
+            "ok": true
+          }
+        },
+        {
+          "ts_ms": 8337.696,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:11.369Z",
+          "detail": {
+            "latency_ms": 5053.359,
+            "tool_calls": [
+              "web_search"
+            ],
+            "tool_latencies": [
+              {
+                "name": "web_search",
+                "latency_ms": 94.202,
+                "ok": true
+              }
+            ]
+          }
+        },
+        {
+          "ts_ms": 8338.031,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:11.369Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 8906.418,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:26:11.938Z",
+          "detail": {
+            "at_ms_from_input_end": 8906.387,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 8907.082,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:11.938Z",
+          "detail": {
+            "time_to_first_audio_ms": 8906.382,
+            "total_response_latency_ms": 8907.012
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_88adf2d8fb49",
+      "session_id": "sess_51f0cb6026ce",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_05",
+      "success": true,
+      "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+      "response_text": "A REST API is",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 6816.0,
+        "stt_latency_ms": 3008.692,
+        "stt_first_result_ms": 3008.607,
+        "llm_ttft_ms": 2761.297,
+        "llm_completion_ms": 3236.687,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 494.599,
+        "tts_completion_ms": 494.847,
+        "time_to_first_audio_ms": 6753.507,
+        "total_response_latency_ms": 6754.061,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "6c824dd5-dacb-4771-b391-55cf442790b2",
+      "audio_metadata": {
+        "original_filename": "test_05.wav",
+        "file_size_bytes": 1308750,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 6816.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:26:12.188Z",
+      "completed_at": "2026-09-21T21:26:19.069Z",
+      "events": [
+        {
+          "ts_ms": 0.029,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:12.315Z",
+          "detail": {
+            "input_duration_ms": 6816.0,
+            "leading_silence_ms": 160.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 8.414,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:12.323Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3018.409,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:15.333Z",
+          "detail": {
+            "latency_ms": 3008.692,
+            "transcript_chars": 119,
+            "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+            "confidence": 0.99609375
+          }
+        },
+        {
+          "ts_ms": 3018.939,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:15.334Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 6257.35,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:18.572Z",
+          "detail": {
+            "latency_ms": 3236.687,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 6257.682,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:18.572Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6753.543,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:26:19.069Z",
+          "detail": {
+            "at_ms_from_input_end": 6753.513,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6754.124,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:19.069Z",
+          "detail": {
+            "time_to_first_audio_ms": 6753.507,
+            "total_response_latency_ms": 6754.061
+          }
+        }
+      ],
+      "run_no": 2
+    },
+    {
+      "run_id": "run_74502b8e1b41",
+      "session_id": "sess_995816d85346",
+      "pipeline_id": "deepgram-or-google/gemini-3.8-flash-elevenlabs",
+      "test_case_id": "test_06",
+      "success": true,
+      "transcript": "I'm testing speech recognition with background white noise. Please give me three practical tips for improving the latency of a voice assistant.",
+      "response_text": "To cut latency, stream your speech recognition in real-time, use lightweight or edge-hosted models, and begin generating audio while the text response is still streaming.",
+      "tool_calls": [],
+      "timings": {
+        "input_duration_ms": 7824.0,
+        "stt_latency_ms": 3194.519,
+        "stt_first_result_ms": 3194.421,
+        "llm_ttft_ms": 2225.139,
+        "llm_completion_ms": 2743.181,
+        "tool_latency_ms": null,
+        "tts_first_audio_ms": 837.183,
+        "tts_completion_ms": 838.725,
+        "time_to_first_audio_ms": 6789.623,
+        "total_response_latency_ms": 6791.607,
+        "stt_provider_ms": null,
+        "tts_provider_ms": null,
+        "tts_first_audio_mode": "BUFFERED_RESPONSE"
+      },
+      "failure_stage": null,
+      "error_type": null,
+      "error_detail": null,
+      "trace_id": "e3c8ec65-4a38-4f04-9a09-1b7e115bdbcb",
+      "audio_metadata": {
+        "original_filename": "test_06.wav",
+        "file_size_bytes": 1502286,
+        "sample_rate": 48000,
+        "channels": 2,
+        "bit_depth": 16,
+        "audio_format": "PCM16",
+        "duration_ms": 7824.0
+      },
+      "experiment_id": "EXP-2026-00003",
+      "started_at": "2026-09-21T21:26:19.304Z",
+      "completed_at": "2026-09-21T21:26:26.215Z",
+      "events": [
+        {
+          "ts_ms": 0.025,
+          "stage": "input",
+          "label": "Input audio ended \u2014 timer started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:19.424Z",
+          "detail": {
+            "input_duration_ms": 7824.0,
+            "leading_silence_ms": 200.0,
+            "sample_rate": 48000,
+            "channels": 2
+          }
+        },
+        {
+          "ts_ms": 9.525,
+          "stage": "stt",
+          "label": "STT started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:19.433Z",
+          "detail": {
+            "provider": "deepgram",
+            "model": "nova-2"
+          }
+        },
+        {
+          "ts_ms": 3205.392,
+          "stage": "stt",
+          "label": "STT completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:22.629Z",
+          "detail": {
+            "latency_ms": 3194.519,
+            "transcript_chars": 143,
+            "transcript_preview": "I'm testing speech recognition with background white noise. Please give me three\u2026",
+            "confidence": 0.9980469
+          }
+        },
+        {
+          "ts_ms": 3205.888,
+          "stage": "agent",
+          "label": "Agent started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:22.629Z",
+          "detail": {
+            "llm": "openrouter:google/gemini-3.8-flash"
+          }
+        },
+        {
+          "ts_ms": 5950.814,
+          "stage": "agent",
+          "label": "Agent completed",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:25.375Z",
+          "detail": {
+            "latency_ms": 2743.181,
+            "tool_calls": [],
+            "tool_latencies": []
+          }
+        },
+        {
+          "ts_ms": 5951.196,
+          "stage": "tts",
+          "label": "TTS started",
+          "kind": "start",
+          "wall_clock": "2026-09-21T21:26:25.375Z",
+          "detail": {
+            "provider": "elevenlabs",
+            "model": "eleven_turbo_v2_5"
+          }
+        },
+        {
+          "ts_ms": 6789.724,
+          "stage": "tts",
+          "label": "FIRST AUDIO",
+          "kind": "first_audio",
+          "wall_clock": "2026-09-21T21:26:26.213Z",
+          "detail": {
+            "at_ms_from_input_end": 6789.63,
+            "chunk_index": 1
+          }
+        },
+        {
+          "ts_ms": 6791.788,
+          "stage": "done",
+          "label": "Run complete",
+          "kind": "end",
+          "wall_clock": "2026-09-21T21:26:26.215Z",
+          "detail": {
+            "time_to_first_audio_ms": 6789.623,
+            "total_response_latency_ms": 6791.607
+          }
+        }
+      ],
+      "run_no": 2
+    }
+  ],
+  "summary": {
+    "deepgram-or-openai/gpt-4.1-mini-elevenlabs": {
+      "runs": 12,
+      "successful": 12,
+      "failed": 0,
+      "ttfa": {
+        "n": 12,
+        "mean_ms": 6752.7,
+        "median_ms": 6093.2,
+        "p95_ms": 11384.7,
+        "min_ms": 4925.4,
+        "max_ms": 11384.7
+      },
+      "stt": {
+        "n": 12,
+        "mean_ms": 3731.5,
+        "median_ms": 3264.5,
+        "p95_ms": 9155.4,
+        "min_ms": 2909.4,
+        "max_ms": 9155.4
+      },
+      "llm_ttft": {
+        "n": 12,
+        "mean_ms": 1139.8,
+        "median_ms": 1112.9,
+        "p95_ms": 1558.1,
+        "min_ms": 870.7,
+        "max_ms": 1558.1
+      },
+      "tool": {
+        "n": 4,
+        "mean_ms": 905.5,
+        "median_ms": 900.1,
+        "p95_ms": null,
+        "min_ms": 82.4,
+        "max_ms": 1739.3
+      },
+      "tts_first": {
+        "n": 12,
+        "mean_ms": 810.5,
+        "median_ms": 791.6,
+        "p95_ms": 1083.6,
+        "min_ms": 667.9,
+        "max_ms": 1083.6
+      },
+      "total": {
+        "n": 12,
+        "mean_ms": 6753.9,
+        "median_ms": 6094.7,
+        "p95_ms": 11385.6,
+        "min_ms": 4926.3,
+        "max_ms": 11385.6
+      },
+      "tool_calls_by_case": {
+        "test_01": 0,
+        "test_02": 0,
+        "test_03": 1,
+        "test_04": 1,
+        "test_05": 0,
+        "test_06": 0
+      }
+    },
+    "deepgram-or-google/gemini-3.8-flash-elevenlabs": {
+      "runs": 12,
+      "successful": 12,
+      "failed": 0,
+      "ttfa": {
+        "n": 12,
+        "mean_ms": 8588.9,
+        "median_ms": 6944.8,
+        "p95_ms": 17361.7,
+        "min_ms": 6019.1,
+        "max_ms": 17361.7
+      },
+      "stt": {
+        "n": 12,
+        "mean_ms": 3111.1,
+        "median_ms": 3145.1,
+        "p95_ms": 3273.1,
+        "min_ms": 2804.1,
+        "max_ms": 3273.1
+      },
+      "llm_ttft": {
+        "n": 12,
+        "mean_ms": 2328.4,
+        "median_ms": 2252.7,
+        "p95_ms": 3138.3,
+        "min_ms": 1806.1,
+        "max_ms": 3138.3
+      },
+      "tool": {
+        "n": 4,
+        "mean_ms": 1720.7,
+        "median_ms": 1670.5,
+        "p95_ms": null,
+        "min_ms": 89.4,
+        "max_ms": 3452.5
+      },
+      "tts_first": {
+        "n": 12,
+        "mean_ms": 705.8,
+        "median_ms": 744.5,
+        "p95_ms": 858.9,
+        "min_ms": 494.6,
+        "max_ms": 858.9
+      },
+      "total": {
+        "n": 12,
+        "mean_ms": 8589.7,
+        "median_ms": 6945.6,
+        "p95_ms": 17362.4,
+        "min_ms": 6019.8,
+        "max_ms": 17362.4
+      },
+      "tool_calls_by_case": {
+        "test_01": 0,
+        "test_02": 0,
+        "test_03": 3,
+        "test_04": 1,
+        "test_05": 0,
+        "test_06": 0
+      }
+    }
+  }
+}

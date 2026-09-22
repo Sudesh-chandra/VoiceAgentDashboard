@@ -1,0 +1,83 @@
+{
+  "run_id": "run_a1e9393cc48a",
+  "session_id": "sess_8bfb19b12ffd",
+  "pipeline_id": "deepgram:whisper-large-or-openai/gpt-4.1-mini-deepgram:aura-2-thalia-en",
+  "test_case_id": "test_02",
+  "success": false,
+  "transcript": "",
+  "response_text": "",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 5592.0,
+    "stt_latency_ms": 120681.354,
+    "stt_first_result_ms": null,
+    "llm_ttft_ms": null,
+    "llm_completion_ms": null,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": null,
+    "tts_completion_ms": null,
+    "time_to_first_audio_ms": null,
+    "total_response_latency_ms": null,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": null,
+    "tts_voice_id": null
+  },
+  "failure_stage": "stt",
+  "error_type": "STTError",
+  "error_detail": "",
+  "trace_id": "16368f21-2c81-46b6-8e6e-e166ea1d2138",
+  "audio_metadata": {
+    "original_filename": "test_02.wav",
+    "file_size_bytes": 1073742,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 5592.0
+  },
+  "stt_spec": "deepgram:whisper-large",
+  "llm_spec": "openrouter:openai/gpt-4.1-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-22T06:01:59.936Z",
+  "completed_at": "2026-09-22T06:04:00.659Z",
+  "events": [
+    {
+      "ts_ms": 0.008,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:01:59.974Z",
+      "detail": {
+        "input_duration_ms": 5592.0,
+        "leading_silence_ms": 680.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 3.305,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-22T06:01:59.977Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "whisper-large"
+      }
+    },
+    {
+      "ts_ms": 120685.564,
+      "stage": "done",
+      "label": "FAILED at stt",
+      "kind": "error",
+      "wall_clock": "2026-09-22T06:04:00.659Z",
+      "detail": {
+        "error_type": "STTError",
+        "detail": ""
+      }
+    }
+  ]
+}

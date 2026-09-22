@@ -1,0 +1,132 @@
+{
+  "run_id": "run_464ee70ff273",
+  "session_id": "sess_e548ec6488e9",
+  "pipeline_id": "deepgram|openrouter:openai/gpt-4o-mini|elevenlabs|auto",
+  "test_case_id": "test_05",
+  "success": true,
+  "transcript": "I'm testing a voice agent with background television noise. Please explain what is the rest API in a very simple terms.",
+  "response_text": "A REST API is a way for different software applications to communicate over the internet using standard web protocols.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 6816.0,
+    "stt_latency_ms": 2907.131,
+    "stt_first_result_ms": 2907.044,
+    "llm_ttft_ms": 1434.285,
+    "llm_completion_ms": 1669.85,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 871.213,
+    "tts_completion_ms": 871.91,
+    "time_to_first_audio_ms": 5528.577,
+    "total_response_latency_ms": 5529.586,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "97796241-ce0d-4116-8b96-d10b603f6b8e",
+  "audio_metadata": {
+    "original_filename": "test_05.wav",
+    "file_size_bytes": 1308750,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 6816.0
+  },
+  "started_at": "2026-09-21T21:09:29.538Z",
+  "completed_at": "2026-09-21T21:09:35.314Z",
+  "events": [
+    {
+      "ts_ms": 0.035,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:09:29.785Z",
+      "detail": {
+        "input_duration_ms": 6816.0,
+        "leading_silence_ms": 160.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 73.76,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:09:29.857Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 2983.361,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:09:32.767Z",
+      "detail": {
+        "latency_ms": 2907.131,
+        "transcript_chars": 119,
+        "transcript_preview": "I'm testing a voice agent with background television noise. Please explain what \u2026",
+        "confidence": 0.99609375
+      }
+    },
+    {
+      "ts_ms": 2984.244,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:09:32.768Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4o-mini"
+      }
+    },
+    {
+      "ts_ms": 4655.798,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:09:34.440Z",
+      "detail": {
+        "latency_ms": 1669.85,
+        "tool_calls": [],
+        "tool_latencies": []
+      }
+    },
+    {
+      "ts_ms": 4656.246,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-21T21:09:34.440Z",
+      "detail": {
+        "provider": "elevenlabs",
+        "model": "eleven_turbo_v2_5"
+      }
+    },
+    {
+      "ts_ms": 5528.611,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-21T21:09:35.313Z",
+      "detail": {
+        "at_ms_from_input_end": 5528.582
+      }
+    },
+    {
+      "ts_ms": 5529.657,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-21T21:09:35.314Z",
+      "detail": {
+        "time_to_first_audio_ms": 5528.577,
+        "total_response_latency_ms": 5529.586
+      }
+    }
+  ]
+}
