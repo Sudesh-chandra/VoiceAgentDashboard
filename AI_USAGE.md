@@ -382,3 +382,13 @@ acceleration and the corrections that made it trustworthy.
 **Where AI was confidently wrong and had to be fixed:** the first PDF workflow assumption was that the bundled `container_tools/mark_artifact_operation_started` script and a system LaTeX compiler would be available. They were not present in this workspace, so the workflow was corrected: the LaTeX source remains the canonical report source, while a small ReportLab builder creates the PDF artifact for this environment. A stale documentation statement in `docs/MODEL_EXPERIMENT_REPORT.md` also still reflected the earlier single-axis model experiment; it was corrected to point to `docs/MULTI_MODEL_TEST_REPORT.md` as the current STT/TTS source of truth.
 
 **What was decided independently:** the final report should not invent missing measurements or claim a perfect validation matrix. It explicitly preserves limitations such as ElevenLabs quota exhaustion, OpenAI TTS being NOT_CONFIGURED, hosted Whisper cold starts, buffered TTS first-audio semantics, and the absence of a claimed real-stack level-10 concurrency run. The GitHub submission keeps `.env`, `.freebuff/`, caches, local databases, and dependency directories excluded.
+
+## 21. Cleanup After Submission Review
+
+**Task heading:** remove unneeded CDP profile state and the generated technical report folder from the submitted repository.
+
+**Where AI helped:** AI checked which files were local ignored state versus tracked Git content, removed `data/cdp-profile/` locally, removed the tracked `docs/report/` folder, and prepared the follow-up Git commit/push so GitHub no longer contains the report package.
+
+**Where AI was confidently wrong and had to be fixed:** the earlier packaging pass treated `docs/report/` as required because the supplied packaging prompt asked for a technical report. The user later clarified it was not needed, so the correct action was to remove it rather than keep extra generated artifacts.
+
+**What was decided independently:** keep the cleanup narrow: remove only the requested CDP profile directory and `docs/report/`, leave the rest of the evidence, screenshots, source code, benchmark artifacts, and documentation intact, and preserve `.gitignore` rules that keep local CDP/browser state out of future commits.
