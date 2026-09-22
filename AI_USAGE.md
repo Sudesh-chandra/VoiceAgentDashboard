@@ -1,394 +1,437 @@
-# AI Usage & Engineering Decision Log
+# AI Usage and Engineering Ownership Log
 
-How AI coding tools were used during development of the Voice Agent Latency &
-Reliability Observatory — what they accelerated, what they got wrong, what was
-rejected, and which decisions, validations, and trade-offs were engineering
-calls verified by execution. Everything below is reconstructed from the
-repository's actual artifacts: tests, stored benchmark runs, failure records,
-audit reports, and code. Claims without repository evidence are **not made**.
+This file documents how AI assistance was used during the Voice Agent Latency
+and Reliability Observatory project. The purpose is not to claim that AI built
+the project independently. The important engineering work was deciding what to
+measure, rejecting weak suggestions, checking generated code against real
+behavior, and keeping evidence when systems failed.
+
+For every phase or task below, the same three questions are answered:
+
+- where AI helped;
+- where AI was confidently wrong and had to be fixed;
+- what I decided myself.
+
+Claims in this log are grounded in repository artifacts such as source code,
+tests, benchmark reports, screenshots, audit notes, and generated report files.
 
 ---
 
 ## 1. Development Philosophy
 
-AI coding tools were used as **development accelerators** — drafting, wiring,
-probing, and iterating quickly — while the application's correctness was
-established through engineering review and evidence-based iteration:
+### Where AI helped
+AI helped accelerate drafting, scaffolding, debugging checklists, code searches,
+documentation outlines, and report generation. It was useful as a fast assistant
+for exploring implementation options and turning project evidence into readable
+documentation.
 
-- every headline claim in the README maps to an executable test or a stored
-  benchmark run (see `backend/tests/`, `docs/benchmark-results/`);
-- failures were treated as data: failed experiments are kept in the database
-  and reported, not deleted (`docs/FAILURE_ANALYSIS.md`);
-- when AI-generated code and observed behavior disagreed, behavior won, and
-  the discrepancy was recorded (§16).
+### Where AI was confidently wrong and had to be fixed
+AI sometimes suggested generic "AI app" patterns, overly polished report
+language, and implementation shortcuts before the actual repository evidence was
+checked. Those suggestions were not accepted as-is. They were corrected by
+running tests, reading stored benchmark data, inspecting screenshots, and
+checking whether claims matched the code.
 
-The repository deliberately documents where AI was wrong — because catching
-those errors *was* the engineering work.
+### What I decided myself
+I treated AI as an accelerator, not the owner of the system. I decided that the
+project should be evidence-driven: every major claim needed either code, a test,
+a stored benchmark run, a screenshot, or a documented limitation behind it.
 
-## 2. Problem Understanding
+## 2. Phase 1 - Understand and Define the Problem
 
-The assignment required a voice-agent pipeline whose responsiveness could be
-measured, compared across models, and observed live.
+### Where AI helped
+AI helped summarize the assignment into a measurable engineering problem: voice
+pipeline latency should be measured by stage rather than described with a vague
+"fast" or "slow" label. It also helped draft early explanations of STT, LLM,
+tool, and TTS stages.
 
-**Engineering problem identified:** total-response averages hide where latency
-originates, and the metric a voice user perceives first — silence between
-finishing a question and hearing the first syllable of the answer — is not any
-of the commonly reported numbers (request latency, LLM TTFT, TTS completion).
+### Where AI was confidently wrong and had to be fixed
+AI initially leaned toward simpler total-response latency descriptions and could
+have treated latency as one end-to-end number. That missed the main user
+experience problem: the silence after the user stops speaking.
 
-**Key decision:** define the headline metric as
+### What I decided myself
+I chose TTFA as the central metric because it matches the moment a user actually
+cares about: when the first audible response starts. I defined:
 
+```text
+TTFA = FIRST_AUDIO_TIMESTAMP - INPUT_END_TIMESTAMP
 ```
-TTFA = timestamp(first output audio sample) − timestamp(end of user input audio)
+
+I also decided to use fixed WAV test inputs instead of a live microphone demo so
+the input boundary would be repeatable and measurable.
+
+## 3. Phase 2 - Design the Architecture
+
+### Where AI helped
+AI helped draft the FastAPI, SQLite, React, LangGraph, provider-adapter, and
+observability architecture options. It also helped turn the final architecture
+into diagrams and documentation.
+
+### Where AI was confidently wrong and had to be fixed
+AI suggested heavier or more generic architecture options, including patterns
+that would have added complexity without improving the benchmark. Some early
+ideas also blurred the execution path and observability path.
+
+### What I decided myself
+I chose a file-driven benchmark architecture with a separate observability path:
+the pipeline executes STT, LangGraph, tools, and TTS, while stage events are
+persisted and streamed to the dashboard. I rejected a live RTC-first design
+because framework VAD and transport timing would make TTFA harder to control.
+
+## 4. Phase 3 - Model Plug-in Architecture
+
+### Where AI helped
+AI helped draft provider adapter interfaces, model catalog documentation, and
+factory patterns for selecting STT and TTS providers from a spec string.
+
+### Where AI was confidently wrong and had to be fixed
+AI tended to assume a provider dropdown was enough. That would not prove model
+comparison unless the selected spec actually changed the backend execution path.
+AI also sometimes suggested silent fallbacks, which would have made benchmark
+results misleading.
+
+### What I decided myself
+I required strict `provider:model[:voice]` specs and rejected silent fallback.
+If a provider or model is unknown or not configured, the system must report that
+clearly. I also decided to persist model provenance on every benchmark run so a
+stored result can be interpreted later.
+
+## 5. Phase 4 - Benchmark Execution
+
+### Where AI helped
+AI helped scaffold benchmark scripts, test-case metadata handling, result
+serialization, and documentation tables showing representative runs.
+
+### Where AI was confidently wrong and had to be fixed
+AI-generated code and explanations initially risked treating different input
+files as comparable across pipelines. That would have made model comparisons
+unfair because audio length, phrasing, and noise affect latency.
+
+### What I decided myself
+I decided that fair comparison requires the same WAV files across pipelines. I
+also required append-only runs, unique run IDs, experiment IDs for matrix runs,
+and preserved failures instead of deleting unsuccessful provider calls.
+
+## 6. Phase 5 - Latency Measurement
+
+### Where AI helped
+AI helped draft timing instrumentation, waterfall display ideas, and tests that
+recompute timing from stored events.
+
+### Where AI was confidently wrong and had to be fixed
+An early AI-assisted draft computed or described TTFA from the wrong boundary,
+such as TTS-internal timing or completion timing. That was confidently wrong
+because TTFA must start when user input ends and stop when first output audio is
+available.
+
+### What I decided myself
+I fixed the definition around `INPUT_END` and `FIRST_AUDIO`, then kept separate
+fields for STT latency, LLM first token, tool latency, TTS first audio, TTS
+completion, TTFA, and total response latency. I also decided not to invent
+sub-metrics when a provider API does not expose them.
+
+## 7. Phase 6 - Compare Models
+
+### Where AI helped
+AI helped organize model comparison reports, summarize provider/model
+combinations, and create tables for STT, LLM, TTS, and pipeline variants.
+
+### Where AI was confidently wrong and had to be fixed
+AI initially tended to phrase comparisons like "best model" or universal
+rankings. That was not supported by the measured sample sizes or provider quota
+conditions.
+
+### What I decided myself
+I reported comparisons as observed results, not universal rankings. I kept
+limitations visible: ElevenLabs quota exhaustion, OpenAI TTS not configured,
+hosted Whisper cold starts, and Gemini's observed weather-tool over-call.
+
+## 8. Phase 7 - Reliability Testing
+
+### Where AI helped
+AI helped create reliability checklists, failure tables, and safe-error handling
+ideas for bad credentials, malformed audio, provider timeouts, quota failures,
+and invalid uploads.
+
+### Where AI was confidently wrong and had to be fixed
+AI sometimes treated provider failures as exceptions to hide or retry. It also
+underestimated how unhelpful some raw errors are, such as timeout exceptions
+that stringify to an empty message.
+
+### What I decided myself
+I decided failures should be first-class benchmark data. The system records
+failure stage, error type, safe message, and run provenance. I also chose not to
+use automatic provider retries because retries would blur measured latency and
+could duplicate paid API calls.
+
+## 9. Phase 8 - Basic Concurrency Test
+
+### Where AI helped
+AI helped draft concurrency wave execution, result summaries, and documentation
+for mock and real-provider concurrency runs.
+
+### Where AI was confidently wrong and had to be fixed
+AI could have presented unexecuted real-stack level-10 concurrency as if it had
+been validated. That was corrected: level 10 is available in the UI/control
+path but not claimed as a real paid-provider result.
+
+### What I decided myself
+I decided to cap concurrency, use bounded wave execution, and distinguish mock
+results from paid-provider results. I also preserved the finding that real-stack
+level 5 increased p95 TTFA compared with solo execution.
+
+## 10. Phase 9 - Frontend / Observability Dashboard
+
+### Where AI helped
+AI helped build and refine dashboard views: benchmark configuration, live run,
+results, comparison, reliability, concurrency, and screenshots for evidence.
+
+### Where AI was confidently wrong and had to be fixed
+AI proposed some presentation patterns that looked like a generic AI landing
+page: decorative gradients, fake polish, and overly broad explanatory copy.
+Those choices did not fit an observability console.
+
+### What I decided myself
+I chose an engineering-console style: dense measured values, stage events,
+monospace identifiers, restrained colors, and evidence-focused screenshots. I
+also decided the dashboard should show failed runs and unavailable providers
+honestly rather than hiding them.
+
+## 11. Phase 10 - Final Summary
+
+### Where AI helped
+AI helped gather project evidence into a final summary: delivered system,
+engineering decisions, measured findings, reliability findings, concurrency
+findings, security/cost controls, known limitations, and future work.
+
+### Where AI was confidently wrong and had to be fixed
+AI initially drifted toward polished but generic summary language. Phrases that
+made the project sound more complete than the evidence supported were removed.
+
+### What I decided myself
+I kept the final summary factual. The system is strong because it measures and
+documents real behavior, not because it claims every provider always works. I
+kept the known limitations in the report instead of hiding them.
+
+## 12. Phase 11 - Source Code ZIP / Git Link
+
+### Where AI helped
+AI helped prepare the repository documentation and identify the correct GitHub
+source-code link.
+
+### Where AI was confidently wrong and had to be fixed
+AI initially mentioned the absence of a ZIP too prominently in the report. The
+assignment allows a source link, so that wording distracted from the valid
+GitHub submission.
+
+### What I decided myself
+I decided to provide the GitHub repository as the source-code link:
+
+```text
+https://github.com/Sudesh-chandra/VoiceAgentDashboard.git
 ```
 
-The boundary matters: anchoring at *request start* or *upload start* measures
-the harness, not the pipeline; substituting *LLM TTFT* or *TTS completion*
-measures the wrong perceptual event. This boundary is enforced in code
-(`pipeline.py` anchors; first-chunk arrival recorded as an absolute
-`perf_counter` moment) and pinned by the unit test
-`test_ttfa_recomputed_from_events_matches_backend`, which re-derives TTFA from
-the raw event timeline.
-
-## 3. Architecture Decision
-
-**Initial architecture:** an instrumented benchmark orchestrator — FastAPI
-backend, SQLite storage, React dashboard, LangGraph agent, provider adapters.
-
-**Why this and not a live-mic demo:** a file-driven benchmark makes both TTFA
-boundaries code-controlled and exactly measurable; an RTC session (LiveKit /
-Pipecat) would put the metric inside framework VAD/network timing that isn't
-ours to measure. Transports were **rejected** for that reason; the provider
-adapters are the same libraries those frameworks would drive.
-
-| Area | AI suggestion | Final engineering decision |
-|---|---|---|
-| STT/TTS/LLM | env-driven adapters | adapter protocols + factory + strict allowlists (`provider:model[:voice]`) |
-| Agent | `create_react_agent` + streaming | accepted; tool calls emitted as timed events |
-| Tools | Open-Meteo weather (keyless, deterministic) | accepted; exactly-0 / exactly-1 semantics enforced by tests |
-| Benchmark | store results | unique run IDs, per-run JSON artifacts, experiment IDs, cost caps |
-| Storage | an ORM + Redis event bus | **rejected** — stdlib sqlite3 (WAL), thread-local connections, committed `schema.sql`, in-process WS |
-| Observability | LangSmith env wiring | accepted + transcript hashing (privacy default), trace IDs stored per run |
-| Frontend | five-view dashboard | accepted; later redesigned to the DESIGN.md observability contract |
-
-## 4. Model Plug-in Architecture
-
-**Decision:** never hardcode a single STT/TTS provider. The assignment's model
-comparison requirement is only meaningful if a spec change actually changes
-execution.
-
-- `STT_MODELS` / `TTS_MODELS` catalogs in `backend/app/core/config.py`
-  (allowlisted models with per-model timeouts);
-- spec grammar `provider:model[:voice]` parsed with a strict regex; unknown
-  models are rejected, never silently mapped to a default;
-- factories in `backend/app/voice/__init__.py` resolve specs to adapters
-  implementing one normalized interface; the engine has no
-  `if provider == ...` branches;
-- every selected spec is persisted on each run (`stt_spec`, `stt_model`,
-  `tts_spec`, `tts_model`, `tts_voice_id`, `llm_spec`, `llm_model`) so any
-  stored result can be reproduced;
-- missing credentials mark a provider NOT_CONFIGURED and selection returns a
-  clear 4xx — no silent fallback, no fake options.
-
-**Why:** without this layer, "choose different models" degenerates into a
-dropdown that always calls the same endpoint.
-
-## 5. Multi-Model Support
-
-The engineering work to go from one provider to many (2026-09-22 pass):
-
-- STT: Deepgram `nova-2` / `nova-3` / hosted `whisper-large` **plus**
-  ElevenLabs `scribe_v1` — a genuinely different vendor API
-  (`api.elevenlabs.io` vs `api.deepgram.com`);
-- TTS: Deepgram `aura-2-thalia-en` / `aura-2-andromeda-en` **plus** ElevenLabs
-  `eleven_turbo_v2_5` / `eleven_multilingual_v2` / `eleven_flash_v2_5`;
-- model metadata (timeouts tuned to measured cold starts), availability
-  checks surfaced to the UI, Provider Test panel + `/api/provider-test` for
-  pre-benchmark probing, per-model Deepgram STT parameters (whisper-large
-  rejects smart_format/punctuate), credential-account provenance in events,
-  optional second-account key rotation (`DEEPGRAM2_API_KEY`,
-  `ELEVENLABS2_API_KEY`) via a process-shared key ring;
-- verified by real executions: same WAV × 4 STT specs; same text × 5 TTS
-  specs (see `docs/MULTI_MODEL_TEST_REPORT.md` for measured values and the
-  quota failures that are also real evidence).
-
-## 6. Benchmark Design
-
-Key decisions, each enforced in code:
-
-- **same WAV across pipelines** — a test case is fixed audio + metadata;
-  the tooling cannot compare different inputs (scientific validity);
-- **unique run IDs** — results are appended, never overwritten; matrix runs
-  share an `EXP-YYYY-NNNNN` experiment ID;
-- **pipeline configuration persistence** — full specs + voice on every row and
-  in every artifact (§4);
-- **repetitions** — `--runs N` with a hard cap (`MAX_EXPERIMENT_RUNS`) and a
-  pre-execution estimate of total external API calls;
-- **stage-level timing** — `perf_counter` deltas around each provider call;
-  tool latency is the measured duration of the actual tool body;
-- **failure recording** — failed runs keep stage, error type, and safe message;
-  comparison never averages away failures (p95 only at n ≥ 5).
-
-Comparing different inputs across pipelines would attribute audio-length and
-phrasing differences to models; same-input execution is the only fair basis.
-
-## 7. Latency Measurement
-
-The strongest constraint in the system. Reasoning:
-
-- **INPUT_END is the anchor**, because that is when the user stops talking;
-  everything before it (upload, leading silence) is measured and reported but
-  excluded from TTFA;
-- **FIRST_AUDIO is the arrival of the first actual output audio bytes** — not
-  TTS completion, not LLM TTFT. LLM TTFT measures reasoning start; TTS
-  completion measures the *end* of the reply; only first audio matches what a
-  caller perceives;
-- timestamps use `perf_counter` (monotonic) deltas around stage boundaries;
-  absolute wall-clock values are derived once for display, avoiding
-  wall-clock skew in durations;
-- overlapping operations are preserved as separate events rather than summed
-  (the waterfall renders the real nested timeline, e.g. TOOL inside AGENT);
-- providers that cannot report a sub-metric (batch STT partials) store `null`
-  — never fabricated.
-
-Verified by: the TTFA recomputation test; the live-view assertion that
-`time_to_first_audio_ms` equals the persisted event delta; and cross-checks
-during the audit pass.
-
-## 8. Tool Calling
-
-- No-tool cases (TC01/TC02) must produce **0 tool calls**; one-tool cases
-  (TC03/TC04) **exactly 1**. Tests enforce both
-  (`test_no_tool_queries_call_zero_tools`, tool accounting in the benchmark
-  suite) — and caught real bugs (§16).
-- The actual tool body executes and is timed (Open-Meteo geocode + forecast;
-  0.7–1.6 s real network latency observed), not a stub.
-- Tool failure is surfaced as stage `tool` with the safe error; the agent
-  continues and the run records honestly.
-- Changing STT/TTS providers does not alter tool semantics — verified across
-  the multi-provider matrix (0/0/1/1 preserved on correctly-behaving LLMs).
-
-## 9. LangGraph
-
-LangGraph executes the agent for **every** run; there is no bypass path.
-Concretely: a `create_react_agent` graph streams
-`astream(stream_mode=["updates", "messages"])`, which yields both state
-updates (tool calls, final answer) and token messages (real TTFT). Tool nodes
-wrap the tool providers, so the graph itself emits the tool events the
-benchmark records. Graph behavior is observable per run: node transitions,
-tool decision, tool count, termination — no hidden second implementation.
-
-## 10. LangSmith / Observability
-
-Tracing answers "why was this request slow?" after the fact. Each run creates
-a `voice_session` trace with `stt` / `agent` (LangGraph runs nest via the
-SDK) / `tts` children and a `first_audio` marker; the LangSmith run ID is
-stored on the benchmark row (`trace_id`) and rendered as a real link —
-"trace unavailable" is shown rather than a fabricated URL. Correlation:
-run ID ↔ trace ID ↔ experiment ID ↔ raw JSON artifact. **Privacy:**
-transcripts leave the process only as sha256 prefixes unless
-`LANGSMITH_SEND_TRANSCRIPTS=true`; audio bytes and secrets never enter spans
-(covered by tests).
-
-## 11. Reliability Engineering
-
-Actual reliability work and trade-offs:
-
-- **per-model timeouts** (45 s STT / 180 s for whisper-large cold starts /
-  30–90 s TTS), tuned to measured provider behavior, not guesses;
-- **no automatic retries** — chosen deliberately: a retry would duplicate
-  charges and blur what was actually measured. Failures are recorded with
-  stage + safe message instead;
-- **failure visibility** — failure stage, error type, safe message, and full
-  provenance persist on failed rows; the UI shows failed runs as first-class
-  data (the failure-detail screenshot is a real quota failure);
-- **chaos probes executed** during the audit: bad credentials → clean 401
-  surfacing; malformed audio → early validation failure; provider quota →
-  honest failure at the correct stage; empty error strings from httpx
-  timeouts → replaced with self-describing safe messages;
-- **graceful degradation** — a provider failing never crashes the server;
-  other runs and views keep working (verified during the multi-provider pass
-  when ElevenLabs quota drained mid-session).
-
-## 12. Concurrency
-
-**Why:** a benchmark runner that is itself a bottleneck, or that mixes
-sessions, produces invalid measurements.
-
-- Engine uses **true wave semantics** (a new run starts only when one
-  finishes), staggered launches, hard timeouts; levels clamped to
-  `VABD_MAX_CONCURRENCY` (10).
-- **Tested levels:** 1, 3, 5, and 10 (mock mode); 3 and 5 verified on the real
-  paid stack (level 5: 10/10 ok, p95 TTFA 8.4 s vs 6.4 s solo — degradation
-  is real and visible). Level-10 external-provider behavior is available in
-  the UI but was **not** executed against paid providers at that level, to
-  respect quotas.
-- **Found and fixed:** a live-run race where the background task could finish
-  before WS subscription (buffer replay added; registration before
-  scheduling).
-- Measured: success rate, TTFA/total distributions, throughput, errors.
-
-## 13. Security Engineering
-
-Actual decisions (full detail: `docs/audits/SECURITY_AUDIT.md`):
-
-- **Secrets**: `.env` only (gitignored); never returned by any API (tests
-  assert key absence across responses), never logged (redaction filter),
-  never serialized into traces/artifacts; repo-wide and bundle secret scans
-  are part of release validation.
-- **Uploads**: extension + size caps (HTTP 413), WAV magic-byte validation
-  (spoofed content rejected), `relative_to()` traversal checks (replacing a
-  bypassable `startswith`), randomized sandboxed filenames, wave-parse
-  validation — each covered by a test.
-- **Input validation**: strict spec regex; Pydantic whitelisting of enum-ish
-  inputs.
-- **Prompt/tool safety**: transcripts leave as hashes by default; tool
-  outputs are treated as data; no raw secrets can enter prompts via env
-  wiring; LangSmith hashing default (`LANGSMITH_SEND_TRANSCRIPTS=false`).
-- **Data isolation**: per-session WS channels with replay buffers; isolation
-  probe verified Run A never receives Run B events.
-- **Consciously out of scope** (documented, not hidden): no authentication /
-  rate limiting — single-operator localhost tool.
-
-## 14. Cost & Token Governance
-
-- **Token usage**: LLM `usage_metadata` (`input_tokens` / `output_tokens` /
-  `total_tokens`) is captured from the provider and persisted per run
-  (verified live: 137/25/162 on a no-tool run; 212/22/234 on a tool run);
-  STT/TTS token counts are not exposed by those APIs and are recorded as
-  unavailable rather than invented.
-- **Safeguards**: `MAX_EXPERIMENT_RUNS` (the runner refuses beyond it),
-  pre-run estimate of total external API calls, `MAX_CONCURRENCY` cap,
-  `max_tokens=200` bound on LLM replies, upload size cap, **no auto-retries**
-  (no duplicate charges).
-- **Cost model**: provider prices vary; the system stores the *usage*
-  primitives (tokens, call counts, bytes) and leaves $ estimation explicit —
-  no fabricated dollar figures anywhere in reports.
-
-## 15. Frontend Engineering
-
-Design intent: an engineering console, not an AI landing page (contract:
-`docs/DESIGN.md`; audit: `docs/FRONTEND_DESIGN_AUDIT.md`).
-
-- **Information density over decoration**: semantic-only color, squared
-  hairline geometry, monospace for every measured value and ID.
-- **TTFA as the hero metric** with an explanatory tooltip; per-run latency
-  waterfall built from real event timestamps (FIRST AUDIO tick in success
-  green).
-- **Evidence, not verdicts**: comparison shows medians with n-counts and a
-  factual "◂ lowest TTFA" marker — never "best pipeline".
-- **Honesty states**: real trace URLs or "trace unavailable"; honest
-  "unavailable" when metadata is missing; failed runs shown as data.
-- **Anti-slop rejections**: pill badges, gradient hero, fake sparkline,
-  "AI magic" loading animation, fake waveforms — all rejected in the design
-  pass (§16 records the slop defaults AI initially proposed).
-- **Accessibility**: keyboard-visible focus, `prefers-reduced-motion` kills
-  all animation, semantic tables; verified via stylesheet inspection and
-  responsive captures (768/390 px).
-
-## 16. Debugging / Where AI Was Wrong
-
-Real, repository-verifiable examples (each: problem → why wrong → how caught →
-correction):
-
-1. **TTFA boundary draft.** First draft computed TTFA from TTS-internal
-   durations (`tts_completion − tts_first_audio`) — the wrong boundary.
-   Caught in design review; replaced with absolute first-chunk-arrival minus
-   the input-end anchor.
-2. **Mock intent detector matched the system prompt.** It read the whole
-   message list, saw "weather" in the prompt, and called the tool on every
-   no-tool query. Caught by `test_no_tool_queries_call_zero_tools`; fixed to
-   read HumanMessages only.
-3. **Path traversal check used `startswith`.** A sibling-prefix directory
-   would have passed. Caught in the security pass; replaced with
-   `relative_to()`, covered by `test_audio_endpoint_sandboxed`.
-4. **FastAPI `Form()` bug dropped upload metadata.** `expected_tool_calls` /
-   `noise_type` were ignored — exposed only by the real end-to-end benchmark;
-   now covered by `test_upload_persists_metadata_fields`.
-5. **Config resolved `.env` from the wrong directory**, so every provider
-   silently resolved unavailable and the real benchmark timed out. Caught via
-   the availability endpoint; fixed to an absolute project-root path.
-6. **Deepgram received headerless PCM** (it needs the RIFF container) — caught
-   by a direct probe returning a transcript only after the fix.
-7. **Retired model id in the first matrix** (`gemini-2.0-flash-001`): 12/12
-   404s; then a 24/24 credit-parameter failure. Both batches kept as evidence;
-   fix was live id resolution + `max_tokens` bound → EXP-2026-00003 24/24 ok.
-8. **Token-usage capture read the wrong LangChain field**
-   (`response_metadata.token_usage` instead of `usage_metadata`) and silently
-   stored NULLs — a live run exposed it; fixed and verified (137/25/162).
-9. **httpx timeout errors stringify to `""`**, so whisper-large failures were
-   persisted with empty error details. Reproduced; fixed with self-describing
-   safe messages; 180 s timeout re-verified.
-10. **KeyRing rotation was per-adapter-instance** — concurrent runs would
-    never actually alternate accounts. Made process-shared; verified.
-11. **Stale backend served the UI** during the audit pass, hiding the new
-    Scribe/Flash options — caught because the dropdowns are backend-driven;
-    restarted and re-verified end-to-end in the browser.
-12. **Trace root showed `ttfa=None`** — the runner's `timings` object was a
-    different instance from the result's until a late sync; fixed by sharing
-    the instance.
-
-No other verified examples are retained in the repository; none are invented.
-
-## 17. Engineering Decisions Made Independently
-
-| Decision | Reason | Trade-off | Result |
-|---|---|---|---|
-| TTFA = INPUT_END → FIRST_AUDIO | matches the perceptual event; assignment definition | requires exact event instrumentation | headline metric, unit-pinned |
-| File-driven benchmark, no RTC transport | both TTFA boundaries code-controlled | less "demo-like" | exact, reproducible measurement |
-| Provider registry + strict specs | selection must change execution | more config surface | genuine multi-model comparison |
-| No automatic provider retries | measurements stay honest; no duplicate charges | transient blips show as failures | failures are data |
-| Batch STT / buffered TTS sub-metrics stored as null | never fabricate | some cells empty | honest schema |
-| Privacy default: hashed transcripts to LangSmith | user audio is personal | raw text needs opt-in | privacy by default |
-| p95 only at n ≥ 5 | small-sample p95 is fiction | fewer numbers shown | statistics stay meaningful |
-| Mock mode with identical code paths | tests/CI without credentials | risk of confusion — mitigated by `mock` labeling everywhere | 35-test offline suite |
-| No auth on dashboard | single-operator localhost tool | documented limitation | simplicity |
-| 10-run concurrency cap + stagger | respect provider quotas/limits | slower stress ceiling | no provider bans |
-
-## 18. What AI Accelerated
-
-Honestly scoped — AI tools materially sped up:
-
-- boilerplate/scaffolding (FastAPI app, React/Vite app, pytest layout);
-- provider API research and first-draft adapters;
-- the CDP screenshot driver and probe scripts;
-- documentation drafts (this log's early form, audits) — every claim later
-  checked against the repository;
-- refactoring suggestions during the design-system pass.
-
-Every one of these went through review and, where behavior mattered,
-execution. The debugging list in §16 is the record of what review caught.
-
-## 19. Final Engineering Ownership
-
-AI was used as an engineering accelerator; it was not a proxy for judgment.
-
-The final system was validated through: architecture review (documented
-boundaries), a 35-test suite including TTFA recomputation and security
-assertions, real benchmark executions across 2 STT vendors / 2 TTS vendors /
-3 LLMs with persisted artifacts, chaos and concurrency probes, browser-driven
-end-to-end verification, secret scans, and a documentation consistency pass.
-The evidence trail — tests, stored runs, failure records, trace IDs,
-screenshots — is in the repository, and the decision log above shows both the
-acceleration and the corrections that made it trustworthy.
-
-
-
-## 20. Final Packaging, Technical Report, and GitHub Submission
-
-**Task heading:** final repository packaging, documentation consistency, technical report generation, validation, and GitHub push.
-
-**Where AI helped:** AI read the supplied packaging prompt, inspected the existing implementation and documentation, created `docs/report/` with a LaTeX technical report source, generated report figures from repository evidence, produced `technical_report.pdf` in the local environment, and ran verification commands for tests, builds, PDF content, screenshots, git status, and secret exclusion.
-
-**Where AI was confidently wrong and had to be fixed:** the first PDF workflow assumption was that the bundled `container_tools/mark_artifact_operation_started` script and a system LaTeX compiler would be available. They were not present in this workspace, so the workflow was corrected: the LaTeX source remains the canonical report source, while a small ReportLab builder creates the PDF artifact for this environment. A stale documentation statement in `docs/MODEL_EXPERIMENT_REPORT.md` also still reflected the earlier single-axis model experiment; it was corrected to point to `docs/MULTI_MODEL_TEST_REPORT.md` as the current STT/TTS source of truth.
-
-**What was decided independently:** the final report should not invent missing measurements or claim a perfect validation matrix. It explicitly preserves limitations such as ElevenLabs quota exhaustion, OpenAI TTS being NOT_CONFIGURED, hosted Whisper cold starts, buffered TTS first-audio semantics, and the absence of a claimed real-stack level-10 concurrency run. The GitHub submission keeps `.env`, `.freebuff/`, caches, local databases, and dependency directories excluded.
-
-## 21. Cleanup After Submission Review
-
-**Task heading:** remove unneeded CDP profile state and the generated technical report folder from the submitted repository.
-
-**Where AI helped:** AI checked which files were local ignored state versus tracked Git content, removed `data/cdp-profile/` locally, removed the tracked `docs/report/` folder, and prepared the follow-up Git commit/push so GitHub no longer contains the report package.
-
-**Where AI was confidently wrong and had to be fixed:** the earlier packaging pass treated `docs/report/` as required because the supplied packaging prompt asked for a technical report. The user later clarified it was not needed, so the correct action was to remove it rather than keep extra generated artifacts.
-
-**What was decided independently:** keep the cleanup narrow: remove only the requested CDP profile directory and `docs/report/`, leave the rest of the evidence, screenshots, source code, benchmark artifacts, and documentation intact, and preserve `.gitignore` rules that keep local CDP/browser state out of future commits.
+I did not fabricate a ZIP filename.
+
+## 13. Tool Calling and LangGraph Execution
+
+### Where AI helped
+AI helped draft LangGraph integration, tool-call event recording, and tests for
+zero-tool and one-tool cases.
+
+### Where AI was confidently wrong and had to be fixed
+The mock intent detector initially inspected too much of the message context and
+matched the system prompt instead of only the human query. That caused no-tool
+queries to call the weather tool.
+
+### What I decided myself
+I fixed the logic so tool expectations are tied to the user query and test-case
+metadata. I required tests for exactly zero tool calls and exactly one tool call
+where expected, because tool use directly affects latency and correctness.
+
+## 14. LangSmith / Trace Observability
+
+### Where AI helped
+AI helped wire trace metadata, draft privacy explanations, and document how run
+IDs, experiment IDs, and trace IDs relate.
+
+### Where AI was confidently wrong and had to be fixed
+AI-generated documentation initially risked overstating trace evidence. In the
+report pass, a placeholder trace figure was removed rather than treated as
+evidence when the referenced artifact was not available in that context.
+
+### What I decided myself
+I kept LangSmith as an optional observability path and defaulted transcript
+privacy toward hashed values unless explicitly configured otherwise. I also
+decided not to fake trace screenshots or URLs.
+
+## 15. Security Engineering
+
+### Where AI helped
+AI helped draft security checklists, input-validation tests, upload controls,
+secret-scan steps, and documentation of out-of-scope items.
+
+### Where AI was confidently wrong and had to be fixed
+AI-assisted code originally used a path-prefix style check that could be unsafe
+for path traversal. That was fixed by using safer path resolution logic. AI also
+sometimes assumed secrets could be summarized casually, so secret exposure
+checks were made explicit.
+
+### What I decided myself
+I required `.env` to stay ignored, provider keys to remain server-side, uploads
+to be size/type/WAV validated, transcripts to be privacy-protected by default,
+and missing authentication/rate limiting to be documented as a limitation rather
+than hidden.
+
+## 16. Cost and Token Governance
+
+### Where AI helped
+AI helped identify cost-control mechanisms such as run caps, concurrency caps,
+token capture, and avoiding automatic retries.
+
+### Where AI was confidently wrong and had to be fixed
+AI initially read token usage from the wrong LangChain field in one pass, which
+would have stored null token values. Live runs exposed the mismatch, and the
+code was corrected to use the provider-reported usage metadata.
+
+### What I decided myself
+I decided not to invent dollar-cost estimates when provider pricing and usage
+coverage were incomplete. The system stores usage primitives, token counts when
+available, and run/concurrency caps so cost can be reasoned about honestly.
+
+## 17. Multi-Model Provider Expansion
+
+### Where AI helped
+AI helped add and document multiple STT/TTS options, provider availability
+checks, and the provider-test panel.
+
+### Where AI was confidently wrong and had to be fixed
+AI suggestions sometimes assumed provider APIs behaved similarly. In practice,
+Deepgram, ElevenLabs, OpenRouter, and unconfigured OpenAI TTS had different
+availability, timeout, quota, and response behaviors.
+
+### What I decided myself
+I required each provider/model to carry its own measured status and limitation.
+I kept quota/auth failures as real evidence and did not collapse them into a
+generic "provider unavailable" success path.
+
+## 18. Debugging and Corrections
+
+### Where AI helped
+AI helped search the codebase, propose likely failure points, and draft tests
+after bugs were found.
+
+### Where AI was confidently wrong and had to be fixed
+Specific corrections included the TTFA boundary, mock tool-call behavior, path
+traversal validation, upload metadata handling, `.env` path resolution,
+Deepgram WAV container handling, retired model IDs, token-usage capture, empty
+timeout messages, process-shared key rotation, stale backend state during UI
+verification, and trace metadata synchronization.
+
+### What I decided myself
+I treated debugging as evidence collection. When observed behavior contradicted
+AI-generated assumptions, I trusted the run output, tests, logs, and provider
+responses over the draft explanation.
+
+## 19. Final Packaging and GitHub Submission
+
+### Where AI helped
+AI helped read the packaging prompt, check repository status, prepare report
+files, verify ignored files, run tests/builds where available, and summarize
+submission state.
+
+### Where AI was confidently wrong and had to be fixed
+AI initially assumed a bundled PDF operation marker script and a system LaTeX
+compiler would be available. They were not available in this workspace, so the
+workflow was corrected: the report keeps a `.tex` companion source, while the
+PDF is generated locally using ReportLab.
+
+### What I decided myself
+I kept secrets, local databases, CDP/browser profiles, caches, dependencies,
+and generated local-only report artifacts out of GitHub. I also decided not to
+push `docs/report/` after the clarification that it should remain local.
+
+## 20. Cleanup After Submission Review
+
+### Where AI helped
+AI helped inspect which artifacts were tracked versus ignored and identify the
+difference between local report files and files intended for GitHub.
+
+### Where AI was confidently wrong and had to be fixed
+AI initially treated the generated report folder as part of the submission
+package because the earlier prompt asked for a technical report. The user later
+clarified that the report folder should exist locally but not be pushed.
+
+### What I decided myself
+I kept cleanup narrow: remove unneeded submitted artifacts from GitHub while
+preserving local report files, benchmark evidence, screenshots, documentation,
+and source code.
+
+## 21. Technical Report Content Pass
+
+### Where AI helped
+AI helped audit the report against repository evidence, generate a content audit
+file, organize the required phases, and produce report tables and figures.
+
+### Where AI was confidently wrong and had to be fixed
+AI initially produced report structure that was too close to an assignment
+checklist and included wording that did not belong, such as institution/report
+labels requested to be removed.
+
+### What I decided myself
+I decided the report must not invent missing measurements. It should preserve
+limitations such as quota exhaustion, OpenAI TTS not configured, hosted Whisper
+cold starts, buffered first-audio semantics, and no real-stack level-10 claim.
+
+## 22. Technical Report Layout and PDF Design Pass
+
+### Where AI helped
+AI helped rebuild the local PDF, create generated figures, render pages for
+inspection, and check extracted PDF text for required/forbidden phrases.
+
+### Where AI was confidently wrong and had to be fixed
+AI initially allowed layout issues such as dense tables, placeholder evidence,
+awkward page breaks, and repeated caption phrases. Visual QA caught these
+issues, and the report was rebuilt with readable tables and cleaner captions.
+
+### What I decided myself
+I chose a restrained professional style: no decorative gradients, no marketing
+phrases, no fake screenshots, no "best model" claims, and no document-type
+wording the user did not request.
+
+## 23. Final Report Layout and Anti-Slop Pass
+
+### Where AI helped
+AI helped read the strict layout brief, rebuild the report generator, shorten
+table cells, regenerate the architecture and latency diagrams, compile the PDF,
+render all pages, and create `docs/report/REPORT_VISUAL_QA.md`.
+
+### Where AI was confidently wrong and had to be fixed
+The first reflow still split two tables awkwardly across pages and the QA note
+quoted a removed report label while describing the fix. Those were corrected:
+tables were kept together, screenshot height was adjusted, and the forbidden
+wording was removed from the report package.
+
+### What I decided myself
+I kept verified measurements unchanged, kept the report local-only, limited
+screenshots to distinct evidence, used the GitHub link instead of fabricating a
+ZIP, and made the final document look like engineering documentation rather
+than a generated brochure.
+
+## 24. Final Ownership Statement
+
+### Where AI helped
+AI helped with speed: drafting, searching, scaffolding, report generation, and
+iteration.
+
+### Where AI was confidently wrong and had to be fixed
+AI was most useful after its confident mistakes were challenged: wrong metric
+boundaries, generic architecture suggestions, overstated report language, and
+layout choices that looked polished but were not readable.
+
+### What I decided myself
+The engineering ownership remained mine. I chose the metric, rejected weak
+architecture suggestions, corrected wrong code paths, validated behavior with
+tests and live runs, preserved failures as evidence, and kept the final claims
+bounded by what the repository actually proves.
