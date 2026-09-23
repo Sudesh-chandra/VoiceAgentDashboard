@@ -88,6 +88,27 @@ async def test_failure_is_captured_not_hidden(synth_cases, fresh_db, monkeypatch
     assert res.error_type == "STTError"
 
 
+def test_read_wav_clamps_streaming_sentinel_duration(tmp_path):
+    """Streaming WAV writers (e.g. Deepgram TTS) declare a huge data-chunk size
+    (~2^31) that overflows the real file length; duration must come from the
+    file's physical size, not the header. Regression: an uploaded TTS-generated
+    WAV displayed input_duration ≈ 67,000,000 ms."""
+    import struct
+    from app.pipeline import read_wav
+
+    pcm = b"\x00\x00" * 32000  # 2 s at 16 kHz mono 16-bit
+    header = (b"RIFF" + struct.pack("<I", 0x7FFFFFFC) + b"WAVEfmt "
+              + struct.pack("<IHHIIHH", 16, 1, 1, 16000, 32000, 2, 16)
+              + b"data" + struct.pack("<I", 0x7FFFFFF0))
+    p = tmp_path / "sentinel.wav"
+    p.write_bytes(header + pcm)
+
+    raw, duration_ms, rate, meta = read_wav(str(p))
+    assert abs(duration_ms - 2000.0) < 1.0, f"header sentinel inflated duration: {duration_ms}"
+    assert meta["duration_ms"] == round(duration_ms, 1)
+    assert rate == 16000 and meta["sample_rate"] == 16000
+
+
 @pytest.mark.asyncio
 async def test_bad_audio_path_reported_as_unknown_failure(synth_cases, fresh_db):
     """A missing/unreadable file is captured as a failure, never silently dropped."""

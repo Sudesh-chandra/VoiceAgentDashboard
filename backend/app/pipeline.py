@@ -75,6 +75,13 @@ def read_wav(path) -> tuple[bytes, float, int, dict]:
             rate = w.getframerate()
             channels = w.getnchannels()
             sampwidth = w.getsampwidth()
+            # Streaming WAV writers (e.g. Deepgram TTS) emit a 0xFFFFFFFF
+            # sentinel data-size; the wave module trusts it and reports an
+            # absurd frame count. Clamp to what the file can physically
+            # contain (payload ≈ file minus the 44-byte canonical header).
+            max_frames = max(0, size - 44) // max(1, sampwidth * channels)
+            if frames > max_frames:
+                frames = max_frames
             duration_ms = (frames / rate) * 1000 if rate else 0.0
     except wave.Error as e:
         raise AudioValidationError(f"unparseable wav: {e}") from e
