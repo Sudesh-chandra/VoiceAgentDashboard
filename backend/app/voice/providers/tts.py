@@ -2,21 +2,29 @@
 genuinely different provider endpoint using DEEPGRAM_API_KEY), plus a
 deterministic mock (MOCK_MODE only, always labeled mock).
 
-All real adapters yield the first audio chunk as soon as bytes arrive (the
-pipeline timestamps that yield as FIRST AUDIO; mode is labeled STREAMING vs
-BUFFERED_RESPONSE honestly — ElevenLabs/Aura currently return single-chunk
-HTTP responses, so first==total; recorded rather than fabricated).
+All real adapters consume the HTTP body INCREMENTALLY (`client.stream` +
+`aiter_bytes`): the first non-empty network chunk is yielded immediately, so
+the pipeline's FIRST AUDIO timestamp is genuine first-audio arrival — not
+response completion. Verified live against Deepgram /v1/speak (270+ MP3
+frames arriving over ~2.4 s for one sentence). Chunk counts and per-chunk
+gaps are provider/transport behavior; the pipeline labels first-audio
+honestly (STREAMING vs BUFFERED_RESPONSE) from what actually arrived.
 
-OpenAI TTS (tts-1) exists in the catalog but the workspace has no real key, so
-it is listed NOT_CONFIGURED and rejected by the factory — never faked.
-ElevenLabs rotates two configured accounts via KeyRing (free-tier quota spread).
+Chunk contract (same as MockTTS): concatenating all yielded chunks yields
+one playable audio stream. Both real providers emit a contiguous container
+byte stream (self-synchronizing MP3; no header split needed).
+
+OpenAI TTS (tts-1) exists in the catalog but the workspace has no real key,
+so it is listed NOT_CONFIGURED and rejected by the factory — never faked.
+ElevenLabs rotates two configured accounts via KeyRing (free-tier quota
+spread).
 """
 from __future__ import annotations
 
 import asyncio
-import io
 import struct
 import wave
+import io
 from typing import AsyncIterator
 
 import httpx
@@ -53,17 +61,6 @@ DEFAULT_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"  # "George"
 _SAMPLE_RATE = 24000
 
 
-def pcm_to_wav(pcm: bytes, sample_rate: int = _SAMPLE_RATE) -> bytes:
-    """Wrap raw 16-bit mono PCM in a canonical WAV container."""
-    buf = io.BytesIO()
-    with wave.open(buf, "wb") as w:
-        w.setnchannels(1)
-        w.setsampwidth(2)
-        w.setframerate(sample_rate)
-        w.writeframes(pcm)
-    return buf.getvalue()
-
-
 class ElevenLabsTTS:
     name = "elevenlabs"
     model = "eleven_turbo_v2_5"
@@ -86,38 +83,50 @@ class ElevenLabsTTS:
         return bool(s.elevenlabs_api_key or s.elevenlabs2_api_key)
 
     async def stream(self, text: str) -> AsyncIterator[bytes]:
+        """Yield MP3 chunks as the provider streams them (default mp3_44100_128
+        output, as in the earlier live-verified buffered call — this fix changes
+        the transport only). FIRST AUDIO therefore equals first provider bytes,
+        not response completion."""
         key, account = self._ring.next()
+        # EL free-tier rejects very long inputs with 400. Bound here with a
+        # safe message instead of shipping a provider 400 (§25).
+        if len(text) > 2000:
+            raise ValueError("ElevenLabs TTS input exceeds 2000 characters")
         async with httpx.AsyncClient(timeout=_TIMEOUT) as client:
-            resp = await client.post(
-                f"https://api.elevenlabs.io/v1/text-to-speech/{self.voice_id}",
-                params={"output_format": f"pcm_{_SAMPLE_RATE}"},
-                headers={
-                    "xi-api-key": key,
-                    "Content-Type": "application/json",
-                    "Accept": "audio/raw",
-                },
-                json={
-                    "text": text,
-                    "model_id": self.model,
-                    "voice_settings": {"stability": 0.4, "similarity_boost": 0.7},
-                },
-            )
             try:
-                _raise_provider_error(resp, "ElevenLabs")
-                pcm = resp.content
-            except Exception as e:
+                async with client.stream(
+                    "POST",
+                    f"https://api.elevenlabs.io/v1/text-to-speech/{self.voice_id}",
+                    headers={
+                        "xi-api-key": key,
+                        "Content-Type": "application/json",
+                        "Accept": "audio/mpeg",
+                    },
+                    json={
+                        "text": text,
+                        "max_buffer_size_in_seconds": 15,
+                        "optimize_streaming_latency": 4,
+                    },
+                ) as resp:
+                    if resp.status_code >= 400:
+                        await resp.aread()  # consume error body before .text
+                        _raise_provider_error(resp, "ElevenLabs")
+                    async for chunk in resp.aiter_bytes():
+                        if chunk:
+                            yield chunk
+            except httpx.HTTPError as e:
                 raise RuntimeError(_describe_httpx_error(e, "ElevenLabs TTS", self.model)) from e
         self.last_account = account  # observable label for provenance
-        yield pcm_to_wav(pcm)
 
 
 class DeepgramAuraTTS:
     """Deepgram Aura-2: a genuinely different TTS provider endpoint
     (api.deepgram.com/v1/speak) using the same DEEPGRAM_API_KEY.
 
-    Returns MP3 (audio/mpeg); the container bytes are yielded as-is so players
-    handle it natively. First-audio semantics match the other adapters (honest
-    single-chunk BUFFERED_RESPONSE label — verified live during validation).
+    Returns MP3 (audio/mpeg); the container bytes are yielded as they arrive
+    over the wire so players handle them natively and FIRST AUDIO is the
+    provider's first MP3 frame, not the completed download (verified live:
+    ~140–600 B MP3 frames across ~2.4 s for one sentence).
     """
 
     name = "deepgram"
@@ -142,21 +151,25 @@ class DeepgramAuraTTS:
     async def stream(self, text: str) -> AsyncIterator[bytes]:
         key, account = self._ring.next()
         async with httpx.AsyncClient(timeout=self._timeout) as client:
-            resp = await client.post(
-                f"https://api.deepgram.com/v1/speak?model={self.model}",
-                headers={
-                    "Authorization": f"Token {key}",
-                    "Content-Type": "application/json",
-                },
-                json={"text": text},
-            )
             try:
-                _raise_provider_error(resp, "Deepgram TTS")
-                audio = resp.content
-            except Exception as e:
+                async with client.stream(
+                    "POST",
+                    f"https://api.deepgram.com/v1/speak?model={self.model}",
+                    headers={
+                        "Authorization": f"Token {key}",
+                        "Content-Type": "application/json",
+                    },
+                    json={"text": text},
+                ) as resp:
+                    if resp.status_code >= 400:
+                        await resp.aread()  # consume error body before .text
+                        _raise_provider_error(resp, "Deepgram TTS")
+                    async for chunk in resp.aiter_bytes():
+                        if chunk:
+                            yield chunk
+            except httpx.HTTPError as e:
                 raise RuntimeError(_describe_httpx_error(e, "Deepgram TTS", self.model)) from e
         self.last_account = account  # observable label for provenance
-        yield audio
 
 
 class MockTTS:

@@ -117,8 +117,10 @@ Every successful run stores a `trace_id`; spot-verified via the LangSmith API:
 
 ## 15. Known limitations
 
-1. TTS first-audio is BUFFERED_RESPONSE (REST); a streaming TTS adapter is the
-   biggest TTFA-fidelity improvement available.
+1. TTS adapters now stream incrementally (transport fix verified live on
+   Deepgram: first audio precedes completion by ~1.5 s); ElevenLabs' live
+   streaming behavior awaits its quota reset (contract-tested, NOT VERIFIED
+   live).
 2. At the time of `EXP-2026-00003`, this matrix held STT/TTS constant and
    primarily compared LLM behavior. The later multi-model validation pass added
    and executed additional STT/TTS selections; see

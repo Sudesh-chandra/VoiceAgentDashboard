@@ -65,8 +65,8 @@ stateless per run; tool outputs truncated and treated as data.
 | Deepgram | nova-3 | env | batch | ✓ 2.6–3.5 s, conf 0.997 |
 | Deepgram | whisper-large | env | batch | ✓ 3.1 s warm / 48–130 s cold |
 | ElevenLabs | scribe_v1 | env | batch | ✓ 200 OK 2,013 ms (pre-quota) |
-| ElevenLabs | turbo_v2_5 / multilingual_v2 / flash_v2_5 | env | single-chunk | ✓ 760 ms first audio (pre-quota); now quota_exceeded surfaced |
-| Deepgram | aura-2-thalia / andromeda | env | single-chunk | ✓ 2.6–2.9 s first audio |
+| ElevenLabs | turbo_v2_5 / multilingual_v2 / flash_v2_5 | env | streaming (contract-tested; live NOT VERIFIED — quota) | ✓ 760 ms first audio (pre-quota); now quota_exceeded surfaced |
+| Deepgram | aura-2-thalia / andromeda | env | streaming (verified live) | ✓ 2,513 ms first audio vs 3,975 ms completion (post-fix); 2.6–2.9 s pre-fix |
 | OpenAI | tts-1 | **NOT_CONFIGURED** | — | 409, never faked |
 | OpenRouter | gpt-4.1-mini (LLM) | env | SSE streaming | ✓ TTFT ~1.0–1.7 s |
 

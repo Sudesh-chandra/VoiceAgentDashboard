@@ -47,7 +47,9 @@ Executed against the live app (Vite dev server → FastAPI backend):
 3. Provider Test → STT nova-3 on test_01: `✓ responded latency 2562.9 ms ·
    confidence 0.997` with the real transcript.
 4. Provider Test → TTS aura-2-andromeda: `✓ first audio 2786.9 ms · total
-   2786.9 ms · BUFFERED_RESPONSE · 24768 bytes`.
+   2786.9 ms · BUFFERED_RESPONSE · 24768 bytes` (pre-fix run; the transport
+   streaming fix was validated afterwards — live Aura run now reports first
+   audio 2,513 ms < completion 3,975 ms, mode `STREAMING`).
 5. Provider Test → Scribe: honest failure card with the provider's 401 reason
    and recovery hint (no crash, other probes unaffected).
 6. Benchmark via UI: test_03 + nova-3 + Aura → "Benchmark complete — 1 run(s)

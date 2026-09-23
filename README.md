@@ -126,10 +126,11 @@ audio).**
   playing/being submitted — not request start, not upload start.
 - The output boundary is the arrival of the **first actual audio bytes/chunk**
   from the TTS provider — not TTS completion, not LLM first token.
-- Providers that return a single buffered payload (all currently configured
-  real TTS endpoints) honestly report `tts_first_audio_mode =
-  BUFFERED_RESPONSE`, meaning TTFA ≈ full TTS latency for those providers.
-  This limitation is stored per run rather than papered over.
+- Real TTS adapters consume the HTTP body incrementally, so first audio is the
+  provider's first bytes on the wire (verified live on Deepgram Aura-2:
+  first audio 2,513 ms vs completion 3,975 ms, mode `STREAMING`). Providers
+  that do deliver a single payload are honestly labeled `BUFFERED_RESPONSE`
+  (first == total) per run — the mode is measured, never assumed.
 - Leading silence in the input is measured from real audio bytes and reported
   separately; it is never counted against TTFA.
 - A dedicated unit test recomputes TTFA from the raw event timeline and asserts
@@ -450,15 +451,13 @@ with what it demonstrates and which requirement it supports. Reproducible via
 
 ## 24. Known Limitations
 
-- **Buffered TTS first audio**: currently configured real TTS endpoints return
-  one payload, so `tts_first_audio` equals completion for them; the mode is
-  stored per run (`tts_first_audio_mode = BUFFERED_RESPONSE`). No streaming
-  chunk endpoint was available among configured credentials.
 - **ElevenLabs account quota**: free-tier accounts drained mid-validation;
   earlier verified runs (turbo: 760 ms first audio; Scribe: 2,013 ms
   transcript) are documented in [docs/MULTI_MODEL_TEST_REPORT.md](docs/MULTI_MODEL_TEST_REPORT.md).
   After the quota reset the code paths execute unchanged; failures surface with
-  the provider's own reason.
+  the provider's own reason. ElevenLabs' streaming transport is implemented and
+  contract-tested but its live first-audio behavior awaits the quota reset
+  (marked NOT VERIFIED until then).
 - **Hosted whisper-large cold starts** of 48–130 s under provider load
   (timeout 180 s, measured and recorded).
 - **Batch STT APIs** expose no partial-result timestamp; `stt_first_result_ms`

@@ -1,0 +1,149 @@
+{
+  "run_id": "run_a19c146c183c",
+  "session_id": "sess_802a7bb554be",
+  "pipeline_id": "mock-mock-echo-mock",
+  "test_case_id": "synth_01",
+  "success": true,
+  "transcript": "What is the capital of France?",
+  "response_text": "This is the deterministic mock answer to your query.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 2000.0,
+    "stt_latency_ms": 196.414,
+    "stt_first_result_ms": 133.831,
+    "llm_ttft_ms": 17.567,
+    "llm_completion_ms": 18.546,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 121.7,
+    "tts_completion_ms": 230.337,
+    "time_to_first_audio_ms": 342.793,
+    "total_response_latency_ms": 451.566,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "STREAMING",
+    "tts_voice_id": null,
+    "llm_prompt_tokens": null,
+    "llm_completion_tokens": null,
+    "llm_total_tokens": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "a5c2d34f-9ef2-461e-b764-6af5d2d86c06",
+  "audio_metadata": {
+    "original_filename": "synth_01.wav",
+    "file_size_bytes": 64044,
+    "sample_rate": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 2000.0
+  },
+  "stt_spec": "mock",
+  "llm_spec": "mock:echo",
+  "tts_spec": "mock",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-23T08:51:05.374Z",
+  "completed_at": "2026-09-23T08:51:05.857Z",
+  "events": [
+    {
+      "ts_ms": 0.008,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T08:51:05.406Z",
+      "detail": {
+        "input_duration_ms": 2000.0,
+        "leading_silence_ms": 1000.0,
+        "sample_rate": 16000,
+        "channels": 1
+      }
+    },
+    {
+      "ts_ms": 4.023,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T08:51:05.410Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-1"
+      }
+    },
+    {
+      "ts_ms": 200.993,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T08:51:05.607Z",
+      "detail": {
+        "latency_ms": 196.414,
+        "transcript_chars": 30,
+        "transcript_preview": "What is the capital of France?",
+        "confidence": null,
+        "key_account": null
+      }
+    },
+    {
+      "ts_ms": 201.24,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T08:51:05.607Z",
+      "detail": {
+        "llm": "mock:echo"
+      }
+    },
+    {
+      "ts_ms": 220.465,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T08:51:05.627Z",
+      "detail": {
+        "latency_ms": 18.546,
+        "tool_calls": [],
+        "tool_latencies": [],
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "ts_ms": 220.619,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T08:51:05.627Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-voice"
+      }
+    },
+    {
+      "ts_ms": 342.809,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-23T08:51:05.749Z",
+      "detail": {
+        "at_ms_from_input_end": 342.795,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 451.617,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-23T08:51:05.857Z",
+      "detail": {
+        "time_to_first_audio_ms": 342.793,
+        "total_response_latency_ms": 451.566,
+        "stt_key_account": null,
+        "tts_key_account": null
+      }
+    }
+  ]
+}

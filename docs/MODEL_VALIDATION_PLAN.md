@@ -77,9 +77,9 @@ nest. `trace_id` stored per run. Works only when configured — never required.
 
 ## Known limitations going into this pass
 
-1. TTS REST mode is BUFFERED (one HTTP response) → tts_first_audio ≈ tts_total.
-   First-audio measurement mode must be labeled per run (STREAMING vs
-   BUFFERED_RESPONSE) — added this pass.
+1. TTS REST mode originally buffered the full HTTP body (first == total); the
+   adapters now consume the body incrementally and the per-run mode label
+   (STREAMING vs BUFFERED_RESPONSE) remains the honesty guard.
 2. Single real STT/TTS vendor → matrix varies LLM (and labeled mock TTS).
 3. `p95` was computed for any n ≥ 1 — statistically dishonest for tiny n
    (fixed: null unless n ≥ 5, with "insufficient samples" in UI).

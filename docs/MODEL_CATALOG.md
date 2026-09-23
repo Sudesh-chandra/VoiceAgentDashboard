@@ -35,11 +35,11 @@ accounts — code paths are unchanged and were verified working before drain).
 
 | Provider | Model spec | Config | Credential | First-audio semantics | Status | Notes |
 |---|---|---|---|---|---|---|
-| Deepgram | `deepgram:aura-2-thalia-en` | allowlisted | `DEEPGRAM_API_KEY` | **BUFFERED_RESPONSE** (single payload; `tts_first_audio ≈ tts_total`) | **AVAILABLE** (verified live) | first audio 2.6–2.9 s measured; distinct voices verified |
-| Deepgram | `deepgram:aura-2-andromeda-en` | allowlisted | `DEEPGRAM_API_KEY` | **BUFFERED_RESPONSE** | **AVAILABLE** (verified live) | distinct voice/size vs. Thalia confirmed in stored runs |
-| ElevenLabs | `elevenlabs:eleven_turbo_v2_5` | allowlisted | `ELEVENLABS_API_KEY` | **BUFFERED_RESPONSE** | **AVAILABLE** (verified live; quota-gated) | verified 760 ms first audio / 40 KB audio before quota drain; voice overridable |
-| ElevenLabs | `elevenlabs:eleven_multilingual_v2` | allowlisted | `ELEVENLABS_API_KEY` | **BUFFERED_RESPONSE** | **AVAILABLE** (quota-gated) | same provider API, distinct model id |
-| ElevenLabs | `elevenlabs:eleven_flash_v2_5` | allowlisted | `ELEVENLABS_API_KEY` | **BUFFERED_RESPONSE** | **AVAILABLE** (quota-gated) | lowest-latency ElevenLabs tier |
+| Deepgram | `deepgram:aura-2-thalia-en` | allowlisted | `DEEPGRAM_API_KEY` | **STREAMING** (incremental body; verified live 2,513 ms first audio vs 3,975 ms completion) | **AVAILABLE** (verified live) | distinct voices verified; mode measured per run |
+| Deepgram | `deepgram:aura-2-andromeda-en` | allowlisted | `DEEPGRAM_API_KEY` | **STREAMING** (same transport as thalia) | **AVAILABLE** (verified live) | distinct voice/size vs. Thalia confirmed in stored runs |
+| ElevenLabs | `elevenlabs:eleven_turbo_v2_5` | allowlisted | `ELEVENLABS_API_KEY` | **STREAMING** transport (contract-tested; live first-audio NOT VERIFIED — quota) | **AVAILABLE** (verified live; quota-gated) | verified 760 ms first audio / 40 KB audio before quota drain; voice overridable |
+| ElevenLabs | `elevenlabs:eleven_multilingual_v2` | allowlisted | `ELEVENLABS_API_KEY` | **STREAMING** transport (not live-verified — quota) | **AVAILABLE** (quota-gated) | same provider API, distinct model id |
+| ElevenLabs | `elevenlabs:eleven_flash_v2_5` | allowlisted | `ELEVENLABS_API_KEY` | **STREAMING** transport (not live-verified — quota) | **AVAILABLE** (quota-gated) | lowest-latency ElevenLabs tier |
 | OpenAI TTS | `openai:tts-1` | allowlisted | `OPENAI_API_KEY` | — | **NOT_CONFIGURED** | no real key; selecting it returns a clear 4xx — never faked |
 | Mock TTS | `mock:mock-voice` | `MOCK_MODE=true` | none | **STREAMING** (true multi-chunk) | **AVAILABLE (mock only)** | exercises the streaming first-audio path offline |
 | Cartesia | — | `CARTESIA_API_KEY` | required | — | **NOT_CONFIGURED** | key absent; no adapter executes |

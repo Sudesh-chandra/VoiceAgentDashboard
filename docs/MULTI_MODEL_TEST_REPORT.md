@@ -89,8 +89,11 @@ Sentence: "The benchmark reports time to first audio for this voice pipeline."
 | ElevenLabs | eleven_flash_v2_5 | ✗ quota_exceeded | — | — | cataloged + adapter-ready; same quota |
 | OpenAI | tts-1 | **NOT_CONFIGURED** | — | — | `OPENAI_API_KEY` empty — listed unavailable, never faked |
 
-All adapters are honest about first-audio semantics: single-chunk HTTP responses
-are labeled `BUFFERED_RESPONSE` (first == total), not passed off as streaming.
+All adapters consume the HTTP body incrementally (`client.stream` +
+`aiter_bytes`): FIRST AUDIO is the provider's first bytes on the wire, not
+response completion (Deepgram verified live: first audio 2,513 ms vs completion
+3,975 ms). If a provider delivers a single payload it is honestly labeled
+`BUFFERED_RESPONSE` (first == total) — measured per run, never assumed.
 
 ## Full pipelines — same WAVs × different providers (§13, §21)
 
@@ -128,7 +131,9 @@ by automated tests from raw events.
    with current credentials, therefore not added (no fake options).
 4. Hosted `whisper-large` shows 48–130 s cold starts (measured); its timeout is
    180 s and cold/warm variance is recorded rather than hidden.
-5. TTS first-audio is `BUFFERED_RESPONSE` for all currently working providers
-   (single-chunk HTTP); labeled rather than faked.
+5. TTS first-audio semantics: adapters stream incrementally; the mode label is
+   measured per run (`STREAMING` when >1 chunk arrives). ElevenLabs' live
+   streaming behavior is NOT VERIFIED until its quota resets (transport is
+   contract-tested).
 6. Playwright is not installed in this environment; browser flows verified via
    driven browser + screenshots in prior audit docs.

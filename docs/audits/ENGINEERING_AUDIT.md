@@ -58,8 +58,12 @@ code reading.
   Failures surface honestly; works again after 2026-10-22 reset.
 - **Whisper-large (hosted)**: works but shows 48–130 s cold starts under
   provider load; timeout raised to 180 s + self-describing timeout error added.
-- **TTS streaming**: all working TTS providers return single-chunk HTTP; labeled
-  `BUFFERED_RESPONSE` honestly (first == total), not fabricated as streaming.
+- **TTS streaming (fixed post-audit)**: both real TTS adapters originally
+  buffered `resp.content` (first == completion); now consume the body
+  incrementally — verified live on Deepgram (first audio 2,513 ms vs completion
+  3,975 ms) and contract-tested via MockTransport for both adapters.
+  `BUFFERED_RESPONSE` remains the per-run honesty label when only one chunk
+  arrives.
 - **p95 aggregates**: need ≥5 samples by design (honest "insufficient samples").
 
 ## WHAT IS BROKEN
