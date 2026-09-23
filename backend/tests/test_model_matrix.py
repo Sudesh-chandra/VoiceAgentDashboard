@@ -18,6 +18,27 @@ from app.registry import resolve_audio_path, list_test_cases
 
 # ---------- §10/§11: TTFA + stage math from the raw event timeline ----------
 
+def test_canonical_trace_url_is_tenant_scoped(monkeypatch):
+    """Regression: legacy /projects/<name>/t/<id> URLs redirect to whichever org
+    the viewer's browser has active and 404 when it differs from the key's org.
+    The canonical URL must be tenant-scoped like LangSmith's own app_path."""
+    from app.observability import langsmith_wiring as lw
+    from datetime import datetime, timezone
+
+    monkeypatch.setattr(lw, "_enabled", lambda: True)
+    monkeypatch.setattr(lw, "_ui_base", lambda p, api_key=None: "/o/tnt-1/projects/p/prj-1")
+
+    url = lw.canonical_trace_url("abc-123")
+    assert url == "https://smith.langchain.com/o/tnt-1/projects/p/prj-1/r/abc-123?trace_id=abc-123"
+
+    dt = datetime(2026, 9, 23, 9, 25, 41, 517243, tzinfo=timezone.utc)
+    url2 = lw.canonical_trace_url("abc-123", start_time=dt)
+    assert url2.endswith("&start_time=2026-09-23T09:25:41.517243")
+    # epoch-ms input also accepted (RunTree uses datetime, API uses ms)
+    url3 = lw.canonical_trace_url("abc-123", start_time=1758617141517)
+    assert "start_time=" in url3
+
+
 @pytest.mark.asyncio
 async def test_ttfa_recomputed_from_events_matches_backend(synth_cases, fresh_db):
     """TTFA must equal FIRST_AUDIO.ts − INPUT_END (t=0) recomputed from raw

@@ -1,0 +1,150 @@
+{
+  "run_id": "run_89ac6fd0102a",
+  "session_id": "sess_fec9797f93c3",
+  "pipeline_id": "mock-mock-echo-mock",
+  "test_case_id": "synth_01",
+  "success": true,
+  "transcript": "What is the capital of France?",
+  "response_text": "This is the deterministic mock answer to your query.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 2000.0,
+    "stt_latency_ms": 198.667,
+    "stt_first_result_ms": 136.223,
+    "llm_ttft_ms": 16.594,
+    "llm_completion_ms": 17.679,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 123.416,
+    "tts_completion_ms": 233.654,
+    "time_to_first_audio_ms": 345.933,
+    "total_response_latency_ms": 456.333,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "STREAMING",
+    "tts_voice_id": null,
+    "llm_prompt_tokens": null,
+    "llm_completion_tokens": null,
+    "llm_total_tokens": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "e8ee958a-9326-4ae4-825f-065653b229ee",
+  "trace_url": "https://smith.langchain.com/o/d44d8fee-8b0d-4f54-9a65-d67b3eae57cf/projects/p/71597937-f0d7-4241-9e7c-7921e8eed742/r/e8ee958a-9326-4ae4-825f-065653b229ee?trace_id=e8ee958a-9326-4ae4-825f-065653b229ee&start_time=2026-09-23T10:22:33.555174",
+  "audio_metadata": {
+    "original_filename": "synth_01.wav",
+    "file_size_bytes": 64044,
+    "sample_rate": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 2000.0
+  },
+  "stt_spec": "mock",
+  "llm_spec": "mock:echo",
+  "tts_spec": "mock",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-23T10:22:33.531Z",
+  "completed_at": "2026-09-23T10:22:34.008Z",
+  "events": [
+    {
+      "ts_ms": 0.006,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:22:33.551Z",
+      "detail": {
+        "input_duration_ms": 2000.0,
+        "leading_silence_ms": 1000.0,
+        "sample_rate": 16000,
+        "channels": 1
+      }
+    },
+    {
+      "ts_ms": 3.962,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:22:33.556Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-1"
+      }
+    },
+    {
+      "ts_ms": 203.195,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T10:22:33.755Z",
+      "detail": {
+        "latency_ms": 198.667,
+        "transcript_chars": 30,
+        "transcript_preview": "What is the capital of France?",
+        "confidence": null,
+        "key_account": null
+      }
+    },
+    {
+      "ts_ms": 203.417,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:22:33.755Z",
+      "detail": {
+        "llm": "mock:echo"
+      }
+    },
+    {
+      "ts_ms": 221.724,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T10:22:33.773Z",
+      "detail": {
+        "latency_ms": 17.679,
+        "tool_calls": [],
+        "tool_latencies": [],
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "ts_ms": 221.868,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:22:33.773Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-voice"
+      }
+    },
+    {
+      "ts_ms": 345.95,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-23T10:22:33.897Z",
+      "detail": {
+        "at_ms_from_input_end": 345.935,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 456.388,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-23T10:22:34.008Z",
+      "detail": {
+        "time_to_first_audio_ms": 345.933,
+        "total_response_latency_ms": 456.333,
+        "stt_key_account": null,
+        "tts_key_account": null
+      }
+    }
+  ]
+}

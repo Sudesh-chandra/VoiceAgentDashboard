@@ -49,6 +49,7 @@ class Database:
                 ("llm_prompt_tokens", "INTEGER"),
                 ("llm_completion_tokens", "INTEGER"),
                 ("llm_total_tokens", "INTEGER"),
+                ("trace_url", "TEXT"),
             ):
                 if col not in existing:
                     conn.execute(f"ALTER TABLE benchmark_runs ADD COLUMN {col} {ddl}")
@@ -110,6 +111,7 @@ def save_benchmark_run(res) -> None:  # PipelineResult, avoid import cycle
         t.llm_prompt_tokens, t.llm_completion_tokens, t.llm_total_tokens,
         1 if res.success else 0, res.failure_stage, res.error_type, res.error_detail,
         res.transcript, res.response_text, tc_json, ev_json, res.trace_id,
+        getattr(res, "trace_url", None),
         am.get("original_filename"), am.get("file_size_bytes"), am.get("sample_rate"),
         am.get("channels"), am.get("bit_depth"), am.get("audio_format"), stt_conf,
     )
@@ -125,6 +127,7 @@ def save_benchmark_run(res) -> None:  # PipelineResult, avoid import cycle
         "llm_prompt_tokens", "llm_completion_tokens", "llm_total_tokens",
         "success", "failure_stage", "error_type", "error_detail",
         "transcript", "response_text", "tool_calls_json", "events_json", "trace_id",
+        "trace_url",
         "original_filename", "file_size_bytes", "sample_rate", "channels", "bit_depth",
         "audio_format", "stt_confidence",
     ]

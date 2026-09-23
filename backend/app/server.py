@@ -25,6 +25,7 @@ from .core.metrics import now_wall
 from .registry import (list_test_cases, get_test_case, save_upload, upsert_metadata,
                        resolve_audio_path, import_voice_files)
 from .benchmark_engine import BenchmarkEngine, ReliabilityEngine, ConcurrencyEngine, ComparisonEngine
+from .observability.langsmith_wiring import canonical_trace_url
 from .pipeline import PipelineConfig
 from .storage.db import get_db
 from .voice import ProviderUnavailableError, llm_choices
@@ -294,7 +295,7 @@ async def list_runs(limit: int = 100, experiment_id: str | None = None) -> dict:
         " success, failure_stage, error_type,"
         " input_duration_ms, stt_latency_ms, stt_first_result_ms, llm_ttft_ms, llm_completion_ms,"
         " tool_latency_ms, tts_first_audio_ms, tts_completion_ms, time_to_first_audio_ms,"
-        " total_response_latency_ms, trace_id, transcript, tool_calls_json, original_filename,"
+        " total_response_latency_ms, trace_id, trace_url, transcript, tool_calls_json, original_filename,"
         " file_size_bytes, sample_rate, channels, bit_depth, audio_format, stt_confidence,"
         " llm_prompt_tokens, llm_completion_tokens, llm_total_tokens"
         f" FROM benchmark_runs {where} ORDER BY timestamp DESC LIMIT ?", tuple(params))
@@ -303,6 +304,10 @@ async def list_runs(limit: int = 100, experiment_id: str | None = None) -> dict:
             r["tool_calls"] = json.loads(r.pop("tool_calls_json") or "[]")
         except Exception:
             r["tool_calls"] = []
+        # Historical runs predate the persisted canonical URL: resolve lazily on
+        # read (project coordinates are cached; no per-run API call).
+        if r.get("trace_id") and not r.get("trace_url"):
+            r["trace_url"] = canonical_trace_url(r["trace_id"])
     return {"runs": rows}
 
 
@@ -471,7 +476,7 @@ _EXPORT_COLS = [
     "success", "failure_stage", "error_type",
     "input_duration_ms", "stt_latency_ms", "llm_ttft_ms", "llm_completion_ms",
     "tool_latency_ms", "tts_first_audio_ms", "tts_completion_ms",
-    "time_to_first_audio_ms", "total_response_latency_ms", "trace_id",
+    "time_to_first_audio_ms", "total_response_latency_ms", "trace_id", "trace_url",
     "llm_prompt_tokens", "llm_completion_tokens", "llm_total_tokens",
 ]
 
@@ -536,8 +541,12 @@ async def run_detail(run_id: str) -> dict:
         "bit_depth": row.get("bit_depth"),
         "audio_format": row.get("audio_format"),
     }
-    # Real, non-fabricated trace link is composed client-side from the project
-    # name + stored trace id; nothing is invented here.
+    # Canonical (tenant-scoped) trace URL persisted at trace time; older rows
+    # get it resolved lazily here. Legacy project-name URL remains the
+    # client-side fallback when LangSmith is disabled/unreachable — nothing is
+    # invented either way.
+    if row.get("trace_id") and not row.get("trace_url"):
+        row["trace_url"] = canonical_trace_url(row["trace_id"])
     row["langsmith_project"] = settings.langsmith_project
     return row
 

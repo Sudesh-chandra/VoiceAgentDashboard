@@ -82,6 +82,10 @@ class PipelineResult:
     error_type: str | None = None
     error_detail: str | None = None
     trace_id: str | None = None
+    # Canonical (tenant-scoped) LangSmith UI URL captured at trace time so the
+    # link survives org-independent redirects; None → UI falls back to the
+    # legacy project-name URL.
+    trace_url: str | None = None
     audio_metadata: dict[str, Any] = field(default_factory=dict)
     # Exact models used (§18 reproducibility): provider:model[:voice] specs +
     # provider-reported TTS voice identity.
@@ -108,6 +112,7 @@ class PipelineResult:
             "error_type": self.error_type,
             "error_detail": self.error_detail,
             "trace_id": self.trace_id,
+            "trace_url": self.trace_url,
             "audio_metadata": self.audio_metadata,
             "stt_spec": self.stt_spec,
             "llm_spec": self.llm_spec,

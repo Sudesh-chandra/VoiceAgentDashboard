@@ -1,0 +1,191 @@
+{
+  "run_id": "run_ae757f6df82b",
+  "session_id": "sess_03c625e6b421",
+  "pipeline_id": "pB",
+  "test_case_id": "synth_03",
+  "success": true,
+  "transcript": "What's the weather in Tokyo right now?",
+  "response_text": "Here's what I found: {\"city\": \"tokyo\", \"country\": \"Mockland\", \"weather\": {\"temperature\": 18.4, \"wind_speed\": 12.1, \"weather_code\": 3}}",
+  "tool_calls": [
+    {
+      "name": "lookup_weather",
+      "args": {
+        "city": "tokyo"
+      },
+      "id": "mock_call_weather"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 2000.0,
+    "stt_latency_ms": 210.658,
+    "stt_first_result_ms": 137.194,
+    "llm_ttft_ms": 28.255,
+    "llm_completion_ms": 146.633,
+    "tool_latency_ms": 91.837,
+    "tts_first_audio_ms": 132.822,
+    "tts_completion_ms": 240.653,
+    "time_to_first_audio_ms": 497.216,
+    "total_response_latency_ms": 605.214,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "STREAMING",
+    "tts_voice_id": null,
+    "llm_prompt_tokens": null,
+    "llm_completion_tokens": null,
+    "llm_total_tokens": null
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "0623e55b-ecf0-4950-a9ea-58f09fe227d3",
+  "trace_url": "https://smith.langchain.com/o/d44d8fee-8b0d-4f54-9a65-d67b3eae57cf/projects/p/71597937-f0d7-4241-9e7c-7921e8eed742/r/0623e55b-ecf0-4950-a9ea-58f09fe227d3?trace_id=0623e55b-ecf0-4950-a9ea-58f09fe227d3&start_time=2026-09-23T10:29:04.158474",
+  "audio_metadata": {
+    "original_filename": "synth_03.wav",
+    "file_size_bytes": 64044,
+    "sample_rate": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 2000.0
+  },
+  "stt_spec": "mock",
+  "llm_spec": "mock:echo",
+  "tts_spec": "mock",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-23T10:29:04.136Z",
+  "completed_at": "2026-09-23T10:29:04.759Z",
+  "events": [
+    {
+      "ts_ms": 0.009,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:29:04.154Z",
+      "detail": {
+        "input_duration_ms": 2000.0,
+        "leading_silence_ms": 1000.0,
+        "sample_rate": 16000,
+        "channels": 1
+      }
+    },
+    {
+      "ts_ms": 4.732,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:29:04.158Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-1"
+      }
+    },
+    {
+      "ts_ms": 216.011,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T10:29:04.370Z",
+      "detail": {
+        "latency_ms": 210.658,
+        "transcript_chars": 38,
+        "transcript_preview": "What's the weather in Tokyo right now?",
+        "confidence": null,
+        "key_account": null
+      }
+    },
+    {
+      "ts_ms": 216.265,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:29:04.370Z",
+      "detail": {
+        "llm": "mock:echo"
+      }
+    },
+    {
+      "ts_ms": 249.577,
+      "stage": "tool",
+      "label": "Tool started: lookup_weather_mock",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:29:04.403Z",
+      "detail": {
+        "tool": "lookup_weather_mock",
+        "args": {
+          "city": "tokyo"
+        }
+      }
+    },
+    {
+      "ts_ms": 341.494,
+      "stage": "tool",
+      "label": "Tool completed: lookup_weather_mock",
+      "kind": "end",
+      "wall_clock": "2026-09-23T10:29:04.495Z",
+      "detail": {
+        "tool": "lookup_weather_mock",
+        "latency_ms": 91.837,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 363.64,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T10:29:04.517Z",
+      "detail": {
+        "latency_ms": 146.633,
+        "tool_calls": [
+          "lookup_weather"
+        ],
+        "tool_latencies": [
+          {
+            "name": "lookup_weather_mock",
+            "latency_ms": 91.837,
+            "ok": true
+          }
+        ],
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "ts_ms": 363.818,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:29:04.517Z",
+      "detail": {
+        "provider": "mock",
+        "model": "mock-voice"
+      }
+    },
+    {
+      "ts_ms": 497.235,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-23T10:29:04.651Z",
+      "detail": {
+        "at_ms_from_input_end": 497.218,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 605.264,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-23T10:29:04.759Z",
+      "detail": {
+        "time_to_first_audio_ms": 497.216,
+        "total_response_latency_ms": 605.214,
+        "stt_key_account": null,
+        "tts_key_account": null
+      }
+    }
+  ]
+}

@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS benchmark_runs (
     tool_calls_json TEXT,
     events_json TEXT,
     trace_id TEXT,
+    trace_url TEXT,
 
     -- Audio metadata (§6D): provenance of the exact audio processed
     original_filename TEXT,

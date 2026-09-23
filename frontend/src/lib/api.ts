@@ -67,6 +67,7 @@ export type RunRow = {
   time_to_first_audio_ms: number | null;
   total_response_latency_ms: number | null;
   trace_id: string | null;
+  trace_url?: string | null;
 };
 
 export type Agg = { n: number; median_ms: number | null; p95_ms: number | null; mean_ms?: number | null };
@@ -107,8 +108,16 @@ export type RunDetail = RunRow & {
   langsmith_project?: string;
 };
 
-export function traceUrl(project: string | undefined, traceId: string | null | undefined): string | null {
+export function traceUrl(
+  project: string | undefined,
+  traceId: string | null | undefined,
+  canonical?: string | null,
+): string | null {
   if (!traceId) return null;
+  // Prefer the backend-persisted canonical URL (tenant-scoped, from LangSmith
+  // itself); the legacy project-name path redirects to whichever org the
+  // browser has active and 404s when that org differs from the key's.
+  if (canonical) return canonical;
   return `https://smith.langchain.com/projects/${encodeURIComponent(project ?? "default")}/t/${traceId}`;
 }
 

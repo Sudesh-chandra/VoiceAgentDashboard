@@ -78,7 +78,10 @@ No gradients. No glows. No colored section headings — headings are text-colore
   marked with `--ok` tick. Requires real events; renders nothing otherwise.
 - **PipelineStrip** — `STT → AGENT → TTS` composition with provider names and
   availability dots; the tool slot renders `auto · weather+search` or `—`.
-- **TraceLink** — real URL only (`https://smith.langchain.com/<project>/t/<id>`),
+- **TraceLink** — canonical tenant-scoped URL persisted from LangSmith at trace
+  time (`/o/<tenant>/projects/p/<project_id>/r/<run_id>`); legacy project-name
+  URL is the fallback only, since it 404s when the browser's active org differs
+  from the key's org (regression found live and fixed),
   mono id, external-link glyph; copy affordance; renders `unavailable` state
   when absent. Never fabricated.
 - **EmptyState** — what's missing + why + what to do, `--text-2`, no

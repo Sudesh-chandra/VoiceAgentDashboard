@@ -601,7 +601,7 @@ function ResultsView({ runs, langsmithProject }: { runs: RunRow[]; langsmithProj
                     <td className="num dim">{ms(r.tts_first_audio_ms) ?? "—"}</td>
                     <td className="num dim">{ms(r.total_response_latency_ms) ?? "—"}</td>
                     <td><RunStatus success={r.success} failureStage={r.failure_stage} /></td>
-                    <td><TraceLink traceId={r.trace_id} project={langsmithProject} compact /></td>
+                    <td><TraceLink traceId={r.trace_id} project={langsmithProject} canonicalUrl={r.trace_url} compact /></td>
                   </tr>
                   {open?.run_id === r.run_id && (
                     <tr>
@@ -677,7 +677,7 @@ function RunDetailPanel({ d, langsmithProject }: { d: RunDetail; langsmithProjec
         <dt>Timestamp</dt>
         <dd>{d.timestamp}</dd>
         <dt>Trace</dt>
-        <dd><TraceLink traceId={d.trace_id} project={langsmithProject} /></dd>
+        <dd><TraceLink traceId={d.trace_id} project={langsmithProject} canonicalUrl={d.trace_url} /></dd>
       </dl>
     </div>
   );

@@ -61,13 +61,14 @@ export function LoadingState(props: { label: string }) {
 export function TraceLink(props: {
   traceId: string | null | undefined;
   project?: string;
+  canonicalUrl?: string | null;
   compact?: boolean;
 }) {
-  const { traceId, project, compact } = props;
+  const { traceId, project, canonicalUrl, compact } = props;
   if (!traceId) {
     return <span className="dim" title="No LangSmith trace was recorded for this run">trace unavailable</span>;
   }
-  const url = traceUrl(project, traceId);
+  const url = traceUrl(project, traceId, canonicalUrl);
   return (
     <span className="mono" style={{ display: "inline-flex", gap: 6, alignItems: "center" }}>
       <a href={url ?? "#"} target="_blank" rel="noreferrer" title={url ?? traceId}>

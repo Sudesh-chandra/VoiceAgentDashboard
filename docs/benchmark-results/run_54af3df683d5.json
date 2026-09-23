@@ -1,0 +1,150 @@
+{
+  "run_id": "run_54af3df683d5",
+  "session_id": "sess_baed62b2ad9f",
+  "pipeline_id": "trace-url-check",
+  "test_case_id": "test_01",
+  "success": true,
+  "transcript": "What is the difference between supervised learning and unsupervised learning? Please explain it in the simple terms.",
+  "response_text": "Supervised learning uses labeled data to train models, while unsupervised learning finds patterns in unlabeled data.",
+  "tool_calls": [],
+  "timings": {
+    "input_duration_ms": 4896.0,
+    "stt_latency_ms": 2874.215,
+    "stt_first_result_ms": 2874.196,
+    "llm_ttft_ms": 2877.591,
+    "llm_completion_ms": 2882.78,
+    "tool_latency_ms": null,
+    "tts_first_audio_ms": 2993.381,
+    "tts_completion_ms": 4005.23,
+    "time_to_first_audio_ms": 9793.154,
+    "total_response_latency_ms": 10805.136,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "STREAMING",
+    "tts_voice_id": null,
+    "llm_prompt_tokens": 72,
+    "llm_completion_tokens": 22,
+    "llm_total_tokens": 94
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "8e663dcc-42fa-4e9d-8513-adccbaa0b1f0",
+  "trace_url": "https://smith.langchain.com/o/d44d8fee-8b0d-4f54-9a65-d67b3eae57cf/projects/p/71597937-f0d7-4241-9e7c-7921e8eed742/r/8e663dcc-42fa-4e9d-8513-adccbaa0b1f0?trace_id=8e663dcc-42fa-4e9d-8513-adccbaa0b1f0&start_time=2026-09-23T10:24:00.304111",
+  "audio_metadata": {
+    "original_filename": "test_01.wav",
+    "file_size_bytes": 940110,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 4896.0
+  },
+  "stt_spec": "deepgram:nova-2",
+  "llm_spec": "openrouter:openai/gpt-4o-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-23T10:23:54.916Z",
+  "completed_at": "2026-09-23T10:24:11.104Z",
+  "events": [
+    {
+      "ts_ms": 0.013,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:24:00.300Z",
+      "detail": {
+        "input_duration_ms": 4896.0,
+        "leading_silence_ms": 160.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 1040.64,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:24:01.340Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 3915.588,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T10:24:04.214Z",
+      "detail": {
+        "latency_ms": 2874.215,
+        "transcript_chars": 116,
+        "transcript_preview": "What is the difference between supervised learning and unsupervised learning? Pl\u2026",
+        "confidence": 0.9973958,
+        "key_account": "deepgram#1"
+      }
+    },
+    {
+      "ts_ms": 3915.751,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:24:04.215Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4o-mini"
+      }
+    },
+    {
+      "ts_ms": 6798.992,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T10:24:07.099Z",
+      "detail": {
+        "latency_ms": 2882.78,
+        "tool_calls": [],
+        "tool_latencies": [],
+        "prompt_tokens": 72,
+        "completion_tokens": 22,
+        "total_tokens": 94
+      }
+    },
+    {
+      "ts_ms": 6799.241,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T10:24:07.099Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-thalia-en"
+      }
+    },
+    {
+      "ts_ms": 9793.182,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-23T10:24:10.092Z",
+      "detail": {
+        "at_ms_from_input_end": 9793.159,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 10805.173,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-23T10:24:11.104Z",
+      "detail": {
+        "time_to_first_audio_ms": 9793.154,
+        "total_response_latency_ms": 10805.136,
+        "stt_key_account": null,
+        "tts_key_account": "deepgram#2"
+      }
+    }
+  ]
+}

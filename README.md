@@ -272,7 +272,8 @@ A technical observability workstation, deliberately not an "AI dashboard":
 semantic-only color, squared hairline geometry, monospace for every measured
 value, **TTFA as the hero metric**, per-run latency waterfall from real event
 timestamps, factual comparison labels ("lowest observed TTFA", never "best"),
-trace links that render "trace unavailable" rather than fabricated URLs,
+trace links that render "trace unavailable" rather than fabricated URLs and
+open LangSmith's canonical tenant-scoped trace URL (persisted per run),
 keyboard-visible focus, `prefers-reduced-motion` support. Views: Benchmark
 (configure + run + provider test), Live Run, Results (detail with full
 provenance), Compare, Reliability & Concurrency. Design contract:

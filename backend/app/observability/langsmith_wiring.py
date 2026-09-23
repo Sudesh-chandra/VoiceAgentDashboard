@@ -23,9 +23,72 @@ from __future__ import annotations
 
 import hashlib
 import uuid
+from datetime import datetime, timezone
 from typing import Any
 
 from ..core.config import get_settings
+
+# Canonical UI coordinates for this project's traces, resolved once per process
+# from GET /sessions (tenant_id + project id). LangSmith's web app routes
+# traces under /o/<tenant>/projects/p/<project_id>/r/<run_id> — a tenant-less
+# legacy URL gets redirected to whichever org the browser happens to have
+# active, which 404s when that differs from the key's org (observed live).
+_ui_coords: dict[str, str | None] = {"tenant": None, "project_id": None, "resolved": False}
+
+
+def _ui_base(project: str, api_key: str | None = None) -> str | None:
+    """Return the /o/<tenant>/projects/p/<id> prefix for canonical trace URLs,
+    or None when it cannot be resolved (caller falls back to trace-id only)."""
+    if _ui_coords["resolved"]:
+        tenant, pid = _ui_coords["tenant"], _ui_coords["project_id"]
+        return f"/o/{tenant}/projects/p/{pid}" if tenant and pid else None
+    try:
+        import httpx
+        s = get_settings()
+        r = httpx.get(
+            f"{s.langsmith_endpoint}/api/v1/sessions",
+            params={"limit": 1, "name": project},
+            headers={"x-api-key": api_key or s.langsmith_api_key or ""},
+            timeout=10.0,
+        )
+        rows = r.json() if r.status_code == 200 else []
+        if rows and rows[0].get("tenant_id") and rows[0].get("id"):
+            _ui_coords["tenant"] = rows[0]["tenant_id"]
+            _ui_coords["project_id"] = rows[0]["id"]
+    except Exception:
+        pass
+    _ui_coords["resolved"] = True
+    tenant, pid = _ui_coords["tenant"], _ui_coords["project_id"]
+    return f"/o/{tenant}/projects/p/{pid}" if tenant and pid else None
+
+
+def canonical_trace_url(run_id: str, start_time: Any = None,
+                        project: str | None = None) -> str | None:
+    """Canonical smith.langchain.com URL for a run, replicating the `app_path`
+    the LangSmith API itself returns for ingested runs. None = cannot resolve
+    (caller keeps the stored trace id; the UI falls back to the legacy URL).
+
+    `start_time` mirrors RunTree.start_time (a UTC datetime); the web app's
+    query value is that timestamp rendered as ISO with microseconds, no offset.
+    """
+    if not _enabled():
+        return None
+    s = get_settings()
+    project = project or s.langsmith_project
+    base = _ui_base(project)
+    if not base:
+        return None
+    url = f"https://smith.langchain.com{base}/r/{run_id}?trace_id={run_id}"
+    if start_time is not None:
+        try:
+            if isinstance(start_time, datetime):
+                dt = start_time.astimezone(timezone.utc)
+            else:  # epoch milliseconds
+                dt = datetime.fromtimestamp(float(start_time) / 1000, tz=timezone.utc)
+            url += "&start_time=" + dt.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        except Exception:
+            pass  # URL stays valid without the disambiguator
+    return url
 
 
 def _maybe_text(text: str | None) -> str | None:
@@ -137,4 +200,10 @@ def trace_pipeline_run(res, config, events: list):
 
     ctx = _RootCtx()
     res.trace_id = ctx.run_id
+    # Persist the canonical (tenant-scoped) UI URL so every stored run links to
+    # the exact trace regardless of which org the viewer's browser defaults to.
+    try:
+        res.trace_url = canonical_trace_url(ctx.run_id, getattr(root, "start_time", None))
+    except Exception:
+        res.trace_url = None
     return ctx
