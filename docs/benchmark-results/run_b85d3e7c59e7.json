@@ -1,0 +1,190 @@
+{
+  "run_id": "run_b85d3e7c59e7",
+  "session_id": "sess_862413609267",
+  "pipeline_id": "upload-demo",
+  "test_case_id": "tc_d_12da83",
+  "success": true,
+  "transcript": "What is the weather in Tokyo right now?",
+  "response_text": "The current temperature in Tokyo is 67.4\u00b0F with a light wind.",
+  "tool_calls": [
+    {
+      "name": "lookup_weather",
+      "args": {
+        "city": "Tokyo"
+      },
+      "id": "call_1kHf1rLd3FeElBFeKOTgUjqi"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 67106816.0,
+    "stt_latency_ms": 1577.512,
+    "stt_first_result_ms": 1577.486,
+    "llm_ttft_ms": 1709.223,
+    "llm_completion_ms": 4331.337,
+    "tool_latency_ms": 1333.117,
+    "tts_first_audio_ms": 2473.646,
+    "tts_completion_ms": 2511.589,
+    "time_to_first_audio_ms": 8404.174,
+    "total_response_latency_ms": 8442.273,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "STREAMING",
+    "tts_voice_id": null,
+    "llm_prompt_tokens": 196,
+    "llm_completion_tokens": 17,
+    "llm_total_tokens": 213
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "ef1ae4e8-63fc-4fae-8235-1678c5971848",
+  "audio_metadata": {
+    "original_filename": "upload_6ee1f656_audit_upload_12da83.wav",
+    "file_size_bytes": 61482,
+    "sample_rate": 16000,
+    "channels": 1,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 67106816.0
+  },
+  "stt_spec": "deepgram:nova-2",
+  "llm_spec": "openrouter:openai/gpt-4o-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-23T09:09:47.279Z",
+  "completed_at": "2026-09-23T09:09:55.799Z",
+  "events": [
+    {
+      "ts_ms": 0.011,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T09:09:47.357Z",
+      "detail": {
+        "input_duration_ms": 67106816.0,
+        "leading_silence_ms": 340.0,
+        "sample_rate": 16000,
+        "channels": 1
+      }
+    },
+    {
+      "ts_ms": 19.539,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T09:09:47.376Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 1597.524,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T09:09:48.954Z",
+      "detail": {
+        "latency_ms": 1577.512,
+        "transcript_chars": 39,
+        "transcript_preview": "What is the weather in Tokyo right now?",
+        "confidence": 1.0,
+        "key_account": "deepgram#1"
+      }
+    },
+    {
+      "ts_ms": 1597.7,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T09:09:48.954Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4o-mini"
+      }
+    },
+    {
+      "ts_ms": 3412.398,
+      "stage": "tool",
+      "label": "Tool started: lookup_weather",
+      "kind": "start",
+      "wall_clock": "2026-09-23T09:09:50.770Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "args": {
+          "city": "Tokyo"
+        }
+      }
+    },
+    {
+      "ts_ms": 4745.562,
+      "stage": "tool",
+      "label": "Tool completed: lookup_weather",
+      "kind": "end",
+      "wall_clock": "2026-09-23T09:09:52.102Z",
+      "detail": {
+        "tool": "lookup_weather",
+        "latency_ms": 1333.117,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 5929.997,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T09:09:53.287Z",
+      "detail": {
+        "latency_ms": 4331.337,
+        "tool_calls": [
+          "lookup_weather"
+        ],
+        "tool_latencies": [
+          {
+            "name": "lookup_weather",
+            "latency_ms": 1333.117,
+            "ok": true
+          }
+        ],
+        "prompt_tokens": 196,
+        "completion_tokens": 17,
+        "total_tokens": 213
+      }
+    },
+    {
+      "ts_ms": 5930.126,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T09:09:53.287Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-thalia-en"
+      }
+    },
+    {
+      "ts_ms": 8404.199,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-23T09:09:55.761Z",
+      "detail": {
+        "at_ms_from_input_end": 8404.177,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 8442.32,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-23T09:09:55.799Z",
+      "detail": {
+        "time_to_first_audio_ms": 8404.174,
+        "total_response_latency_ms": 8442.273,
+        "stt_key_account": null,
+        "tts_key_account": "deepgram#2"
+      }
+    }
+  ]
+}

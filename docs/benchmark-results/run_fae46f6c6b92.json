@@ -1,0 +1,190 @@
+{
+  "run_id": "run_fae46f6c6b92",
+  "session_id": "sess_81e4ef4d1424",
+  "pipeline_id": "deepgram:nova-2|openrouter:openai/gpt-4o-mini|deepgram:aura-2-thalia-en|auto",
+  "test_case_id": "tc_roblem_8",
+  "success": true,
+  "transcript": "Read the entire or the lyrics that has been shared and tell me which god meme is being present in it.",
+  "response_text": "I couldn't find specific lyrics related to a god meme; please provide more details.",
+  "tool_calls": [
+    {
+      "name": "web_search",
+      "args": {
+        "query": "god meme lyrics"
+      },
+      "id": "call_P9oQyqryOIAl2Lga5Jtfkyux"
+    }
+  ],
+  "timings": {
+    "input_duration_ms": 34392.0,
+    "stt_latency_ms": 3964.863,
+    "stt_first_result_ms": 3964.847,
+    "llm_ttft_ms": 1233.217,
+    "llm_completion_ms": 4179.195,
+    "tool_latency_ms": 90.202,
+    "tts_first_audio_ms": 2169.674,
+    "tts_completion_ms": 2184.538,
+    "time_to_first_audio_ms": 10318.461,
+    "total_response_latency_ms": 10333.424,
+    "stt_provider_ms": null,
+    "tts_provider_ms": null,
+    "tts_first_audio_mode": "STREAMING",
+    "tts_voice_id": null,
+    "llm_prompt_tokens": 219,
+    "llm_completion_tokens": 17,
+    "llm_total_tokens": 236
+  },
+  "failure_stage": null,
+  "error_type": null,
+  "error_detail": null,
+  "trace_id": "af3059de-9ca2-488f-af35-2bb940729300",
+  "audio_metadata": {
+    "original_filename": "upload_df13587f_problem_8.wav",
+    "file_size_bytes": 6603342,
+    "sample_rate": 48000,
+    "channels": 2,
+    "bit_depth": 16,
+    "audio_format": "PCM16",
+    "duration_ms": 34392.0
+  },
+  "stt_spec": "deepgram:nova-2",
+  "llm_spec": "openrouter:openai/gpt-4o-mini",
+  "tts_spec": "deepgram:aura-2-thalia-en",
+  "tts_voice_id": null,
+  "experiment_id": null,
+  "started_at": "2026-09-23T09:19:00.826Z",
+  "completed_at": "2026-09-23T09:19:11.242Z",
+  "events": [
+    {
+      "ts_ms": 0.008,
+      "stage": "input",
+      "label": "Input audio ended \u2014 timer started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T09:19:00.910Z",
+      "detail": {
+        "input_duration_ms": 34392.0,
+        "leading_silence_ms": 200.0,
+        "sample_rate": 48000,
+        "channels": 2
+      }
+    },
+    {
+      "ts_ms": 3.558,
+      "stage": "stt",
+      "label": "STT started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T09:19:00.912Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "nova-2"
+      }
+    },
+    {
+      "ts_ms": 3968.722,
+      "stage": "stt",
+      "label": "STT completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T09:19:04.878Z",
+      "detail": {
+        "latency_ms": 3964.863,
+        "transcript_chars": 101,
+        "transcript_preview": "Read the entire or the lyrics that has been shared and tell me which god meme is\u2026",
+        "confidence": 0.9941406,
+        "key_account": "deepgram#1"
+      }
+    },
+    {
+      "ts_ms": 3968.847,
+      "stage": "agent",
+      "label": "Agent started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T09:19:04.878Z",
+      "detail": {
+        "llm": "openrouter:openai/gpt-4o-mini"
+      }
+    },
+    {
+      "ts_ms": 5315.855,
+      "stage": "tool",
+      "label": "Tool started: web_search",
+      "kind": "start",
+      "wall_clock": "2026-09-23T09:19:06.226Z",
+      "detail": {
+        "tool": "web_search",
+        "args": {
+          "query": "god meme lyrics"
+        }
+      }
+    },
+    {
+      "ts_ms": 5406.138,
+      "stage": "tool",
+      "label": "Tool completed: web_search",
+      "kind": "end",
+      "wall_clock": "2026-09-23T09:19:06.316Z",
+      "detail": {
+        "tool": "web_search",
+        "latency_ms": 90.202,
+        "ok": true
+      }
+    },
+    {
+      "ts_ms": 8148.394,
+      "stage": "agent",
+      "label": "Agent completed",
+      "kind": "end",
+      "wall_clock": "2026-09-23T09:19:09.058Z",
+      "detail": {
+        "latency_ms": 4179.195,
+        "tool_calls": [
+          "web_search"
+        ],
+        "tool_latencies": [
+          {
+            "name": "web_search",
+            "latency_ms": 90.202,
+            "ok": true
+          }
+        ],
+        "prompt_tokens": 219,
+        "completion_tokens": 17,
+        "total_tokens": 236
+      }
+    },
+    {
+      "ts_ms": 8148.474,
+      "stage": "tts",
+      "label": "TTS started",
+      "kind": "start",
+      "wall_clock": "2026-09-23T09:19:09.058Z",
+      "detail": {
+        "provider": "deepgram",
+        "model": "aura-2-thalia-en"
+      }
+    },
+    {
+      "ts_ms": 10318.471,
+      "stage": "tts",
+      "label": "FIRST AUDIO",
+      "kind": "first_audio",
+      "wall_clock": "2026-09-23T09:19:11.228Z",
+      "detail": {
+        "at_ms_from_input_end": 10318.462,
+        "chunk_index": 1
+      }
+    },
+    {
+      "ts_ms": 10333.455,
+      "stage": "done",
+      "label": "Run complete",
+      "kind": "end",
+      "wall_clock": "2026-09-23T09:19:11.242Z",
+      "detail": {
+        "time_to_first_audio_ms": 10318.461,
+        "total_response_latency_ms": 10333.424,
+        "stt_key_account": null,
+        "tts_key_account": "deepgram#2"
+      }
+    }
+  ]
+}

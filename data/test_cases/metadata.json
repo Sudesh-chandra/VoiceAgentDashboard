@@ -52,5 +52,32 @@
     "noise_type": "environmental",
     "audio_path": "test_06.wav",
     "expected_behavior": "direct answer, zero tool calls"
+  },
+  {
+    "id": "tc_d_12da83",
+    "name": "What is the weather in Tokyo right now?",
+    "description": "Uploaded during live app demo (TTS-generated speech)",
+    "expected_tool_calls": 1,
+    "noise_type": "none",
+    "audio_path": "upload_6ee1f656_audit_upload_12da83.wav",
+    "expected_behavior": ""
+  },
+  {
+    "id": "tc_roblem_8",
+    "name": "problem 8",
+    "description": "",
+    "expected_tool_calls": 0,
+    "noise_type": "none",
+    "audio_path": "upload_df13587f_problem_8.wav",
+    "expected_behavior": ""
+  },
+  {
+    "id": "tc_roblem_7",
+    "name": "problem 7",
+    "description": "",
+    "expected_tool_calls": 0,
+    "noise_type": "none",
+    "audio_path": "upload_2ebb8056_problem_7.wav",
+    "expected_behavior": ""
   }
 ]
